@@ -16,7 +16,9 @@ Llechfan Hostel Booking System (LHBS)
 
 Source code: https://github.com/Will-Stewart/LHBS
 
-  
+**Group**
+
+COMP2003-2020-P
 
 **Backlog**  
 
