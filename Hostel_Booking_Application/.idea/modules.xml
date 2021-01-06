@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/COMP2003-2020-GROUP-P-LHBS.iml" filepath="$PROJECT_DIR$/COMP2003-2020-GROUP-P-LHBS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PHPProjects.iml" filepath="$PROJECT_DIR$/.idea/PHPProjects.iml" />
     </modules>
   </component>
 </project>
