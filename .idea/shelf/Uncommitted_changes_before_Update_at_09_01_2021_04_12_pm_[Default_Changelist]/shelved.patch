@@ -1,0 +1,134 @@
+Index: website/dbConnect.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n/* Database credentials. Assuming you are running MySQL\r\nserver with default setting (user 'root' with no password) */\r\ndefine('DB_SERVER', 'localhost');\r\ndefine('DB_USERNAME', 'root');\r\ndefine('DB_PASSWORD', '');\r\ndefine('DB_NAME', 'demo');\r\n\r\n/* Attempt to connect to MySQL database */\r\n$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);\r\n\r\n// Check connection\r\nif($link === false){\r\n    die(\"ERROR: Could not connect. \" . mysqli_connect_error());\r\n}\r\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/website/dbConnect.php b/website/dbConnect.php
+--- a/website/dbConnect.php	(revision 1bb0d162e8f238d9ce32a8e1927c81efbd2b4d78)
++++ b/website/dbConnect.php	(date 1610204461121)
+@@ -1,10 +1,10 @@
+ <?php
+ /* Database credentials. Assuming you are running MySQL
+ server with default setting (user 'root' with no password) */
+-define('DB_SERVER', 'localhost');
+-define('DB_USERNAME', 'root');
++define('DB_SERVER', 'groupp2003.database.windows.net');
++define('DB_USERNAME', 'azureuser');
+ define('DB_PASSWORD', '');
+-define('DB_NAME', 'demo');
++define('DB_NAME', 'RegisteredAdmins');
+ 
+ /* Attempt to connect to MySQL database */
+ $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+@@ -13,4 +13,4 @@
+ if($link === false){
+     die("ERROR: Could not connect. " . mysqli_connect_error());
+ }
+-?>
+\ No newline at end of file
++?>
+Index: website/loginAdmin.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <title>Llafan Hotel Booking System</title>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\r\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\r\n</head>\r\n\r\n\r\n<body>\r\n\r\n\r\n<div class=\"jumbotron text-center\" style=\"margin-bottom:0\">\r\n    <h1 style=\"font-family:Tahoma;white-space: nowrap; font-size: 40px;\">Llafan Hotel Booking System</h1>\r\n</div>\r\n\r\n<nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-header\">\r\n            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n            </button>\r\n            <a class=\"navbar-brand\" href=\"#\">LHBS</a>\r\n        </div>\r\n        <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\r\n            <ul class=\"nav navbar-nav\">\r\n                <li style=\"font-family: Calibri\"><a href=\"index.php\">Home</a></li>\r\n                <li class=\"active\" style=\"font-family: Calibri\"><a href=\"#\">Admin Login</a></li>\r\n                <li style=\"font-family: Calibri\"><a href=\"loginUser.php\">User Login</a></li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>\r\n\r\n\r\n\r\n\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/website/loginAdmin.php b/website/loginAdmin.php
+--- a/website/loginAdmin.php	(revision 1bb0d162e8f238d9ce32a8e1927c81efbd2b4d78)
++++ b/website/loginAdmin.php	(date 1610204830080)
+@@ -38,9 +38,5 @@
+ </nav>
+ 
+ 
+-
+-
+-
+-
+ </body>
+ </html>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5\" name=\"Default Changelist\" comment=\"Added buttons that link to pages\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP\" />\r\n  <component name=\"ProjectId\" id=\"1mprqxqVBPZvfidRrjLYkvuQk64\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"codeWithMe.voiceChat.enabledByDefault\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/website\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.webide.settings.project.settings.php\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Will Stewart\\PhpstormProjects\\COMP2003-2020-GROUP-P-LHBS\\website\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Will Stewart\\PhpstormProjects\\COMP2003-2020-GROUP-P-LHBS\\website\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1610201569755</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1610201569755</updated>\r\n      <workItem from=\"1610201572313\" duration=\"93000\" />\r\n      <workItem from=\"1610201988437\" duration=\"1299000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Moved website files to correct directory\">\r\n      <created>1610202404884</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610202404884</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"add php login page\">\r\n      <created>1610202760789</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610202760789</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added buttons that link to pages\">\r\n      <created>1610203010535</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610203010535</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Moved website files to correct directory\" />\r\n    <MESSAGE value=\"add php login page\" />\r\n    <MESSAGE value=\"Added buttons that link to pages\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Added buttons that link to pages\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 1bb0d162e8f238d9ce32a8e1927c81efbd2b4d78)
++++ b/.idea/workspace.xml	(date 1610208708679)
+@@ -1,7 +1,12 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="Added buttons that link to pages" />
++    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="dbconnect template code">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/website/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/dbConnect.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/website/loginAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/loginAdmin.php" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -30,7 +35,7 @@
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$/website" />
+-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
++    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+     <property name="vue.rearranger.settings.migration" value="true" />
+   </component>
+   <component name="RecentsManager">
+@@ -50,7 +55,9 @@
+       <option name="presentableId" value="Default" />
+       <updated>1610201569755</updated>
+       <workItem from="1610201572313" duration="93000" />
+-      <workItem from="1610201988437" duration="1299000" />
++      <workItem from="1610201988437" duration="1792000" />
++      <workItem from="1610203818142" duration="45000" />
++      <workItem from="1610203874902" duration="4789000" />
+     </task>
+     <task id="LOCAL-00001" summary="Moved website files to correct directory">
+       <created>1610202404884</created>
+@@ -73,7 +80,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1610203010535</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Added buttons that link to pages">
++      <created>1610203432303</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1610203432303</updated>
++    </task>
++    <task id="LOCAL-00005" summary="dbconnect template code">
++      <created>1610203564547</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1610203564547</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -89,12 +110,14 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Moved website files to correct directory" />
+     <MESSAGE value="add php login page" />
+     <MESSAGE value="Added buttons that link to pages" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Added buttons that link to pages" />
++    <MESSAGE value="dbconnect template code" />
++    <option name="LAST_COMMIT_MESSAGE" value="dbconnect template code" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
