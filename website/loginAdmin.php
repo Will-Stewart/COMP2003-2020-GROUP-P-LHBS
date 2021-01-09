@@ -60,22 +60,43 @@
 <!--This is the admin login form-->
 
 <div class="container">
-    <h2>Admin Login</h2>
-    <form>
-        <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="text" class="form-control" placeholder="Username" id="">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Password" id="">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Security Key</label>
-            <input type="text" class="form-control" id="">
-        </div>
-    </form>
-</div>
+    <br>  <p class="text-center">This is where LHBS Admins should login, Users please go to the user log in page at: <a href="loginUser.php"> User Login</a></p>
+    <hr>
+
+    <div class="row">
+        <aside class="col-sm-4">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title mb-4 mt-1">Sign in</h4>
+                    <form>
+                        <div class="form-group">
+                            <label>Your username</label>
+                            <input type="text" class="form-control" placeholder="Username" id="">
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <a class="float-right" href="#">Forgot?</a>
+                            <label>Your password</label>
+                            <input type="password" class="form-control" placeholder="********" id="">
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <a class="float-right" href="#">Forgot?</a>
+                            <label>Your Security Key</label>
+                            <input type="text" class="form-control" placeholder="1234567" id="">
+                        </div>
+                        <div class="form-group">
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+                        </div> <!-- form-group// -->
+                    </form>
+                </article>
+            </div> <!-- card.// -->
+
+        </aside> <!-- col.// -->
+        <aside class="col-sm-4">
+
+        </aside>
+    </div>
 
 
 

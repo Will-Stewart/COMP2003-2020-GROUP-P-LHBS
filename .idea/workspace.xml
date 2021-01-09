@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="updated info on index page">
-      <change beforePath="$PROJECT_DIR$/website/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/loginUser.php" afterDir="false" />
+    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="user login page updated to conform to layout">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/loginAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/loginAdmin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
       <workItem from="1610201572313" duration="93000" />
       <workItem from="1610201988437" duration="1792000" />
       <workItem from="1610203818142" duration="45000" />
-      <workItem from="1610203874902" duration="7460000" />
+      <workItem from="1610203874902" duration="7836000" />
     </task>
     <task id="LOCAL-00001" summary="Moved website files to correct directory">
       <created>1610202404884</created>
@@ -147,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610211116283</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="user login page updated to conform to layout">
+      <created>1610211652993</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610211652993</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +186,8 @@
     <MESSAGE value="added index image" />
     <MESSAGE value="updated index page" />
     <MESSAGE value="updated info on index page" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated info on index page" />
+    <MESSAGE value="user login page updated to conform to layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="user login page updated to conform to layout" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
