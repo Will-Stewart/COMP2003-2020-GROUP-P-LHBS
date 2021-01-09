@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="update template index navbar">
+    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="Update user login page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/dbConnect.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/loginAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/loginAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/loginUser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
       <workItem from="1610201572313" duration="93000" />
       <workItem from="1610201988437" duration="1792000" />
       <workItem from="1610203818142" duration="45000" />
-      <workItem from="1610203874902" duration="4944000" />
+      <workItem from="1610203874902" duration="5237000" />
     </task>
     <task id="LOCAL-00001" summary="Moved website files to correct directory">
       <created>1610202404884</created>
@@ -100,7 +100,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610208738523</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update admin login page">
+      <created>1610208899679</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610208899679</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update user login page">
+      <created>1610208979343</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610208979343</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +138,9 @@
     <MESSAGE value="Added buttons that link to pages" />
     <MESSAGE value="dbconnect template code" />
     <MESSAGE value="update template index navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="update template index navbar" />
+    <MESSAGE value="Update admin login page" />
+    <MESSAGE value="Update user login page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update user login page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

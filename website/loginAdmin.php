@@ -57,8 +57,10 @@
     </div>
 </nav>
 
+<!--This is the admin login form-->
+
 <div class="container">
-    <h2>Login</h2>
+    <h2>Admin Login</h2>
     <form>
         <div class="mb-3">
             <label class="form-label">Username</label>
