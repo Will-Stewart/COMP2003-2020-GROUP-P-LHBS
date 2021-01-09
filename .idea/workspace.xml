@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="Update login pages">
+    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="added index image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
     </list>
@@ -55,7 +55,7 @@
       <workItem from="1610201572313" duration="93000" />
       <workItem from="1610201988437" duration="1792000" />
       <workItem from="1610203818142" duration="45000" />
-      <workItem from="1610203874902" duration="5737000" />
+      <workItem from="1610203874902" duration="6937000" />
     </task>
     <task id="LOCAL-00001" summary="Moved website files to correct directory">
       <created>1610202404884</created>
@@ -120,7 +120,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610209168193</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update index">
+      <created>1610209685144</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610209685144</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added index image">
+      <created>1610209698176</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610209698176</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +161,9 @@
     <MESSAGE value="Update admin login page" />
     <MESSAGE value="Update user login page" />
     <MESSAGE value="Update login pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update login pages" />
+    <MESSAGE value="update index" />
+    <MESSAGE value="added index image" />
+    <option name="LAST_COMMIT_MESSAGE" value="added index image" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
