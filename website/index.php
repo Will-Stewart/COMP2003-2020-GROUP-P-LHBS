@@ -14,7 +14,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark " style="background-color: #8B0808;">
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark " style="background-color: #8B0808;">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav">
                 <li class="nav-item">
