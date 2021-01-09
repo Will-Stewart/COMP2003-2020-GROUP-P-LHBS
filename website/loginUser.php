@@ -21,7 +21,7 @@
 
         <ul class="navbar-nav mr-auto">
 
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item active">
@@ -36,25 +36,10 @@
 
 
     <div class="mx-auto order-0">
-        <a class="navbar-brand mx-auto" href="#">Tallwyn Railway</a>
+        <a class="navbar-brand mx-auto" href="#">LHBS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
             <span class="navbar-toggler-icon"></span>
         </button>
-    </div>
-
-
-
-
-
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Right</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-        </ul>
     </div>
 </nav>
 
