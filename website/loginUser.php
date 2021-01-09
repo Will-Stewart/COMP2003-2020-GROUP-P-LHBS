@@ -30,8 +30,8 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li style="font-family: Calibri"><a href="index.php">Home</a></li>
-                <li class="active" style="font-family: Calibri"><a href="#">Admin Login</a></li>
-                <li style="font-family: Calibri"><a href="loginUser.php">User Login</a></li>
+                <li style="font-family: Calibri"><a href="loginAdmin.php">Admin Login</a></li>
+                <li class="active"style="font-family: Calibri"><a href="loginUser.php">User Login</a></li>
             </ul>
         </div>
     </div>

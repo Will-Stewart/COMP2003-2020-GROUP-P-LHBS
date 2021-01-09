@@ -29,9 +29,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active" style="font-family: Calibri"><a href="#">Home</a></li>
-                <li style="font-family: Calibri"><a href="#">Page 2</a></li>
-                <li style="font-family: Calibri"><a href="#">Page 3</a></li>
+                <li class="active" style="font-family: Calibri"><a href="index.php">Home</a></li>
+                <li style="font-family: Calibri"><a href="loginAdmin.php">Admin Login</a></li>
+                <li style="font-family: Calibri"><a href="loginUser.php">User Login</a></li>
             </ul>
         </div>
     </div>
