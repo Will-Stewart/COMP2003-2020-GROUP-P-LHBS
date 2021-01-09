@@ -59,20 +59,41 @@
 </nav>
 
 <!--This is the user login form-->
-
 <div class="container">
-    <h2>User Login</h2>
-    <form>
-        <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="text" class="form-control" placeholder="Username" id="">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Password" id="">
-        </div>
-    </form>
-</div>
+    <br>  <p class="text-center">This is where LHBS users should login, Admins please go to the admin log in page at: <a href="loginAdmin.php"> Admin Login</a></p>
+    <hr>
+
+    <div class="row">
+        <aside class="col-sm-4">
+            <div class="card">
+                <article class="card-body">
+                    <a href="" class="float-right btn btn-outline-primary">Sign up</a>
+                    <h4 class="card-title mb-4 mt-1">Sign in</h4>
+                    <form>
+                        <div class="form-group">
+                            <label>Your username</label>
+                            <input type="text" class="form-control" placeholder="Username" id="">
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <a class="float-right" href="#">Forgot?</a>
+                            <label>Your password</label>
+                            <input type="password" class="form-control" placeholder="********" id="">
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+                        </div> <!-- form-group// -->
+                    </form>
+                </article>
+            </div> <!-- card.// -->
+
+        </aside> <!-- col.// -->
+        <aside class="col-sm-4">
+
+        </aside>
+    </div>
+
 
 </body>
 </html>
