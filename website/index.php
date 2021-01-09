@@ -86,7 +86,7 @@
                         <p class="card-text">This is the default room for couples.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#">Hosts 4</a>
+                        <a href="#">Hosts up to 4</a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                         <p class="card-text">This is the default room for women.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#">Hosts 8</a>
+                        <a href="#">Hosts up to 8</a>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                         <p class="card-text">This is the default room for men.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#">Hosts 12</a>
+                        <a href="#">Hosts up to 12</a>
                     </div>
                 </div>
             </div>

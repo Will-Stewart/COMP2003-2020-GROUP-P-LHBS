@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="added index image">
+    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="updated index page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
     </list>
@@ -55,7 +55,7 @@
       <workItem from="1610201572313" duration="93000" />
       <workItem from="1610201988437" duration="1792000" />
       <workItem from="1610203818142" duration="45000" />
-      <workItem from="1610203874902" duration="6937000" />
+      <workItem from="1610203874902" duration="7157000" />
     </task>
     <task id="LOCAL-00001" summary="Moved website files to correct directory">
       <created>1610202404884</created>
@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610209698176</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="updated index page">
+      <created>1610211057697</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610211057697</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +170,8 @@
     <MESSAGE value="Update login pages" />
     <MESSAGE value="update index" />
     <MESSAGE value="added index image" />
-    <option name="LAST_COMMIT_MESSAGE" value="added index image" />
+    <MESSAGE value="updated index page" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated index page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
