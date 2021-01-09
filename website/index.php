@@ -48,7 +48,7 @@
 
 
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto">x
                 <li class="nav-item">
                     <a class="nav-link" href="#">Right</a>
                 </li>
@@ -58,6 +58,18 @@
             </ul>
         </div>
     </nav>
+
+
+
+    <div class="w3-display-container w3-animate-opacity">
+        <img src="img/demo-image.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+    </div>
+
+
+
+
+
+
 
 
 

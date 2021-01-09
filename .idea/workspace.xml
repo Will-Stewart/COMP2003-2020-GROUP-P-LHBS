@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="Update user login page">
+    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="Update login pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/loginAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/loginAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/loginUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +55,7 @@
       <workItem from="1610201572313" duration="93000" />
       <workItem from="1610201988437" duration="1792000" />
       <workItem from="1610203818142" duration="45000" />
-      <workItem from="1610203874902" duration="5237000" />
+      <workItem from="1610203874902" duration="5737000" />
     </task>
     <task id="LOCAL-00001" summary="Moved website files to correct directory">
       <created>1610202404884</created>
@@ -114,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610208979343</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update login pages">
+      <created>1610209168193</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610209168193</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +146,8 @@
     <MESSAGE value="update template index navbar" />
     <MESSAGE value="Update admin login page" />
     <MESSAGE value="Update user login page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update user login page" />
+    <MESSAGE value="Update login pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update login pages" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
