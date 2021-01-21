@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="Edit navbar layout">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/loginAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/loginAdmin.php" afterDir="false" />
-    </list>
+    <list default="true" id="409378dc-0c21-41ee-813e-6e98e929f416" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,11 +29,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectId" id="1mprqxqVBPZvfidRrjLYkvuQk64" />
-  <component name="ProjectLevelVcsManager">
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="ProjectId" id="1mhZZJUANDDS9QgfUzwP55KCYDn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -27,151 +41,21 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/website" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Will Stewart\PhpstormProjects\COMP2003-2020-GROUP-P-LHBS\website" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Will Stewart\PhpstormProjects\COMP2003-2020-GROUP-P-LHBS\website" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fde84671-ed79-4f1f-8e30-d6d3e2f9e2e5" name="Default Changelist" comment="" />
-      <created>1610201569755</created>
+      <changelist id="409378dc-0c21-41ee-813e-6e98e929f416" name="Default Changelist" comment="" />
+      <created>1609947836859</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1610201569755</updated>
-      <workItem from="1610201572313" duration="93000" />
-      <workItem from="1610201988437" duration="1792000" />
-      <workItem from="1610203818142" duration="45000" />
-      <workItem from="1610203874902" duration="8330000" />
+      <updated>1609947836859</updated>
+      <workItem from="1609947837865" duration="315000" />
     </task>
-    <task id="LOCAL-00001" summary="Moved website files to correct directory">
-      <created>1610202404884</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1610202404884</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add php login page">
-      <created>1610202760789</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1610202760789</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added buttons that link to pages">
-      <created>1610203010535</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1610203010535</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added buttons that link to pages">
-      <created>1610203432303</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1610203432303</updated>
-    </task>
-    <task id="LOCAL-00005" summary="dbconnect template code">
-      <created>1610203564547</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1610203564547</updated>
-    </task>
-    <task id="LOCAL-00006" summary="update template index navbar">
-      <created>1610208738523</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1610208738523</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Update admin login page">
-      <created>1610208899679</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1610208899679</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Update user login page">
-      <created>1610208979343</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1610208979343</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Update login pages">
-      <created>1610209168193</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1610209168193</updated>
-    </task>
-    <task id="LOCAL-00010" summary="update index">
-      <created>1610209685144</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1610209685144</updated>
-    </task>
-    <task id="LOCAL-00011" summary="added index image">
-      <created>1610209698176</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1610209698176</updated>
-    </task>
-    <task id="LOCAL-00012" summary="updated index page">
-      <created>1610211057697</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1610211057697</updated>
-    </task>
-    <task id="LOCAL-00013" summary="updated info on index page">
-      <created>1610211116283</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1610211116283</updated>
-    </task>
-    <task id="LOCAL-00014" summary="user login page updated to conform to layout">
-      <created>1610211652993</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1610211652993</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Admin login page updated to conform to layout">
-      <created>1610211798523</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1610211798523</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Edit navbar layout">
-      <created>1610211917977</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1610211917977</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,28 +72,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Moved website files to correct directory" />
-    <MESSAGE value="add php login page" />
-    <MESSAGE value="Added buttons that link to pages" />
-    <MESSAGE value="dbconnect template code" />
-    <MESSAGE value="update template index navbar" />
-    <MESSAGE value="Update admin login page" />
-    <MESSAGE value="Update user login page" />
-    <MESSAGE value="Update login pages" />
-    <MESSAGE value="update index" />
-    <MESSAGE value="added index image" />
-    <MESSAGE value="updated index page" />
-    <MESSAGE value="updated info on index page" />
-    <MESSAGE value="user login page updated to conform to layout" />
-    <MESSAGE value="Admin login page updated to conform to layout" />
-    <MESSAGE value="Edit navbar layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit navbar layout" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

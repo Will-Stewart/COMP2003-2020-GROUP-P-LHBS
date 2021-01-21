@@ -1,39 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Llafan Hotel Booking System</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+<?php
+include_once 'header.php';
+?>
 
-
-<body>
-
-
-<nav class="navbar navbar-expand-md navbar-dark " style="background-color: #8B0808;">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <img src="img/talyllyn-logo.png" width="228" height="66" alt="logo">
-            </li>
-        </ul>
-
-        <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item ">
-                <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="loginUser.php">User Login</a>
-            </li>
-            <li class="nav-item" style="align-items: center">
-                <a class="nav-link" href="loginAdmin.php">Admin Login</a>
-            </li>
-        </ul>
+<div class="container">
+    <div class="card mb-3">
+        <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
+            <p class="card-text">This is the Admin Login page, this is where Wardens of the Hostel Booking System can enter their details and gain access on a Admin account.
+                The form below is where they can enter their details!</p>
+            <p class="card-text"><small class="text-muted">Last updated 21/01/2021</small></p>
+        </div>
     </div>
-
-
+</div>
 
     <div class="mx-auto order-0">
         <a class="navbar-brand mx-auto" href="#">LHBS</a>
@@ -43,17 +22,17 @@
     </div>
 </nav>
 
-<!--This is the user login form-->
+<!--This is the admin login form-->
+
 <div class="container">
-    <br>  <p class="text-center">This is where LHBS users should login, Admins please go to the admin log in page at: <a href="loginAdmin.php"> Admin Login</a></p>
+    <br>  <p class="text-center">This is where LHBS Admins should login, Users please go to the user log in page at: <a href="loginUser.php"> User Login</a></p>
     <hr>
 
     <div class="row">
         <aside class="col-sm-4">
             <div class="card">
                 <article class="card-body">
-                    <a href="" class="float-right btn btn-outline-primary">Sign up</a>
-                    <h4 class="card-title mb-4 mt-1">Sign in</h4>
+                    <h4 class="card-title mb-4 mt-1">Admin- Sign in</h4>
                     <form>
                         <div class="form-group">
                             <label>Your username</label>
@@ -64,6 +43,11 @@
                             <label>Your password</label>
                             <input type="password" class="form-control" placeholder="********" id="">
                         </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <a class="float-right" href="#">Forgot?</a>
+                            <label>Your Security Key</label>
+                            <input type="text" class="form-control" placeholder="1234567" id="">
+                        </div>
                         <div class="form-group">
                         </div> <!-- form-group// -->
                         <div class="form-group">
@@ -80,5 +64,12 @@
     </div>
 
 
-</body>
+
+
+
+</div>
 </html>
+
+<?php
+include_once 'footer.php';
+?>
