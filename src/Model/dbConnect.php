@@ -1,5 +1,6 @@
 <?php
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
+
 $username = "COMP2003_P";
 $password = "YleM560+";
 
@@ -12,3 +13,4 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 ?>
+
