@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <link rel="stylesheet" href="datepicker/css/bootstrap-datepicker.min.css">
+      <link rel="stylesheet" href="datepicker/css/custom.css">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="datepicker/js/bootstrap-datepicker.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+      <h2>Basic  Calendar</h2>
+        <div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="datetimepicker1"></div>
+                    </div>
+                    <div class="col-md-8"><pre>
+                            $('#datetimepicker1').datepicker({});
+                    </pre></div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $('#datetimepicker1').datepicker({});
+            </script>
+        </div>
+    </div>
+
+    <div class="row">
+    <h2>Calendar with disabled dates from database</h2>
+    <div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="datetimepicker2"></div>
+                </div>
+                <div class="col-md-8">
+                    <pre>
+                        $.get("server/adapter.php", function(data){
+                            disabledDates = data.split(',');
+                            $('#datetimepicker2').datepicker({
+                                format: 'yyyy-mm-dd',
+                                datesDisabled: disabledDates,
+                            });
+                        });
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $.get("server/adapter.php", function(data){
+                disabledDates = data.split(',');
+                $('#datetimepicker2').datepicker({
+                    format: 'yyyy-mm-dd',
+                    datesDisabled: disabledDates,
+                });
+            });
+
+
+        </script>
+    </div>
+    </div>
+
+
+
+        <div class="row">
+            <h2>Custom Language, disabled Dates, First Day = Monday</h2>
+            <div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="datetimepicker3"></div>
+                        </div>
+                        <div class="col-md-8">
+                            <pre>
+                     $.get("server/adapter.php", function(data){
+                        disabledDates = data.split(',');
+                        $('#datetimepicker3').datepicker({
+                            format: 'yyyy-mm-dd',
+                            datesDisabled: disabledDates,
+                            First Day = Tuesday,
+                            language: 'de'
+                        });
+                    });
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <script src="datepicker/locales/bootstrap-datepicker.de.min.js"></script>
+                <script type="text/javascript">
+                    $.get("server/adapter.php", function(data){
+                        disabledDates = data.split(',');
+                        $('#datetimepicker3').datepicker({
+                            format: 'yyyy-mm-dd',
+                            datesDisabled: disabledDates,
+                            firstDay:1,
+                            language: 'de'
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2>3 Months View</h2>
+            <div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="calendar" style="display: inline-block;"></div>
+                            <div class="calendar" style="display: inline-block;"></div>
+                            <div class="calendar" style="display: inline-block;"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <pre>
+                     $('.calendar').map(function(index) {
+                        $(this).datepicker({
+                            defaultViewDate: {
+                                year: (new Date()).getFullYear(),
+                                month: (new Date()).getMonth() + index,
+                                date: 1
+                            },
+                            multidate: true,
+                            updateViewDate: false
+                        });
+                    });
+
+                    // keep month in sync
+                    var orderMonth = function(e) {
+                        var target = e.target;
+                        var date = e.date;
+                        var calendars = $('.calendar');
+                        var positionOfTarget = calendars.index(target);
+                        calendars.each(function(index) {
+                            if (this === target) {
+                                return;
+                            }
+                            var newDate = new Date(date);
+                            newDate.setUTCDate(1);
+                            newDate.setMonth(
+                                date.getMonth() + index - positionOfTarget
+                            );
+
+                            $(this).datepicker('_setDate', newDate, 'view');
+                        });
+                    };
+                    $('.calendar').on('changeMonth', orderMonth);
+
+                    // keep dates in sync
+                    $('.calendar').on('changeDate', function(e) {
+                        var calendars = $('.calendar');
+                        var target = e.target;
+                        var newDates = $(target).datepicker('getUTCDates');
+                        calendars.each(function() {
+                            if (this === e.target) {
+                                return;
+                            }
+
+                            // setUTCDates triggers changeDate event
+                            // could easily run into an infinite loop
+                            // therefore we check if currentDates equal newDates
+                            var currentDates = $(this).datepicker('getUTCDates');
+                            if (
+                                currentDates &&
+                                currentDates.length === newDates.length &&
+                                currentDates.every(function(currentDate) {
+                                    return newDates.some(function(newDate) {
+                                        return currentDate.toISOString() === newDate.toISOString();
+                                    })
+                                })
+                            ) {
+                                return;
+                            }
+
+                            $(this).datepicker('setUTCDates', newDates);
+                        });
+                    });
+                            </pre>
+                        </div>
+
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $('.calendar').map(function(index) {
+                        $(this).datepicker({
+                            defaultViewDate: {
+                                year: (new Date()).getFullYear(),
+                                month: (new Date()).getMonth() + index,
+                                date: 1
+                            },
+                            multidate: true,
+                            updateViewDate: false
+                        });
+                    });
+
+                    // keep month in sync
+                    var orderMonth = function(e) {
+                        var target = e.target;
+                        var date = e.date;
+                        var calendars = $('.calendar');
+                        var positionOfTarget = calendars.index(target);
+                        calendars.each(function(index) {
+                            if (this === target) {
+                                return;
+                            }
+                            var newDate = new Date(date);
+                            newDate.setUTCDate(1);
+                            newDate.setMonth(
+                                date.getMonth() + index - positionOfTarget
+                            );
+
+                            $(this).datepicker('_setDate', newDate, 'view');
+                        });
+                    };
+                    $('.calendar').on('changeMonth', orderMonth);
+
+                    // keep dates in sync
+                    $('.calendar').on('changeDate', function(e) {
+                        var calendars = $('.calendar');
+                        var target = e.target;
+                        var newDates = $(target).datepicker('getUTCDates');
+                        calendars.each(function() {
+                            if (this === e.target) {
+                                return;
+                            }
+
+                            // setUTCDates triggers changeDate event
+                            // could easily run into an infinite loop
+                            // could easily run into an infinite loop
+                            // therefore we check if currentDates equal newDates
+                            var currentDates = $(this).datepicker('getUTCDates');
+                            if (
+                                currentDates &&
+                                currentDates.length === newDates.length &&
+                                currentDates.every(function(currentDate) {
+                                    return newDates.some(function(newDate) {
+                                        return currentDate.toISOString() === newDate.toISOString();
+                                    })
+                                })
+                            ) {
+                                return;
+                            }
+
+                            $(this).datepicker('setUTCDates', newDates);
+                        });
+                    });
+
+
+                </script>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
