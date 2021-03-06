@@ -28,6 +28,9 @@
                 <a class="nav-link" href="../public/createBooking.php">Create Booking</a>
             </li>
             <li class="nav-item" style="align-items: center">
+                <a class="nav-link" href="../public/confirmBookings.php">Manage Bookings</a>
+            </li>
+            <li class="nav-item" style="align-items: center">
                 <a class="nav-link" href="../public/support.php">Support</a>
             </li>
             <li class="nav-item">
