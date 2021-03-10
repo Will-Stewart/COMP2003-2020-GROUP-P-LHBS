@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409378dc-0c21-41ee-813e-6e98e929f416" name="Default Changelist" comment="" />
+    <list default="true" id="409378dc-0c21-41ee-813e-6e98e929f416" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/dbConnect.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,10 +32,18 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1mhZZJUANDDS9QgfUzwP55KCYDn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -44,7 +56,28 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.dbConnect.php">
+    <configuration name="dbConnect.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Group Work Repository/src/Model/dbConnect.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="dbConnect.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/public/dbConnect.js" working-dir="$PROJECT_DIR$/public">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.dbConnect.php" />
+        <item itemvalue="Node.js.dbConnect.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -55,6 +88,13 @@
       <option name="presentableId" value="Default" />
       <updated>1609947836859</updated>
       <workItem from="1609947837865" duration="315000" />
+      <workItem from="1611259951161" duration="496000" />
+      <workItem from="1612807801649" duration="675000" />
+      <workItem from="1613398081526" duration="3804000" />
+      <workItem from="1613945022638" duration="3148000" />
+      <workItem from="1614002335849" duration="1101000" />
+      <workItem from="1614003487478" duration="902000" />
+      <workItem from="1614168254273" duration="3100000" />
     </task>
     <servers />
   </component>
@@ -72,5 +112,28 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="872" y="358" key="#Deployment" timestamp="1613945584870">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="358" key="#Deployment/0.0.2560.1400/2560.217.1920.1040@0.0.2560.1400" timestamp="1613945584870" />
+    <state x="987" y="342" key="#PHP" timestamp="1611260360063">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="987" y="342" key="#PHP/0.0.2560.1400/2560.217.1920.1040@0.0.2560.1400" timestamp="1611260360063" />
+    <state x="1060" y="454" key="FileChooserDialogImpl" timestamp="1614003434643">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="454" key="FileChooserDialogImpl/0.0.2560.1400/2560.217.1920.1040@0.0.2560.1400" timestamp="1614003434643" />
+    <state x="781" y="344" key="SettingsEditor" timestamp="1611260316795">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="781" y="344" key="SettingsEditor/0.0.2560.1400/2560.217.1920.1040@0.0.2560.1400" timestamp="1611260316795" />
   </component>
 </project>

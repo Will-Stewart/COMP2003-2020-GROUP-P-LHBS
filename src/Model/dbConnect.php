@@ -1,16 +1,16 @@
 <?php
-/* Database credentials. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-define('DB_SERVER', 'groupp2003.database.windows.net');
-define('DB_USERNAME', 'azureuser');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'RegisteredAdmins');
+$servername = "proj-mysql.uopnet.plymouth.ac.uk";
 
-/* Attempt to connect to MySQL database */
-$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$username = "COMP2003_P";
+$password = "YleM560+";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
 
 // Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+echo "Connected successfully";
 ?>
+
