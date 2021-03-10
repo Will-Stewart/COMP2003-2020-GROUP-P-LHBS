@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a5e7aa4f-7835-4cea-8a13-18db3f09b6c4" name="LocalHost" url="http://localhost/Group Work Repository/">
+        <fileTransfer mountedRoot="G:\Ampps\www\Group Work Repository" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
