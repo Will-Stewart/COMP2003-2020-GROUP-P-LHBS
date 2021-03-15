@@ -25,7 +25,7 @@
                 <a class="nav-link" href="../public/index.php">Home</a>
             </li>
             <li class="nav-item" style="align-items: center">
-                <a class="nav-link" href="../public/createBooking.php">Create Booking</a>
+                <a class="nav-link" href="../public/createManageBooking.php">Create Booking</a>
             </li>
             <li class="nav-item" style="align-items: center">
                 <a class="nav-link" href="../public/confirmBookings.php">Manage Bookings</a>
@@ -34,10 +34,7 @@
                 <a class="nav-link" href="../public/support.php">Support</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../public/loginUser.php">User Login</a>
-            </li>
-            <li class="nav-item" style="align-items: center">
-                <a class="nav-link" href="../public/loginAdmin.php">Admin Login</a>
+                <a class="nav-link" href="../public/loginUser.php">Login</a>
             </li>
         </ul>
     </div>

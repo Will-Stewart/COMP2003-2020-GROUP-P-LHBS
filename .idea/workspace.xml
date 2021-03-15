@@ -20,9 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="409378dc-0c21-41ee-813e-6e98e929f416" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/public/createBooking.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/header.php" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/dbConnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blue.png" beforeDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +99,7 @@
       <workItem from="1614002335849" duration="1101000" />
       <workItem from="1614003487478" duration="902000" />
       <workItem from="1614168254273" duration="3100000" />
+      <workItem from="1615370774938" duration="261000" />
     </task>
     <servers />
   </component>
@@ -127,6 +132,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="987" y="342" key="#PHP/0.0.2560.1400/2560.217.1920.1040@0.0.2560.1400" timestamp="1611260360063" />
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1615370945954">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.217.1920.1040@0.0.2560.1400" timestamp="1615370945954" />
     <state x="1060" y="454" key="FileChooserDialogImpl" timestamp="1614003434643">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
