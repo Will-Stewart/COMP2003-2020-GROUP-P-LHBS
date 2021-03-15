@@ -1,20 +1,10 @@
 <?php
 include_once 'header.php';
+include_once 'developmentNotice.php';
 ?>
 
-    <div class="container">
-        <div class="card mb-3">
-            <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
-                <p class="card-text">This is the Login page, this is where Volunteers can enter their details and gain access on a Volunteer account. The form below is where they can enter their details!</p>
-                <p class="card-text"><small class="text-muted">Last updated 21/01/2021</small></p>
-            </div>
-        </div>
-    </div>
-
     <!--This is the user login form-->
-    <div class="container">
+    <div class="container" style="padding: 15px;">
         <br>  <p class="text-center">This is where LHBS users should login, Admins please go to the admin log in page at: <a href="loginAdmin.php"> Admin Login</a></p>
         <hr>
 
@@ -75,17 +65,14 @@ include_once 'header.php';
                         </form>
                     </article>
                 </div> <!-- card.// -->
-
-
             </div>
         </div>
-
-
-
-
-
-
     </div>
+
+
+
+
+
     </html>
 
 <?php

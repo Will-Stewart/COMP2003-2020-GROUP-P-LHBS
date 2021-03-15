@@ -1,18 +1,7 @@
 <?php
 include_once 'header.php';
+include_once 'developmentNotice.php';
 ?>
-
-    <div class="container">
-        <div class="card mb-3">
-            <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
-                <p class="card-text">This page is going to contain a Booking Form which allows Volunteers/Non Volunteers to create a booking in order to stay at the Talyllyn Railway Hostel.
-                    Beneath this you can see a basic interpretation of what we want to achieve and what this page is going to contain!</p>
-                <p class="card-text"><small class="text-muted">Last updated 21/01/2021</small></p>
-            </div>
-        </div>
-    </div>
 
     <div class="container">
         <div class="row">
