@@ -32,15 +32,16 @@ include_once 'developmentNotice.php';
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+
+                        <div class="col-md-4">
                             <label for="validationCustom03" class="form-label">Age</label>
                             <input type="text" class="form-control" id="validationCustom03" required>
                             <div class="invalid-feedback">
                                 Please provide a valid Age.
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <label for="validationCustom05" class="form-label">AmountOfPeople</label>
+                        <div class="col-md-4">
+                            <label for="validationCustom05" class="form-label">Amount Of People</label>
                             <input type="text" class="form-control" id="validationCustom05" required>
                             <div class="invalid-feedback">
                                 Please provide the amount of people.

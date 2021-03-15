@@ -1,12 +1,13 @@
 <style>
     .footer {
-        position: relative;
+        position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
         background-color: #8b0808;
         color: white;
         text-align: center;
+        font-family: "Droid Sans", sans-serif;
     }
 </style>
 
