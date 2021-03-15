@@ -1,30 +1,11 @@
 <?php
 include_once 'header.php';
+include_once 'developmentNotice.php';
 ?>
-
-<div class="container">
-    <div class="card mb-3">
-        <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
-            <p class="card-text">This is the Admin Login page, this is where Wardens of the Hostel Booking System can enter their details and gain access on a Admin account.
-                The form below is where they can enter their details!</p>
-            <p class="card-text"><small class="text-muted">Last updated 21/01/2021</small></p>
-        </div>
-    </div>
-</div>
-
-    <div class="mx-auto order-0">
-        <a class="navbar-brand mx-auto" href="#">LHBS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav>
 
 <!--This is the admin login form-->
 
-<div class="container">
+<div class="container" style="padding: 15px;">
     <br>  <p class="text-center">This is where LHBS Admins should login, Users please go to the user log in page at: <a href="loginUser.php"> User Login</a></p>
     <hr>
 
@@ -64,11 +45,7 @@ include_once 'header.php';
     </div>
 
 
-
-
-
 </div>
-</html>
 
 <?php
 include_once 'footer.php';

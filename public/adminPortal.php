@@ -1,5 +1,6 @@
 <?php
 include_once 'header.php';
+include_once 'developmentNotice.php';
 ?>
 
 <div class="container">
