@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409378dc-0c21-41ee-813e-6e98e929f416" name="Default Changelist" comment="Upadate formattiong on createBooking.php">
+    <list default="true" id="409378dc-0c21-41ee-813e-6e98e929f416" name="Default Changelist" comment="Upadate formattiong on createManageBooking.php">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/confirmBookings.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/confirmBookings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/loginUser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +145,7 @@
       <workItem from="1615733597475" duration="233000" />
       <workItem from="1615733847659" duration="114000" />
       <workItem from="1615817463860" duration="4500000" />
-      <workItem from="1618666396567" duration="4051000" />
+      <workItem from="1618666396567" duration="4663000" />
     </task>
     <task id="LOCAL-00001" summary="Update padding on pages and implement single PHP file for development banner">
       <created>1615819031215</created>
@@ -191,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618668466044</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Upadate formattiong on createManageBooking.php">
+      <created>1618670755674</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1618670755674</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +234,8 @@
     <MESSAGE value="update workspace.xml" />
     <MESSAGE value="Fix footer.php" />
     <MESSAGE value="Upadate formattiong on createBooking.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upadate formattiong on createBooking.php" />
+    <MESSAGE value="Upadate formattiong on createManageBooking.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upadate formattiong on createManageBooking.php" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
