@@ -9,7 +9,7 @@ include_once 'header.php';
     </section>
 
 
-    <div class="container">
+    <div class="container p-5">
 
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">About The Llechfan Hostel Booking System</h1>

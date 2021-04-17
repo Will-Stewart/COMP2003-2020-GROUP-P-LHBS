@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,10 +13,10 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #8B0808;">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" >
         <ul class="navbar-nav">
             <li class="nav-item">
-                <img src="../assets/img/talyllyn-logo.png" width="228" height="66" alt="logo">
+                <img src="../assets/img/talyllyn-logo.png" width="228" height="66" alt="logo" style="pointer-events: none;"">
             </li>
         </ul>
 

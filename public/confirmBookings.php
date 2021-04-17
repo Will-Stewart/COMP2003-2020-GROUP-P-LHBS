@@ -13,6 +13,8 @@ include_once 'header.php';
             <div class="card-body">
                 <div class="container">
                     <div class="row">
+
+
                         <div class="col-sm">
                             <h3>Selected Booking Details</h3>
                             <form>
@@ -68,6 +70,9 @@ include_once 'header.php';
                                 <input class="btn btn-primary" type="submit" value="Confirm">
                             </form>
                         </div>
+
+
+
                         <div class="col-sm">
                             <h3>Unconfirmed Bookings</h3>
                             <div class="list-group">
@@ -76,6 +81,10 @@ include_once 'header.php';
                                 <a href="#" class="list-group-item list-group-item-action">UNCONFIRMED BOOKING PLACEHOLDER</a>
                             </div>
                         </div>
+
+
+
+                        
                         <div class="col-sm">
                             <h3>Confirmed Bookings</h3>
                             <div class="list-group">
