@@ -30,11 +30,11 @@
             <li class="nav-item" style="align-items: center">
                 <a class="nav-link" href="../public/confirmBookings.php">Manage Bookings</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../public/loginUser.php">Login/SignUp</a>
+            </li>
             <li class="nav-item" style="align-items: center">
                 <a class="nav-link" href="../public/support.php">Support</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../public/loginUser.php">Login</a>
             </li>
         </ul>
     </div>
