@@ -89,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                 <input id="password" class="form-control" name="password">
                             </div>
 
-                            <div>
+                            <div style="padding-top: 5px;">
                                 <input class="btn btn-primary" type="submit" value="Confirm">
                             </div>
                         </form>
@@ -120,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                 <input type="text" class="form-control" name="passwordSignup">
                             </div>
 
-                            <div>
+                            <div style="padding-top: 5px;">
                                 <input class="btn btn-primary" type="submit" value="Confirm">
                             </div>
                         </form>
