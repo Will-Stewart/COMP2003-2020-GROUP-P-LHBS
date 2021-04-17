@@ -2,9 +2,17 @@
 include_once 'header.php';
 ?>
 
+    <style>
+        .div-1 {
+            background-color: #992C2C;
+        }
+    </style>
+
     <section class="showcase">
-        <div>
-            <img src="../assets/img/talyllyn.jpg" alt="talyllyn train preview" style="width:100%;min-height:350px;max-height:650px;">
+        <div class="div-1">
+            <div class="text-center">
+                <img src="../assets/img/talyllyn.jpg" alt="talyllyn train preview" style="width:65%;min-height:350px;max-height:650px;">
+            </div>
         </div>
     </section>
 
