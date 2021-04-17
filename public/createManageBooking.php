@@ -147,16 +147,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                 </select>
 
                             </div>
-                            <!--Room Price-->
-                            <div class="form-group row">
+                            <div>
 
                                 <label name="Price" class="col-form-label col-sm-3">Price:</label>
                                 <input type="text" name ="Price" class="form-control" value="£xx.xx">
 
                             </div>
                             <div class="form-group row">
-                                <div class="col" align="center">
-                                    <input class="btn btn-primary" type="submit" value="Confirm Booking"</a>
+                                <div class="col" align="center" style="padding-top: 10px;">
+                                    <input class="btn btn-primary" type="submit" value="Confirm Booking">
                                 </div>
                             </div>
                         </form>
