@@ -21,19 +21,19 @@
 
         <ul class="navbar-nav mr-auto">
 
-            <li class="nav-item active">
+            <li class="nav-item active" id="home">
                 <a class="nav-link" href="../public/index.php">Home</a>
             </li>
-            <li class="nav-item" style="align-items: center">
+            <li class="nav-item" style="align-items: center" id="createbooking">
                 <a class="nav-link" href="../public/createManageBooking.php">Create Booking</a>
             </li>
-            <li class="nav-item" style="align-items: center">
+            <li class="nav-item" style="align-items: center" id="managebooking">
                 <a class="nav-link" href="../public/confirmBookings.php">Manage Bookings</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="loginuser">
                 <a class="nav-link" href="../public/loginUser.php">Login/SignUp</a>
             </li>
-            <li class="nav-item" style="align-items: center">
+            <li class="nav-item" style="align-items: center" id="support">
                 <a class="nav-link" href="../public/support.php">Support</a>
             </li>
         </ul>

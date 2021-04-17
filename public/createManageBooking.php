@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 </div>
 <!--^^to be deleted once done-->
 
-<div class="container">
+<div class="container mb-5">
         <div class="row">
             <div class="col-4">
                 <div class="card">
