@@ -1,9 +1,5 @@
 <?php
-
-session_start();
-
 include_once 'header.php';
-include("../src/model/functions.php");
 
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
 $username = "COMP2003_P";
@@ -12,30 +8,18 @@ $password = "YleM560+";
 // Create connection
 $con = new mysqli($servername, $username, $password);
 
-if(isset($_POST['user_name'])){
 
-    $uname=$_POST['user_name'];
-    $upassword=$_POST['password'];
+if(isset($_POST['submitSignIn'])) {
 
-    $query="select * from comp2003_p.registeredusers where Username='".$uname."'AND UPasswords='".$upassword."'limit 1";
+    $uname = $_POST['user_name'];
+    $upassword = $_POST['password'];
 
-    echo "<pre>Debug: $query</pre>\m";
-    $result = mysqli_query($con, $query);
-    if ( false===$result ) {
-        printf("error: %s\n", mysqli_error($con));
-    }
-    elseif(mysqli_num_rows($result)==1){
-        echo " You have successfully logged in";
-        header("Location: index.php");
-        exit();
-    }
-    else{
-        echo "Incorrect password";
-        exit();
-    }
+    require_once("../src/model/dbConnect.php");
+
+    userLogin($con, $uname, $upassword);
 }
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
+if(isset($_POST['submitSignup']))
 {
     //something was posted
     $usernameSignUp = $_POST['usernameSignup'];
@@ -44,7 +28,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     if(!empty($usernameSignUp) && !empty($passwordSignUp) && !empty($emailSignUp))
     {
-
         //save to database
         $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp','$passwordSignUp','$emailSignUp')";
 
@@ -55,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         }
         else {
             echo 'done.';
-            header("Location: index.php");
+            header("Location: ../public/index.php");
         }
     }else
     {
@@ -65,63 +48,68 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 ?>
 
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>PROFILE PAGE</title>
+        <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    </head>
+
     <!--This is the user login form-->
-    <div class="container">
-        <br>  <p class="text-center">This is where LHBS users should login, Admins please go to the admin log in page at: <a href="loginAdmin.php"> Admin Login</a></p>
-        <hr>
-
-
+    <body class="loggedin">
+    <div class="content">
+        <h2>Log In & Sign Up</h2>
         <div class="row">
             <div class="col-sm">
-
                 <div class="card">
                     <article class="card-body">
-                        <h4 class="card-title mb-4 mt-1">Sign in</h4>
-                        <form method="POST" action="#">
+                        <h4 class="card-title mb-4 mt-1">Sign In</h4>
+                        <form action="../src/Model/authentication.php" method="post">
                             <div>
                                 <label>Username</label>
                                 <input type="text" class="form-control" name="user_name">
                             </div>
-
+                            <label></label>
                             <div>
-                                <a class="float-right" href="#">Forgot?</a>
                                 <label>Password</label>
-                                <input id="password" class="form-control" name="password">
+                                <input type="password" class="form-control" name="password">
+                                <a class="float-right" href="#">Forgot?</a>
                             </div>
-
+                            <label></label>
                             <div>
-                                <input class="btn btn-primary" type="submit" value="Confirm">
+                                <input class="btn btn-primary" type="submit" name="submitSignIn" value="Submit">
                             </div>
                         </form>
                     </article>
                 </div> <!-- card.// -->
 
             </div>
+
             <div class="col-sm">
 
                 <div class="card">
                     <article class="card-body">
-                        <h4 class="card-title mb-4 mt-1">Sign up</h4>
+                        <h4 class="card-title mb-4 mt-1">Sign Up</h4>
                         <form method="POST" action="#">
                             <div>
                                 <label>Username</label>
                                 <input type="text" class="form-control" name="usernameSignup">
                             </div>
-
+                            <label></label>
                             <div>
-                                <a class="float-right" href="#">Forgot?</a>
                                 <label>Email</label>
-                                <input type="password" class="form-control" name="emailSignup">
+                                <input type="text" class="form-control" name="emailSignup">
                             </div>
-
+                            <label></label>
                             <div>
-                                <a class="float-right" href="#">Forgot?</a>
                                 <label>Password</label>
-                                <input type="text" class="form-control" name="passwordSignup">
+                                <input type="password" class="form-control" name="passwordSignup">
                             </div>
-
+                            <label></label>
                             <div>
-                                <input class="btn btn-primary" type="submit" value="Confirm">
+                                <input class="btn btn-primary" type="submit" name="submitSignup" value="Submit">
                             </div>
                         </form>
                     </article>
@@ -130,6 +118,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             </div>
         </div>
     </div>
+
+    </body>
     </html>
 
 <?php
