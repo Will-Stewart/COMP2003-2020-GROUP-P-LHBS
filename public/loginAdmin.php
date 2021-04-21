@@ -3,7 +3,7 @@
 session_start();
 
 include_once 'header.php';
-include("../src/model/functions.php");
+require_once '../src/Model/dbConnect.php';
 
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
 $username = "COMP2003_P";
@@ -14,26 +14,27 @@ $con = new mysqli($servername, $username, $password);
 
 if(isset($_POST['adminName'])){
 
-$adminUsername=$_POST['adminName'];
-$adminPassword=$_POST['adminPass'];
-$adminCode=$_POST['loginNum'];
+    $adminUsername=$_POST['adminName'];
+    $adminPassword=$_POST['adminPass'];
+    $adminCode=$_POST['loginNum'];
 
-$query="select * from comp2003_p.registeredadmins where Admin_Username='".$adminUsername."'AND Admin_Password='".$adminPassword."'AND LoginNum='".$adminCode."'limit 1";
+    $query="select * from comp2003_p.registeredadmins where Admin_Username='".$adminUsername."'AND Admin_Password='".$adminPassword."'AND LoginNum='".$adminCode."'limit 1";
 
-echo "<pre>Debug: $query</pre>\m";
-$result = mysqli_query($con, $query);
-if ( false===$result ) {
-printf("error: %s\n", mysqli_error($con));
-}
-elseif(mysqli_num_rows($result)==1){
-echo " You have successfully logged in";
-header("Location: adminPortal.php");
-exit();
-}
-else{
-echo "Incorrect password";
-exit();
-}
+    echo "<pre>Debug: $query</pre>\m";
+    $result = mysqli_query($con, $query);
+
+    if ( false===$result ) {
+    printf("error: %s\n", mysqli_error($con));
+    }
+    elseif(mysqli_num_rows($result)==1){
+        echo " You have successfully logged in";
+        header("Location: adminPortal.php");
+    exit();
+    }
+    else{
+        echo "Incorrect password";
+        exit();
+    }
 }
 
 ?>
