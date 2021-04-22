@@ -1,5 +1,54 @@
 <?php
 include_once 'header.php';
+
+$servername = "proj-mysql.uopnet.plymouth.ac.uk";
+$username = "COMP2003_P";
+$password = "YleM560+";
+
+// Create connection
+$con = new mysqli($servername, $username, $password);
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+    //something was posted
+    $regID = $_SESSION['RegIDs'];
+    $firstname = $_POST['Firstname'];
+    $lastname = $_POST['Lastname'];
+    $BookingIn = $_POST['BookingIn'];
+    $BookingOut = $_POST['BookingOut'];
+    $WorkingDays = $_POST['WorkingDays'];
+    $Gender = $_POST['Gender'];
+    $Age = $_POST['Age'];
+    $RoomType = $_POST['RoomType'];
+    $NumberofPeople = $_POST['AmountOfPeople'];
+    $Price = $_POST['Price'];
+
+    if(!empty($firstname) && !empty($lastname) && !empty($BookingIn) &&
+        !empty($BookingOut) && !empty($Gender) && !empty($Age) &&
+        !empty($RoomType) && !empty($NumberofPeople) && !empty($Price))
+    {
+
+        //save to database
+        $query = "insert into comp2003_p.hostelbookings (RegID, First_Name,Last_Name,Booking_StartDate,Booking_EndDate,Gender,Age,AmountOfPeople,Preferred_Room,Price) 
+        values ('$regID','$firstname','$lastname','$BookingIn','$BookingOut','$Gender','$Age','$NumberofPeople','$RoomType','$Price')";
+
+        echo "<pre>Debug: $query</pre>\m";
+        $result = mysqli_query($con, $query);
+        if ( false===$result ) {
+            printf("error: %s\n", mysqli_error($con));
+        }
+        else {
+            echo 'done.';
+            header("Location: createManageBooking.php");
+        }
+    }else
+    {
+        echo "Please enter some valid information! ";
+        $days_between = ceil(abs($BookingOut - $BookingIn) / 86400);
+        echo round($days_between);
+    }
+}
+
 ?>
 
 <div class="container">
@@ -42,46 +91,133 @@ include_once 'header.php';
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title" align="center">Enter Details</h5>
-                        <form>
-                            <div class="form-group row">
-
-                                    <label for="date" class="col-form-label col-sm-3">Booking in date</label>
-                                    <input type="date" id="date">
-
+                        <form method="POST" action="#">
+                            <div>
+                                <label>Firstname</label>
+                                <input type="text" class="form-control" name="Firstname">
                             </div>
-                            <div class="form-group row">
 
-                                    <label for="date" class="col-form-label col-sm-3">Checking out date</label>
-                                    <input type="date" id="date">
-
+                            <div>
+                                <label>Lastname</label>
+                                <input type="text" class="form-control" name="Lastname">
                             </div>
-                            <div class="form-group row">
-                                <label for="select" class="col-form-label col-sm-3">Room type</label>
-                                <select id="select">
-                                    <option value>select room</option>
-                                    <option value>blue</option>
-                                    <option value>green</option>
-                                    <option value>red</option>
+
+                            <div>
+                                <label>Booking In Date</label>
+                                <input type="date" class="form-control" name="BookingIn">
+                            </div>
+
+                            <div>
+                                <label>Booking Out Date</label>
+                                <input type="date" class="form-control" name="BookingOut">
+                            </div>
+
+                            <label></label>
+                            <div>
+                                RoomType:
+                                <input type="radio" name="RoomType"
+                                    <?php if (isset($RoomType) && $RoomType=="Blue") echo "checked";?>
+                                       value="Blue">Blue
+                                <input type="radio" name="RoomType"
+                                    <?php if (isset($RoomType) && $RoomType=="Green") echo "checked";?>
+                                       value="Green">Green
+                                <input type="radio" name="RoomType"
+                                    <?php if (isset($RoomType) && $RoomType=="Yellow") echo "checked";?>
+                                       value="Yellow">Yellow
+                            </div>
+                            <label></label>
+                            <div>
+                                <label>Age</label>
+                                <input type="number" class="form-control" name="Age">
+                            </div>
+                            <label></label>
+                            <div>
+                                Gender:
+                                <input type="radio" name="Gender"
+                                    <?php if (isset($Gender) && $Gender=="Female") echo "checked";?>
+                                       value="Female">Female
+                                <input type="radio" name="Gender"
+                                    <?php if (isset($Gender) && $Gender=="Male") echo "checked";?>
+                                       value="Male">Male
+                            </div>
+                            <label></label>
+                            <div>
+                                <label>Amount of People</label>
+                                <input type="number" class="form-control" name="AmountOfPeople">
+                            </div>
+
+                            <div>
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="Price">
+                            </div>
+
+                            <!--
+                            <div>
+                                <label for="Firstname" class="col-form-label col-sm-3">Firstname</label>
+                                <input type="text" name="Firstname">
+                            </div>
+
+                            <div>
+                                <label for="Lastname" class="col-form-label col-sm-3">Lastname</label>
+                                <input type="text" name="Lastname">
+                            </div>
+
+                            <div>
+                                <label>Booking In</label>
+                                <input type="date" class="form-control" name="BookingIn">
+                            </div>
+
+                            <div>
+                                <label>Booking Out</label>
+                                <input type="date" class="form-control" name="BookingOut">
+                            </div>
+
+                            <div>
+                                <label for="WorkingDays" class="col-form-label col-sm-3">How many working days?</label>
+                                <input type="number", name="WorkingDays">
+                            </div>
+
+                            <div>
+                                <label for="RoomType" class="col-form-label col-sm-3">Room type</label>
+                                <select name="RoomType">
+                                    <option value>Select Room</option>
+                                    <option value>Blue</option>
+                                    <option value>Green</option>
+                                    <option value>Yellow</option>
                                 </select>
                             </div>
-                            <!--Number of rooms-->
-                            <div class="form-group row">
-                                <label for="numberOfRooms" class="col-form-label col-sm-3">Number of Rooms</label>
-                                <input type="number">
-                            </div>
-                            <!--Room Price-->
-                            <div class="form-group row">
-                                <label for="price" class="col-form-label col-sm-3">Price</label>
-                                <input type="text" readonly class="form" value="£xx.xx">
+
+                            <div>
+                                <label for="Age" class="col-form-label col-sm-3">Age</label>
+                                <input type="number", name="Age">
                             </div>
 
-                            <div class="form-group row">
+                            <div>
+                                <label for="Gender" class="col-form-label col-sm-3">Gender</label>
+                                <select name="Gender">
+                                    <option value>Select Gender</option>
+                                    <option value>Male</option>
+                                    <option value>Female</option>
+                                </select>
+                            </div>
+
+
+                            <div>
+                                <label for="AmountOfPeople" class="col-form-label col-sm-3">Amount Of People</label>
+                                <input type="number", class="form-control", name="AmountOfPeople">
+                            </div>
+
+                            <div>
+                                <label for="Price" class="col-form-label col-sm-3">Price</label>
+                                <input type="text" name="Price" value="32">
+                            </div>
+                            <label></label>
+                            -->
+                            <div>
                                 <div class="col" align="center">
-                                    <a href="#" class="btn btn-primary">Confirm booking</a>
-                                    <a href="#" class="btn btn-primary">Discard changes</a>
+                                    <input class="btn btn-primary" type="submit" value="Confirm Booking"</a>
                                 </div>
                             </div>
-
                         </form>
 
                     </div>

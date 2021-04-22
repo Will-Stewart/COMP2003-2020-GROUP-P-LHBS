@@ -1,91 +1,125 @@
 <?php
 include_once 'header.php';
+
+$servername = "proj-mysql.uopnet.plymouth.ac.uk";
+$username = "COMP2003_P";
+$password = "YleM560+";
+
+// Create connection
+$con = new mysqli($servername, $username, $password);
+
+
+if(isset($_POST['submitSignIn'])) {
+
+    $uname = $_POST['user_name'];
+    $upassword = $_POST['password'];
+
+    require_once("../src/model/dbConnect.php");
+
+    userLogin($con, $uname, $upassword);
+}
+
+if(isset($_POST['submitSignup']))
+{
+    //something was posted
+    $usernameSignUp = $_POST['usernameSignup'];
+    $emailSignUp = $_POST['emailSignup'];
+    $passwordSignUp = $_POST['passwordSignup'];
+
+    if(!empty($usernameSignUp) && !empty($passwordSignUp) && !empty($emailSignUp))
+    {
+        //save to database
+        $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp','$passwordSignUp','$emailSignUp')";
+
+        echo "<pre>Debug: $query</pre>\m";
+        $result = mysqli_query($con, $query);
+        if ( false===$result ) {
+            printf("error: %s\n", mysqli_error($con));
+        }
+        else {
+            echo 'done.';
+            header("Location: ../public/index.php");
+        }
+    }else
+    {
+        echo "Please enter some valid information!";
+    }
+}
+
 ?>
 
-    <div class="container">
-        <div class="card mb-3">
-            <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
-                <p class="card-text">This is the Login page, this is where Volunteers can enter their details and gain access on a Volunteer account. The form below is where they can enter their details!</p>
-                <p class="card-text"><small class="text-muted">Last updated 21/01/2021</small></p>
-            </div>
-        </div>
-    </div>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>PROFILE PAGE</title>
+        <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    </head>
 
     <!--This is the user login form-->
-    <div class="container">
-        <br>  <p class="text-center">This is where LHBS users should login, Admins please go to the admin log in page at: <a href="loginAdmin.php"> Admin Login</a></p>
-        <hr>
-
-
+    <body class="loggedin">
+    <div class="content">
+        <h2>Log In & Sign Up</h2>
         <div class="row">
             <div class="col-sm">
-
                 <div class="card">
                     <article class="card-body">
-                        <h4 class="card-title mb-4 mt-1">Sign in</h4>
-                        <form>
-                            <div class="form-group">
-                                <label>Your username</label>
-                                <input type="text" class="form-control" placeholder="Username" id="username">
-                            </div> <!-- form-group// -->
-                            <div class="form-group">
+                        <h4 class="card-title mb-4 mt-1">Sign In</h4>
+                        <form action="../src/Model/authentication.php" method="post">
+                            <div>
+                                <label>Username</label>
+                                <input type="text" class="form-control" name="user_name">
+                            </div>
+                            <label></label>
+                            <div>
+                                <label>Password</label>
+                                <input type="password" class="form-control" name="password">
                                 <a class="float-right" href="#">Forgot?</a>
-                                <label>Your password</label>
-                                <input type="password" class="form-control" placeholder="********" id="password">
-                            </div> <!-- form-group// -->
-                            <div class="form-group">
-                            </div> <!-- form-group// -->
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block"> Login  </button>
-                            </div> <!-- form-group// -->
+                            </div>
+                            <label></label>
+                            <div>
+                                <input class="btn btn-primary" type="submit" name="submitSignIn" value="Submit">
+                            </div>
                         </form>
                     </article>
                 </div> <!-- card.// -->
 
             </div>
+
             <div class="col-sm">
 
                 <div class="card">
                     <article class="card-body">
-                        <h4 class="card-title mb-4 mt-1">Sign up</h4>
-                        <form>
-                            <div class="form-group">
-                                <label>Your username</label>
-                                <input type="text" class="form-control" placeholder="Username" id="username">
-                            </div> <!-- form-group// -->
-                            <div class="form-group">
-                                <label>Your email</label>
-                                <input type="text" class="form-control" placeholder="Email" id="email">
-                            </div> <!-- form-group// -->
-                            <div class="form-group">
-                                <label>Your password</label>
-                                <input type="password" class="form-control" placeholder="********" id="password">
-                            </div> <!-- form-group// -->
-                            <div class="form-group">
-                                <label>Re Enter Your password</label>
-                                <input type="password" class="form-control" placeholder="********" id="repassword">
-                            </div> <!-- form-group// -->
-                            <div class="form-group">
-                            </div> <!-- form-group// -->
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block"> Login  </button>
-                            </div> <!-- form-group// -->
+                        <h4 class="card-title mb-4 mt-1">Sign Up</h4>
+                        <form method="POST" action="#">
+                            <div>
+                                <label>Username</label>
+                                <input type="text" class="form-control" name="usernameSignup">
+                            </div>
+                            <label></label>
+                            <div>
+                                <label>Email</label>
+                                <input type="text" class="form-control" name="emailSignup">
+                            </div>
+                            <label></label>
+                            <div>
+                                <label>Password</label>
+                                <input type="password" class="form-control" name="passwordSignup">
+                            </div>
+                            <label></label>
+                            <div>
+                                <input class="btn btn-primary" type="submit" name="submitSignup" value="Submit">
+                            </div>
                         </form>
                     </article>
                 </div> <!-- card.// -->
-
 
             </div>
         </div>
-
-
-
-
-
-
     </div>
+
+    </body>
     </html>
 
 <?php
