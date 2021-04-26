@@ -212,6 +212,7 @@ $resultAll = mysqli_query($con, $sql3);
         th{
             background-color: #2f3947;
             color: white;
+            cursor: auto;
         }
     </style>
 
