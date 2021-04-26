@@ -9,16 +9,6 @@ $password = "YleM560+";
 $con = new mysqli($servername, $username, $password);
 
 
-if(isset($_POST['submitSignIn'])) {
-
-    $uname = $_POST['user_name'];
-    $upassword = $_POST['password'];
-
-    require_once("../src/model/dbConnect.php");
-
-    userLogin($con, $uname, $upassword);
-}
-
 if(isset($_POST['submitSignup']))
 {
     //something was posted
@@ -84,11 +74,8 @@ if(isset($_POST['submitSignup']))
                         </form>
                     </article>
                 </div> <!-- card.// -->
-
             </div>
-
             <div class="col-sm">
-
                 <div class="card">
                     <article class="card-body">
                         <h4 class="card-title mb-4 mt-1">Sign Up</h4>
