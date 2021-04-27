@@ -13,7 +13,7 @@ $id = $_SESSION['RegIDs'];
 $BookingID = $_SESSION['BookingID'];
 
 $sql = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, Price from comp2003_p.hostelbookings where RegID = $id ";
-$sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, Price from comp2003_p.hostelbookings where Confirmation = 'Confirmed' ";
+$sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, Price from comp2003_p.hostelbookings where Confirmation = 'Confirmed' && RegID = $id";
 $sql3 = "select * from comp2003_p.hostelbookings where BookingID = $BookingID";
 
 $result = mysqli_query($con, $sql);
@@ -28,7 +28,7 @@ if(isset($_POST['submitEdit'])) {
     $selectedAge = $_POST['editAge'];
     $selectedGender = $_POST['editGender'];
 
-    $query = "UPDATE comp2003_p.hostelbookings SET Preferred_Room = '$selectedRoomType', Age = $selectedAge, Gender = $selectedGender WHERE BookingID = $selectedBookingID";
+    $query = "UPDATE comp2003_p.hostelbookings SET Preferred_Room = '$selectedRoomType', Age = $selectedAge, Gender = '$selectedGender' WHERE BookingID = $selectedBookingID";
 
     echo "<pre>Debug: $query</pre>\m";
     $resultOrder = mysqli_query($con, $query);
@@ -58,6 +58,7 @@ if(isset($_POST['submitEdit'])) {
 
 
             //setting the values of the fields to the stored variables
+            $("#editBookingID").val(tempBookingID);
             $("#editFirstName").val(tempFirstName);
             $("#editLastName").val(tempLastName);
             $("#editBookingStartDate").val(tempBookingIn);
@@ -115,30 +116,36 @@ if(isset($_POST['submitEdit'])) {
             <h3>Selected Booking Details</h3>
             <form action="#" method="post">
                 <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Booking ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="editBookingID" id="editBookingID" placeholder="Booking ID">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">First Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="editFirstName" placeholder="First Name">
+                        <input type="text" class="form-control" name="editFirstName" id="editFirstName" placeholder="First Name">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Last Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="editLastName" placeholder="Last Name">
+                        <input type="text" class="form-control" name="editLastName" id="editLastName" placeholder="Last Name">
                     </div>
                 </div>
 
                 <div class="form-group row">
                        <label for="colFormLabel" class="col-sm-2 col-form-label">Booking Start Date</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="editBookingStartDate" placeholder="col-form-label">
+                        <input type="date" class="form-control" name="editBookingStartDate" id="editBookingStartDate" placeholder="col-form-label">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Booking End Date</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="editBookingEndDate" placeholder="col-form-label">
+                        <input type="date" class="form-control" name="editBookingEndDate" id="editBookingEndDate" placeholder="col-form-label">
                     </div>
                 </div>
 
@@ -149,19 +156,19 @@ if(isset($_POST['submitEdit'])) {
                         <legend class="col-form-label col-sm-2 pt-0">Rooms</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" value="option1" id="editBlueRoom">
+                                <input class="form-check-input" type="radio" name="editRoomType" value="Blue" id="editBlueRoom">
                                 <label class="form-check-label" for="gridRadios1">
                                     Blue Room - (Women)
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" value="option2" id="editYellowRoom">
+                                <input class="form-check-input" type="radio" name="editRoomType" value="Yellow" id="editYellowRoom">
                                 <label class="form-check-label" for="gridRadios2">
                                     Yellow Room - (Men)
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" value="option3" id="editGreenRoom">
+                                <input class="form-check-input" type="radio" name="editRoomType" value="Green" id="editGreenRoom">
                                 <label class="form-check-label" for="gridRadios3">
                                     Green Room - (Couples)
                                 </label>
@@ -173,7 +180,7 @@ if(isset($_POST['submitEdit'])) {
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Age</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="editAge">
+                        <input type="text" class="form-control" name="editAge" id="editAge">
                     </div>
                 </div>
                 <br>
@@ -182,13 +189,13 @@ if(isset($_POST['submitEdit'])) {
                         <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios2" id="editGenderMale" value="option1">
+                                <input class="form-check-input" type="radio" name="editGender" id="editGenderMale" value="Male">
                                 <label class="form-check-label" for="gridRadios1">
                                     Male
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios2" id="editGenderFemale" value="option2">
+                                <input class="form-check-input" type="radio" name="editGender" id="editGenderFemale" value="Female">
                                 <label class="form-check-label" for="gridRadios2">
                                     Female
                                 </label>
@@ -207,8 +214,8 @@ if(isset($_POST['submitEdit'])) {
 
                 <label></label>
                 <div class="form-group row">
-                    <input class="btn btn-primary" type="submitEdit" value="Confirm Changes">
-                    <input class="btn btn-primary" type="reset" value="Discard Changes">
+                    <input class="btn btn-primary" name="submitEdit" type="submit" value="Confirm Changes">
+                    <input class="btn btn-primary" name="restForm" type="reset" value="Discard Changes">
                 </div>
             </form>
         </div>
@@ -279,7 +286,7 @@ if(isset($_POST['submitEdit'])) {
             <div class="col-sm">
                 <h3>Confirmed Bookings</h3>
                 <div class="list-group">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                         <tr class="table-confirm">
                             <th scope="col">Booking ID</th>
