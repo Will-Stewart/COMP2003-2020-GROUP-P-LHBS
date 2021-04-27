@@ -20,6 +20,25 @@ $result = mysqli_query($con, $sql);
 $resultConfirmed = mysqli_query($con, $sql2);
 $resultAll = mysqli_query($con, $sql3);
 
+if(isset($_POST['submitEdit'])) {
+
+
+    $selectedBookingID = $_POST['editBookingID'];
+    $selectedRoomType = $_POST['editRoomType'];
+    $selectedAge = $_POST['editAge'];
+    $selectedGender = $_POST['editGender'];
+
+    $query = "UPDATE comp2003_p.hostelbookings SET Preferred_Room = '$selectedRoomType', Age = $selectedAge, Gender = $selectedGender WHERE BookingID = $selectedBookingID";
+
+    echo "<pre>Debug: $query</pre>\m";
+    $resultOrder = mysqli_query($con, $query);
+    if ( false===$resultOrder ) {
+        printf("error: %s\n", mysqli_error($con));
+    }
+    else {
+        echo 'done.';
+    }
+}
 ?>
 <script type="text/javascript">
 
@@ -94,7 +113,7 @@ $resultAll = mysqli_query($con, $sql3);
     <div class="row">
         <div class="col-sm">
             <h3>Selected Booking Details</h3>
-            <form>
+            <form action="#" method="post">
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">First Name</label>
                     <div class="col-sm-10">
@@ -188,7 +207,7 @@ $resultAll = mysqli_query($con, $sql3);
 
                 <label></label>
                 <div class="form-group row">
-                    <input class="btn btn-primary" type="submit" value="Confirm Changes">
+                    <input class="btn btn-primary" type="submitEdit" value="Confirm Changes">
                     <input class="btn btn-primary" type="reset" value="Discard Changes">
                 </div>
             </form>
