@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once '../Headers/header.php';
 session_start();
 
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
@@ -178,5 +178,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 
 <?php
-include_once 'footer.php';
+include_once '../Headers/footer.php';
 ?>

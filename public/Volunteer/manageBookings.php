@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once '../Headers/header.php';
 
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
 $username = "COMP2003_P";
@@ -432,5 +432,5 @@ if(isset($_POST['submitEdit'])) {
 </head>
 
 <?php
-include_once 'footer.php';
+include_once '../Headers/footer.php';
 ?>
