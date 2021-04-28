@@ -1,11 +1,6 @@
 <?php
-include_once '../Headers/header.php';
-
-// do check
-if (!isset($_SESSION["loggedin"])) {
-    header("location: error.php");
-    exit; // prevent further execution, should there be more code that follows
-}
+include_once 'header.php';
+session_start();
 
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
 $username = "COMP2003_P";
@@ -16,57 +11,48 @@ $con = new mysqli($servername, $username, $password);
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-
-//    $result = $queryAvailability = "SELECT COUNT(BookingID, Booking_StartDate, Booking_EndDate) AS total FROM comp2003_p.hostelbookings WHERE Preferred_Room = 8";
-//    $row = mysqli_fetch_object($result);
-//    $total =$row->total;
-//    if ($total > 1) {}
-
-    //something was posted
-    $regID = $_SESSION['RegIDs'];
+    // Something was posted
     $firstname = $_POST['Firstname'];
     $lastname = $_POST['Lastname'];
     $BookingIn = $_POST['BookingIn'];
     $BookingOut = $_POST['BookingOut'];
-    $WorkingDays = $_POST['WorkingDays'];
     $Gender = $_POST['Gender'];
     $Age = $_POST['Age'];
     $RoomType = $_POST['RoomType'];
     $NumberofPeople = $_POST['AmountOfPeople'];
-    $Price = $_POST['Price'];
+    $WorkingDays = $_POST['WorkingDays'];
 
-    if(!empty($firstname) && !empty($lastname) && !empty($BookingIn) &&
-        !empty($BookingOut) && !empty($Gender) && !empty($Age) &&
-        !empty($RoomType) && !empty($NumberofPeople) && !empty($Price))
-    {
+    // Assign session variables
+    $_SESSION['sessionFirstName'] = $firstname;
+    $_SESSION['sessionLastName'] = $lastname;
+    $_SESSION['sessionBookingIn'] = $BookingIn;
+    $_SESSION['sessionBookingOut'] = $BookingOut;
+    $_SESSION['sessionGender'] = $Gender;
+    $_SESSION['sessionAge'] = $Age;
+    $_SESSION['sessionRoomType'] = $RoomType;
+    $_SESSION['sessionNumberofPeople'] = $NumberofPeople;
+    $_SESSION['sessionWorkingDays'] = $WorkingDays;
 
-        //save to database
-        $query = "insert into comp2003_p.hostelbookings (RegID, First_Name,Last_Name,Booking_StartDate,Booking_EndDate,Gender,Age,AmountOfPeople,Preferred_Room,Price) 
-        values ('$regID','$firstname','$lastname','$BookingIn','$BookingOut','$Gender','$Age','$NumberofPeople','$RoomType','$Price')";
+    //Session Variable Testing - Remove when complete
+    echo $_SESSION['sessionFirstName'];
+    echo $_SESSION['sessionLastName'];
+    echo $_SESSION['sessionBookingIn'];
+    echo $_SESSION['sessionBookingOut'];
+    echo $_SESSION['sessionGender'];
+    echo $_SESSION['sessionAge'];
+    echo $_SESSION['sessionRoomType'];
+    echo $_SESSION['sessionNumberofPeople'];
+    echo $_SESSION['sessionWorkingDays'];
 
-        echo "<pre>Debug: $query</pre>\m";
-        $result = mysqli_query($con, $query);
-        if ( false===$result ) {
-            printf("error: %s\n", mysqli_error($con));
-        }
-        else {
-            echo 'done.';
-            header("Location: createBooking.php");
-        }
-    }else
-    {
-        echo "Please enter some valid information! ";
-        $days_between = ceil(abs($BookingOut - $BookingIn) / 86400);
-        echo round($days_between);
-    }
+    session_write_close();
+
+    header('Location: bookingReceipt.php');
 }
-
-
 ?>
 
 <div class="container">
     <div class="card mb-3">
-        <img src="../../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
+        <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
             <p class="card-text">This page is going to contain a Booking Form which allows Volunteers/Non Volunteers to create a booking in order to stay at the Talyllyn Railway Hostel.
@@ -78,135 +64,108 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <!--^^to be deleted once done-->
 
 <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" align="center">My bookings</h5>
+                        <div class="card-header">Approved Bookings</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Booking 1</li>
+                            <li class="list-group-item">Booking 2</li>
+                        </ul>
+                        <div class="card-header">Pending Bookings</div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Unapproved Booking 1</li>
+                            <li class="list-group-item">Unapproved Booking 2</li>
+                        </ul>
+                        <br>
+
+                        <a href="#" class="btn btn-primary">[+] New Booking </a>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-8">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title" align="center">Enter Details</h5>
                         <form method="POST" action="#">
-                            <div>
-                                <label>Firstname</label>
+                            <!--First Name Input-->
+                            <div class="form-group row">
+
+                                <label name="Firstname" class="col-form-label col-sm-3 ">First Name:</label>
                                 <input type="text" class="form-control" name="Firstname">
-                            </div>
 
-                            <div>
-                                <label>Lastname</label>
+                            </div>
+                            <!--Last Name Input-->
+                            <div class="form-group row">
+
+                                <label name="Lastname" class="col-form-label col-sm-3">Last Name:</label>
                                 <input type="text" class="form-control" name="Lastname">
-                            </div>
 
-                            <div>
-                                <label>Booking In Date</label>
+                            </div>
+                            <!--Booking In Date Input-->
+                            <div class="form-group row">
+
+                                <label name="date" class="col-form-label col-sm-3">Booking in date:</label>
                                 <input type="date" class="form-control" name="BookingIn">
-                            </div>
 
-                            <div>
-                                <label>Booking Out Date</label>
+                            </div>
+                            <!--Booking Out Date Input-->
+                            <div class="form-group row">
+
+                                <label name="date" class="col-form-label col-sm-3">Checking out date:</label>
                                 <input type="date" class="form-control" name="BookingOut">
-                            </div>
 
-                            <label></label>
-                            <div>
-                                RoomType:
-                                <input type="radio" name="RoomType"
-                                    <?php if (isset($RoomType) && $RoomType=="Blue") echo "checked";?>
-                                       value="Blue">Blue
-                                <input type="radio" name="RoomType"
-                                    <?php if (isset($RoomType) && $RoomType=="Green") echo "checked";?>
-                                       value="Green">Green
-                                <input type="radio" name="RoomType"
-                                    <?php if (isset($RoomType) && $RoomType=="Yellow") echo "checked";?>
-                                       value="Yellow">Yellow
                             </div>
-                            <label></label>
-                            <div>
-                                <label>Age</label>
+                            <!--Gender Input-->
+                            <div class="form-group row">
+
+                                <label name="Gender" class="col-form-label col-sm-3">Gender:</label>
+                                <select name="Gender" class="form-control">
+                                    <option value>select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+
+                            </div>
+                            <!--Age Input-->
+                            <div class="form-group row">
+
+                                <label name="Age" class="col-form-label col-sm-3">Age:</label>
                                 <input type="number" class="form-control" name="Age">
+
                             </div>
-                            <label></label>
-                            <div>
-                                Gender:
-                                <input type="radio" name="Gender"
-                                    <?php if (isset($Gender) && $Gender=="Female") echo "checked";?>
-                                       value="Female">Female
-                                <input type="radio" name="Gender"
-                                    <?php if (isset($Gender) && $Gender=="Male") echo "checked";?>
-                                       value="Male">Male
-                            </div>
-                            <label></label>
-                            <div>
-                                <label>Amount of People</label>
+                            <!--No. of People Input-->
+                            <div class="form-group row">
+
+                                <label name="AmountOfPeople" class="col-form-label col-sm-3">Amount Of People:</label>
                                 <input type="number" class="form-control" name="AmountOfPeople">
-                            </div>
 
-                            <div>
-                                <label>Price</label>
-                                <input type="number" class="form-control" name="Price">
                             </div>
+                            <!--Room Type Input-->
+                            <div class="form-group row">
 
-                            <!--
-                            <div>
-                                <label for="Firstname" class="col-form-label col-sm-3">Firstname</label>
-                                <input type="text" name="Firstname">
-                            </div>
-
-                            <div>
-                                <label for="Lastname" class="col-form-label col-sm-3">Lastname</label>
-                                <input type="text" name="Lastname">
-                            </div>
-
-                            <div>
-                                <label>Booking In</label>
-                                <input type="date" class="form-control" name="BookingIn">
-                            </div>
-
-                            <div>
-                                <label>Booking Out</label>
-                                <input type="date" class="form-control" name="BookingOut">
-                            </div>
-
-                            <div>
-                                <label for="WorkingDays" class="col-form-label col-sm-3">How many working days?</label>
-                                <input type="number", name="WorkingDays">
-                            </div>
-
-                            <div>
-                                <label for="RoomType" class="col-form-label col-sm-3">Room type</label>
-                                <select name="RoomType">
-                                    <option value>Select Room</option>
-                                    <option value>Blue</option>
-                                    <option value>Green</option>
-                                    <option value>Yellow</option>
+                                <label name="select" class="col-form-label col-sm-3">Room type:</label>
+                                <select name="RoomType" class="form-control">
+                                    <option value>select room</option>
+                                    <option value="Blue">Blue</option>
+                                    <option value="Green">Green</option>
+                                    <option value="Yellow">Yellow</option>
                                 </select>
-                            </div>
 
-                            <div>
-                                <label for="Age" class="col-form-label col-sm-3">Age</label>
-                                <input type="number", name="Age">
                             </div>
+                            <!--Volunteering Days-->
+                            <div class="form-group row">
 
-                            <div>
-                                <label for="Gender" class="col-form-label col-sm-3">Gender</label>
-                                <select name="Gender">
-                                    <option value>Select Gender</option>
-                                    <option value>Male</option>
-                                    <option value>Female</option>
-                                </select>
+                                <label name="WorkingDays" class="col-form-label ">Number of days expecting to work:</label>
+                                <input type="text" name ="WorkingDays" class="form-control">
+
                             </div>
-
-
-                            <div>
-                                <label for="AmountOfPeople" class="col-form-label col-sm-3">Amount Of People</label>
-                                <input type="number", class="form-control", name="AmountOfPeople">
-                            </div>
-
-                            <div>
-                                <label for="Price" class="col-form-label col-sm-3">Price</label>
-                                <input type="text" name="Price" value="32">
-                            </div>
-                            <label></label>
-                            -->
-                            <div>
+                            <div class="form-group row">
                                 <div class="col" align="center">
-                                    <input class="btn btn-primary" type="submit" value="Confirm Booking"</a>
+                                    <input class="btn btn-primary" type="submit" value="Create Booking">
                                 </div>
                             </div>
                         </form>
@@ -219,5 +178,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 
 <?php
-include_once '../Headers/footer.php';
+include_once 'footer.php';
 ?>
