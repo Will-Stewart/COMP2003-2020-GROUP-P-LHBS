@@ -14,16 +14,9 @@ if ( mysqli_connect_errno() ) {
 
 }
 
-// Now we check if the data from the login form was submitted, isset() will check if the data exists.
-if ( !isset($_POST['user_name'], $_POST['password']) ) {
-    // Could not get the data that should have been sent.
-    exit('Please fill both the username and password fields!');
-}
-
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT RegID, UPasswords FROM comp2003_p.registeredusers WHERE Username = ?')) {
+if ($stmt = $con->prepare('SELECT * FROM comp2003_p.hostelbookings WHERE BookingID = ?')) {
     // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-    $stmt->bind_param('s', $_POST['user_name']);
     $stmt->execute();
     // Store the result so we can check if the account exists in the database.
     $stmt->store_result();
@@ -42,7 +35,7 @@ if ($stmt->num_rows > 0) {
         $_SESSION['loggedin'] = TRUE;
         $_SESSION['name'] = $_POST['user_name'];
         $_SESSION['RegIDs'] = $id;
-        header("Location: ../../public/Volunteer/index.php");
+        header("Location: ../../public/index.php");
     } else {
         // Incorrect password
         echo 'Incorrect username and/or password!';
@@ -52,5 +45,3 @@ if ($stmt->num_rows > 0) {
     echo 'Incorrect username and/or password!';
 }
 ?>
-
-

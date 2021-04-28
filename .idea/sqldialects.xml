@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/public/createManageBooking.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/public/loginUser.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/public/Admin/adminBookingManager.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/public/Admin/adminUserManager.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/public/Admin/loginAdmin.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/public/Volunteer/createBooking.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/public/Volunteer/loginUser.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/public/Volunteer/manageBookings.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Model/adminAuthentication.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Model/authentication.php" dialect="MySQL" />
+    <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>
