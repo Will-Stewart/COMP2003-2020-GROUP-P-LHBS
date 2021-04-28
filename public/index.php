@@ -10,11 +10,8 @@ include_once 'header.php';
 
 
     <div class="container">
-
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">About The Llechfan Hostel Booking System</h1>
-
-
 
         <!-- Intro Content -->
         <div class="row">
@@ -45,6 +42,7 @@ include_once 'header.php';
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
                     <img class="card-img-top" src="../assets/img/blue.jpg" alt="Blue Room Preview">
@@ -58,6 +56,7 @@ include_once 'header.php';
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
                     <img class="card-img-top" src="../assets/img/yellow.jpg" alt="Yellow Room Preview">
