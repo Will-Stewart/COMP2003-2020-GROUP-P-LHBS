@@ -1,5 +1,11 @@
 <?php
-include_once 'header.php';
+include_once '../Headers/header.php';
+
+// do check
+if (!isset($_SESSION["loggedin"])) {
+    header("location: error.php");
+    exit; // prevent further execution, should there be more code that follows
+}
 
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
 $username = "COMP2003_P";
@@ -10,22 +16,39 @@ $con = new mysqli($servername, $username, $password);
 
 
 $id = $_SESSION['RegIDs'];
-$BookingID = $_SESSION['BookingID'];
 
-$sql = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate from comp2003_p.hostelbookings where RegID = $id ";
-$sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate from comp2003_p.hostelbookings where Confirmation = 'Confirmed' ";
-$sql3 = "select * from comp2003_p.hostelbookings where BookingID = $BookingID";
+$sql = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Price from comp2003_p.hostelbookings where RegID = $id ";
+$sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Price from comp2003_p.hostelbookings where Confirmation = 'Confirmed' && RegID = $id";
+
+if(isset($_POST['submitEdit'])) {
+
+    $selectedBookingID = $_POST['editBookingID'];
+    $selectedRoomType = $_POST['gridRadios'];
+    $selectedAge = $_POST['editAge'];
+    $selectedGender = $_POST['editGender'];
+
+    $query = "UPDATE comp2003_p.hostelbookings SET Preferred_Room = '$selectedRoomType', Age = $selectedAge, Gender = $selectedGender WHERE BookingID = $selectedBookingID";
+
+    echo "<pre>Debug: $query</pre>\m";
+    $resultOrder = mysqli_query($con, $query);
+    if ( false===$resultOrder ) {
+        printf("error: %s\n", mysqli_error($con));
+    }
+    else {
+        echo 'done.';
+    }
+}
 
 $result = mysqli_query($con, $sql);
 $resultConfirmed = mysqli_query($con, $sql2);
-$resultAll = mysqli_query($con, $sql3);
 
 ?>
 <div class="container center_div">
     <div class="row">
         <div class="col-sm">
+            <br>
             <h3>Selected Booking Details</h3>
-            <form>
+            <form action="#" method="post">
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Booking Start Date</label>
                     <div class="col-sm-10">
@@ -87,13 +110,15 @@ $resultAll = mysqli_query($con, $sql3);
                     </div>
                 </div>
                 <label></label>
-                <div class="form-group row">
-                    <input class="btn btn-primary" type="submit" value="Confirm Changes">
+                <div>
+                    <input class="btn btn-primary" type="submit" name="submitEdit" value="Confirm Changes">
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<br>
 
 <!DOCTYPE html>
 <html>
@@ -126,6 +151,7 @@ $resultAll = mysqli_query($con, $sql3);
                             <th scope="col">Last Name</th>
                             <th scope="col">Booking Start Date</th>
                             <th scope="col">Booking End Date</th>
+                            <th scope="col">Price (£)</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -138,6 +164,7 @@ $resultAll = mysqli_query($con, $sql3);
                                        <td class='td3'>". $row["Last_Name"] . "</td>
                                        <td class='td4'>". $row["Booking_StartDate"] . "</td>
                                        <td class='td5'>". $row["Booking_EndDate"] ."</td>
+                                       <td class='td6'>". $row["Price"] ."</td>
                                        </tr>";
                             }
                             echo "</table>";
@@ -153,6 +180,8 @@ $resultAll = mysqli_query($con, $sql3);
         </div>
     </div>
 
+    <br>
+
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -166,6 +195,7 @@ $resultAll = mysqli_query($con, $sql3);
                             <th scope="col">Last Name</th>
                             <th scope="col">Booking Start Date</th>
                             <th scope="col">Booking End Date</th>
+                            <th scope="col">Price (£)</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -174,12 +204,14 @@ $resultAll = mysqli_query($con, $sql3);
                             while($row = $resultConfirmed-> fetch_assoc()){
                                 //if completed bookings need viewing add in class name and probably separate fields for viewing
                                 echo
-                                    "<tr><td>"
-                                    . $row["BookingID"]
-                                    ."</td><td>". $row["First_Name"]
-                                    ."</td><td>". $row["Last_Name"]
-                                    ."</td><td>". $row["Booking_StartDate"]
-                                    ."</td><td>". $row["Booking_EndDate"]."</td></t>";
+                                    "<tr>
+                                    <td>" . $row["BookingID"] ."</td>
+                                    <td>". $row["First_Name"] ."</td>
+                                    <td>". $row["Last_Name"] ."</td>
+                                    <td>". $row["Booking_StartDate"] ."</td>
+                                    <td>". $row["Booking_EndDate"]."</td>
+                                    <td>". $row["Price"]."</td>
+                                    </t>";
                             }
                             echo "</table>";
                         }
@@ -196,5 +228,5 @@ $resultAll = mysqli_query($con, $sql3);
 </head>
 
 <?php
-include_once 'footer.php';
+include_once '../Headers/footer.php';
 ?>

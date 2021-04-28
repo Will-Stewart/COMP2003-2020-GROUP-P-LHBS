@@ -42,7 +42,7 @@ if ($stmt->num_rows > 0) {
         $_SESSION['loggedin'] = TRUE;
         $_SESSION['name'] = $_POST['user_name'];
         $_SESSION['RegIDs'] = $id;
-        header("Location: ../../public/index.php");
+        header("Location: ../../public/Volunteer/index.php");
     } else {
         // Incorrect password
         echo 'Incorrect username and/or password!';

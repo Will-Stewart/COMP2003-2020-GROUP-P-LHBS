@@ -9,3 +9,7 @@
         text-align: center;
     }
 </style>
+
+<footer>
+    GROUP P
+</footer>

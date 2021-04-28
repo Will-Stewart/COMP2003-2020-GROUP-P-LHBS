@@ -1,10 +1,10 @@
 <?php
-include_once 'header.php';
+include_once '../Headers/header.php';
 ?>
 
     <section class="showcase">
         <div>
-            <img src="../assets/img/talyllyn.jpg" alt="talyllyn train preview" style="width:100%;min-height:350px;max-height:650px;">
+            <img src="../../assets/img/talyllyn.jpg" alt="talyllyn train preview" style="width:100%;min-height:350px;max-height:650px;">
         </div>
     </section>
 
@@ -16,7 +16,7 @@ include_once 'header.php';
         <!-- Intro Content -->
         <div class="row">
             <div class="col-lg-6">
-                <img class="img-fluid rounded mb-4" src="../assets/img/llechfantrain.jpg" alt="">
+                <img class="img-fluid rounded mb-4" src="../../assets/img/llechfantrain.jpg" alt="">
             </div>
             <div class="col-lg-6">
                 <h2>Info</h2>
@@ -31,7 +31,7 @@ include_once 'header.php';
         <div class="row">
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
-                    <img class="card-img-top" src="../assets/img/green.jpg" alt="Green Room Preview">
+                    <img class="card-img-top" src="../../assets/img/green.jpg" alt="Green Room Preview">
                     <div class="card-body">
                         <h4 class="card-title">Green Room</h4>
                         <h6 class="card-subtitle mb-2 text-muted">2 Bunks</h6>
@@ -45,7 +45,7 @@ include_once 'header.php';
 
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
-                    <img class="card-img-top" src="../assets/img/blue.jpg" alt="Blue Room Preview">
+                    <img class="card-img-top" src="../../assets/img/blue.jpg" alt="Blue Room Preview">
                     <div class="card-body">
                         <h4 class="card-title">Blue Room</h4>
                         <h6 class="card-subtitle mb-2 text-muted">4 Bunks</h6>
@@ -59,7 +59,7 @@ include_once 'header.php';
 
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
-                    <img class="card-img-top" src="../assets/img/yellow.jpg" alt="Yellow Room Preview">
+                    <img class="card-img-top" src="../../assets/img/yellow.jpg" alt="Yellow Room Preview">
                     <div class="card-body">
                         <h4 class="card-title">Yellow Room</h4>
                         <h6 class="card-subtitle mb-2 text-muted">6 Bunks</h6>
@@ -76,5 +76,5 @@ include_once 'header.php';
     </div>
 
 <?php
-include_once 'footer.php';
+include_once '../Headers/footer.php';
 ?>

@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #8b0808;">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #8B0808;">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <img src="../assets/img/talyllyn-logo.png" width="228" height="66" alt="logo">
+                <img src="../../assets/img/talyllyn-logo.png" width="228" height="66" alt="logo">
             </li>
         </ul>
 
@@ -13,11 +13,19 @@
             </li>
 
             <li class="nav-item" style="align-items: center">
-                <a class="nav-link" href="adminPortal.php">Admin Portal</a>
+                <a class="nav-link" href="createBooking.php">Create Booking</a>
+            </li>
+
+            <li class="nav-item" style="align-items: center">
+                <a class="nav-link" href="manageBookings.php">Manage Bookings</a>
             </li>
 
             <li class="nav-item" style="align-items: center">
                 <a class="nav-link" href="support.php">Support</a>
+            </li>
+
+            <li class="nav-item" style="align-items: center">
+                <a class="nav-link " href="profile.php"><i class="fas fa-user-circle"></i> Profile</a>
             </li>
 
             <li class="nav-item" style="align-items: center">

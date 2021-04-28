@@ -2,7 +2,7 @@
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <img src="../assets/img/talyllyn-logo.png" width="228" height="66" alt="logo">
+                <img src="../../assets/img/talyllyn-logo.png" width="228" height="66" alt="logo">
             </li>
         </ul>
 
