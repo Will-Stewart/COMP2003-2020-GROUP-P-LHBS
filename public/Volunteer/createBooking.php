@@ -1,5 +1,11 @@
 <?php
-include_once 'header.php';
+include_once '../Headers/header.php';
+
+// do check
+if (!isset($_SESSION["loggedin"])) {
+    header("location: error.php");
+    exit; // prevent further execution, should there be more code that follows
+}
 
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
 $username = "COMP2003_P";
@@ -10,6 +16,12 @@ $con = new mysqli($servername, $username, $password);
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
+
+//    $result = $queryAvailability = "SELECT COUNT(BookingID, Booking_StartDate, Booking_EndDate) AS total FROM comp2003_p.hostelbookings WHERE Preferred_Room = 8";
+//    $row = mysqli_fetch_object($result);
+//    $total =$row->total;
+//    if ($total > 1) {}
+
     //something was posted
     $regID = $_SESSION['RegIDs'];
     $firstname = $_POST['Firstname'];
@@ -39,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         }
         else {
             echo 'done.';
-            header("Location: createManageBooking.php");
+            header("Location: createBooking.php");
         }
     }else
     {
@@ -49,11 +61,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     }
 }
 
+
 ?>
 
 <div class="container">
     <div class="card mb-3">
-        <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
+        <img src="../../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
             <p class="card-text">This page is going to contain a Booking Form which allows Volunteers/Non Volunteers to create a booking in order to stay at the Talyllyn Railway Hostel.
@@ -65,28 +78,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <!--^^to be deleted once done-->
 
 <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" align="center">My bookings</h5>
-                        <div class="card-header">Approved Bookings</div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Booking 1</li>
-                            <li class="list-group-item">Booking 2</li>
-                        </ul>
-                        <div class="card-header">Pending Bookings</div>
-                        <ul class="list-group">
-                            <li class="list-group-item">Unapproved Booking 1</li>
-                            <li class="list-group-item">Unapproved Booking 2</li>
-                        </ul>
-                        <br>
-
-                        <a href="#" class="btn btn-primary">[+] New Booking </a>
-                    </div>
-                </div>
-            </div>
-
             <div class="col-8">
                 <div class="card">
                     <div class="card-body">
@@ -228,5 +219,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 
 <?php
-include_once 'footer.php';
+include_once '../Headers/footer.php';
 ?>

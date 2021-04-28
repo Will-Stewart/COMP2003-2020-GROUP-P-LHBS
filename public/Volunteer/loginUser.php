@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once '../Headers/header.php';
 
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
 $username = "COMP2003_P";
@@ -9,27 +9,23 @@ $password = "YleM560+";
 $con = new mysqli($servername, $username, $password);
 
 
-if(isset($_POST['submitSignIn'])) {
-
-    $uname = $_POST['user_name'];
-    $upassword = $_POST['password'];
-
-    require_once("../src/model/dbConnect.php");
-
-    userLogin($con, $uname, $upassword);
-}
-
 if(isset($_POST['submitSignup']))
 {
     //something was posted
     $usernameSignUp = $_POST['usernameSignup'];
     $emailSignUp = $_POST['emailSignup'];
-    $passwordSignUp = $_POST['passwordSignup'];
+
+//    $password=$_POST['passwordSignup'];
+//    $options = array(
+//        'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+//        'cost' => 12,
+//    );
+//    $hashedpass = password_hash($password, PASSWORD_BCRYPT, $options);
 
     if(!empty($usernameSignUp) && !empty($passwordSignUp) && !empty($emailSignUp))
     {
         //save to database
-        $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp','$passwordSignUp','$emailSignUp')";
+        $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp','$hashedpass','$emailSignUp')";
 
         echo "<pre>Debug: $query</pre>\m";
         $result = mysqli_query($con, $query);
@@ -53,7 +49,7 @@ if(isset($_POST['submitSignup']))
     <head>
         <meta charset="utf-8">
         <title>PROFILE PAGE</title>
-        <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>
 
@@ -66,7 +62,7 @@ if(isset($_POST['submitSignup']))
                 <div class="card">
                     <article class="card-body">
                         <h4 class="card-title mb-4 mt-1">Sign In</h4>
-                        <form action="../src/Model/authentication.php" method="post">
+                        <form action="../../src/Model/authentication.php" method="post">
                             <div>
                                 <label>Username</label>
                                 <input type="text" class="form-control" name="user_name">
@@ -84,11 +80,8 @@ if(isset($_POST['submitSignup']))
                         </form>
                     </article>
                 </div> <!-- card.// -->
-
             </div>
-
             <div class="col-sm">
-
                 <div class="card">
                     <article class="card-body">
                         <h4 class="card-title mb-4 mt-1">Sign Up</h4>
@@ -123,5 +116,5 @@ if(isset($_POST['submitSignup']))
     </html>
 
 <?php
-include_once 'footer.php';
+include_once '../Headers/footer.php';
 ?>

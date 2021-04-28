@@ -1,10 +1,10 @@
 <?php
-include_once 'header.php';
+include_once '../Headers/header.php';
 ?>
 
 <div class="container">
     <div class="card mb-3">
-        <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
+        <img src="../../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
             <p class="card-text">This page is going to contain supportive information for the user e.g. how to navigate the site, how to login, how to sign up etc.
@@ -18,5 +18,5 @@ include_once 'header.php';
 </html>
 
 <?php
-include_once 'footer.php';
+include_once '../Headers/footer.php';
 ?>

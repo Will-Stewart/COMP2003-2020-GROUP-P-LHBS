@@ -1,5 +1,11 @@
 <?php
-include_once 'header.php';
+include_once '../Headers/header.php';
+
+// do check
+if (!isset($_SESSION["loggedin"])) {
+    header("location: error.php");
+    exit; // prevent further execution, should there be more code that follows
+}
 
 // We need to use sessions, so you should always start sessions using the below code.
 session_start();
@@ -30,7 +36,7 @@ $con = new mysqli($servername, $username, $password);
 <head>
     <meta charset="utf-8">
     <title>PROFILE PAGE</title>
-    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 </head>
     <body class="loggedin">
@@ -58,5 +64,5 @@ $con = new mysqli($servername, $username, $password);
 </html>
 
 <?php
-include_once 'footer.php';
+include_once '../Headers/footer.php';
 ?>
