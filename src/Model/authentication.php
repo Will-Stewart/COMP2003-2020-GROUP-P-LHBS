@@ -11,7 +11,6 @@ $con = new mysqli($servername, $username, $password);
 if ( mysqli_connect_errno() ) {
     // If there is an error with the connection, stop the script and display the error.
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-
 }
 
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
@@ -36,20 +35,33 @@ if ($stmt->num_rows > 0) {
     // Account exists, now we verify the password.
     // Note: remember to use password_hash in your registration file to store the hashed passwords.
     if ($_POST['password'] === $password) {
-        // Verification success! User has logged-in!
+      // Verification success! User has logged-in!
         // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
         session_regenerate_id();
         $_SESSION['loggedin'] = TRUE;
         $_SESSION['name'] = $_POST['user_name'];
         $_SESSION['RegIDs'] = $id;
-        header("Location: ../../public/Volunteer/index.php");
-    } else {
-        // Incorrect password
+
+        $sql = "select * from comp2003_p.hostelbookings where Confirmation = 'Confirmed' AND RegID = $id";
+        $resultConfirmed = mysqli_query($con, $sql);
+
+        if ($resultConfirmed->num_rows > 0) {
+            $message = "Notification: You have confirmed bookings!";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+
+        header("refresh:1; url=../../public/Volunteer/index.php");
+    }
+    else
+        {
+            // Incorrect password
+            echo 'Incorrect username and/or password!';
+        }
+}
+else
+    {
+        // Incorrect username
         echo 'Incorrect username and/or password!';
     }
-} else {
-    // Incorrect username
-    echo 'Incorrect username and/or password!';
 }
 ?>
 

@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="51f09e9b-7716-47d0-9e03-dedd4d77a7fe" name="Default Changelist" comment="Changes to confirmbookings page&#10;ToDo: be able to view previous bookings make changes to the booking and store them to the database">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_03_2021_11_58_pm__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_03_2021_11_58_pm__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_04_2021_2_57_pm__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_04_2021_2_57_pm__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_04_2021_2_57_pm__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_04_2021_2_57_pm__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_04_2021_3_17_pm__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_04_2021_3_17_pm__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2021_3_03_pm__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2021_3_03_pm__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admin/adminBookingManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/adminBookingManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admin/adminUserManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/adminUserManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admin/editHostelData.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/editHostelData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Volunteer/bookingReceipt.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Volunteer/bookingReceipt.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Volunteer/createBooking.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Volunteer/createBooking.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Volunteer/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Volunteer/loginUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Volunteer/manageBookings.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Volunteer/manageBookings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manageBookings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/adminAuthentication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/adminAuthentication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/authentication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/authentication.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +86,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -262,6 +282,16 @@
     <MESSAGE value="Rebased Branch" />
     <MESSAGE value="Changes to confirmbookings page&#10;ToDo: be able to view previous bookings make changes to the booking and store them to the database" />
     <option name="LAST_COMMIT_MESSAGE" value="Changes to confirmbookings page&#10;ToDo: be able to view previous bookings make changes to the booking and store them to the database" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="936" y="330" key="run.anything.popup" timestamp="1619647727224">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="936" y="330" key="run.anything.popup/0.0.2560.1400/2560.217.1920.1040@0.0.2560.1400" timestamp="1619647727224" />
+    <state x="1072" y="578" key="scopes" timestamp="1619644710070">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1072" y="578" key="scopes/0.0.2560.1400/2560.217.1920.1040@0.0.2560.1400" timestamp="1619644710070" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

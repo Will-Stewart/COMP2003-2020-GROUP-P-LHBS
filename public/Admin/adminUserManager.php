@@ -28,10 +28,12 @@ if(isset($_POST['submitSignup']))
 
         echo "<pre>Debug: $query</pre>\m";
         $result = mysqli_query($con, $query);
+
         if ( false===$result ) {
             printf("error: %s\n", mysqli_error($con));
         }
-    }else
+    }
+    else
     {
         echo "Please enter some valid information!";
     }
@@ -53,68 +55,66 @@ $result = mysqli_query($con, $sql);
 
 <!--This is the user login form-->
 <body class="loggedin">
-<div class="content">
-    <h2>CREATE NEW ADMIN USER</h2>
-
-    <div class="col-sm">
-        <div class="card">
-            <article class="card-body">
-                <h4 class="card-title mb-4 mt-1">Enter Admin Details</h4>
-                <form method="POST" action="#">
-                    <div>
-                        <label>Username</label>
-                        <input type="text" class="form-control" name="adminUsername">
-                    </div>
-                    <label></label>
-                    <div>
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="adminPassword">
-                    </div>
-                    <label></label>
-                    <div>
-                        <input class="btn btn-primary" type="submit" name="submitSignup" value="Submit">
-                    </div>
-                </form>
-            </article>
-        </div> <!-- card.// -->
-    </div>
-
-</body>
+    <div class="content">
+        <h2>CREATE NEW ADMIN USER</h2>
+        <div class="col-sm">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title mb-4 mt-1">Enter Admin Details</h4>
+                    <form method="POST" action="#">
+                        <div>
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="adminUsername">
+                        </div>
+                        <label></label>
+                        <div>
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="adminPassword">
+                        </div>
+                        <label></label>
+                        <div>
+                            <input class="btn btn-primary" type="submit" name="submitSignup" value="Submit">
+                        </div>
+                    </form>
+                </article>
+            </div> <!-- card.// -->
+        </div>
+    </body>
 </html>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <h3>Admin Users</h3>
-                <div class="list-group">
-                    <table class="table" id="adminUsers">
-                        <thead>
-                        <tr class="table-confirm">
-                            <th scope="col">Admin Username</th>
-                            <th scope="col">Password</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        if($result-> num_rows > 0){
-                            while($row = $result-> fetch_assoc()){
-                                echo "<tr name='table-row'>
-                                           <td>". $row["Admin_Username"] ."</td>
-                                           <td>". $row["Admin_Password"] ."</td>
-                                           </tr>";
-                            }
-                            echo "</table>";
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h3>Admin Users</h3>
+            <div class="list-group">
+                <table class="table table-hover" id="adminUsers">
+                    <thead>
+                    <tr class="table-confirm">
+                        <th scope="col">Admin Username</th>
+                        <th scope="col">Password</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    if($result-> num_rows > 0){
+                        while($row = $result-> fetch_assoc()){
+                            echo "<tr name='table-row'>
+                                       <td>". $row["Admin_Username"] ."</td>
+                                       <td>". $row["Admin_Password"] ."</td>
+                                       </tr>";
                         }
-                        else{
-                            echo $result + "results";
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-                </div>
+                        echo "</table>";
+                    }
+                    else{
+                        echo $result + "results";
+                    }
+                    ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
 <?php
 include_once '../Headers/footer.php';
