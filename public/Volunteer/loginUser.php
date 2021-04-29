@@ -21,11 +21,12 @@ if(isset($_POST['submitSignup']))
 //        'cost' => 12,
 //    );
 //    $hashedpass = password_hash($password, PASSWORD_BCRYPT, $options);
+// '$hashedpass',
 
     if(!empty($usernameSignUp) && !empty($passwordSignUp) && !empty($emailSignUp))
     {
         //save to database
-        $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp','$hashedpass','$emailSignUp')";
+        $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp',$emailSignUp')";
 
         echo "<pre>Debug: $query</pre>\m";
         $result = mysqli_query($con, $query);

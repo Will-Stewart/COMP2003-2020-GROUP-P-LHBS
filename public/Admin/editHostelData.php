@@ -77,7 +77,7 @@ if(isset($_POST['submitRoomEdit'])) {
             <form action="#" method="post">
                 <br>
                 <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Default Price</label>
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Data ID</label>
                     <div class="col-sm-3">
                         <input type="number" class="form-control" name="editDataID" id="editDataID" placeholder="..." readonly>
                     </div>
@@ -129,7 +129,7 @@ if(isset($_POST['submitRoomEdit'])) {
         <div class="col-sm">
             <h3>Hostel Pricing Information</h3>
             <div class="list-group">
-                <table class="table" id="editPriceData">
+                <table class="table table-hover" id="editPriceData">
                     <thead>
                     <tr class="table-confirm">
                         <th scope="col">Data ID</th>
@@ -243,7 +243,7 @@ if(isset($_POST['submitRoomEdit'])) {
             <div class="col-sm">
                 <h3>Hostel Pricing Information</h3>
                 <div class="list-group">
-                    <table class="table" id="editRoomsData">
+                    <table class="table table-hover" id="editRoomsData">
                         <thead>
                         <tr class="table-confirm">
                             <th scope="col">Room ID</th>

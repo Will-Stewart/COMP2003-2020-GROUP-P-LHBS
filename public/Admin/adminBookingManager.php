@@ -38,6 +38,25 @@ if(isset($_POST['confirmOrder'])) {
 $result = mysqli_query($con, $sql);
 $resultConfirmed = mysqli_query($con, $sql2);
 
+if(isset($_POST['denyBooking'])) {
+
+    $selectedBookingID = $_POST['editBookingID'];
+
+    $query = "UPDATE comp2003_p.hostelbookings SET Confirmation = 'Denied' WHERE BookingID = '$selectedBookingID'";
+
+    echo "<pre>Debug: $query</pre>\m";
+    $resultOrder = mysqli_query($con, $query);
+    if ( false===$resultOrder )
+    {
+        printf("error: %s\n", mysqli_error($con));
+    }
+    else
+        {
+            echo 'done.';
+            header("Location: adminBookingManager.php");
+        }
+}
+
 ?>
 
 <script type="text/javascript">
@@ -140,7 +159,10 @@ $resultConfirmed = mysqli_query($con, $sql2);
                 </div>
                 <br>
                 <div>
-                    <input class="btn btn-primary" name="confirmOrder" type="submit" value="Confirm Order">
+                    <input class="btn btn-primary" name="confirmOrder" type="submit" value="Confirm Booking">
+                </div>
+                <div>
+                    <input class="btn btn-primary" name="denyBooking" type="submit" value="Deny Booking">
                 </div>
             </form>
         </div>
@@ -172,7 +194,7 @@ $resultConfirmed = mysqli_query($con, $sql2);
             <div class="col-sm">
                 <h3>Unconfirmed Bookings</h3>
                 <div class="list-group">
-                    <table class="table" id="unconfirmedBookingsEdit">
+                    <table class="table table-hover" id="unconfirmedBookingsEdit">
                         <thead>
                         <tr class="table-confirm">
                             <th scope="col">Booking ID</th>
@@ -216,7 +238,7 @@ $resultConfirmed = mysqli_query($con, $sql2);
             <div class="col-sm">
                 <h3>Confirmed Bookings</h3>
                 <div class="list-group">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                         <tr class="table-confirm">
                             <th scope="col">Booking ID</th>

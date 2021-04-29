@@ -9,19 +9,36 @@ $password = "YleM560+";
 // Create connection
 $con = new mysqli($servername, $username, $password);
 
+$def = mysqli_query($con, "SELECT defaultPrice FROM comp2003_p.hostelpricing WHERE DataID = 1") or die(mysqli_error($con));
+$result = mysqli_fetch_array($def);
+$defaultPrice = $result['defaultPrice'];
+
+$dis = mysqli_query($con, "SELECT discountPrice FROM comp2003_p.hostelpricing WHERE DataID = 1") or die(mysqli_error($con));
+$result = mysqli_fetch_array($dis);
+$discountPrice = $result['discountPrice'];
+
 //Number of Days staying Calculation
 $calcBookingIn = new DateTime($_SESSION['sessionBookingIn']);
 $calcBookingOut = new DateTime($_SESSION['sessionBookingOut']);
 $days_between_array = date_diff($calcBookingOut, $calcBookingIn);
 
 //Price Calculation
-$BasePrice = 10;
 $days_between = intval($days_between_array->format('%d'));
-$InitialPrice  = $days_between * $BasePrice;
-$DiscountPrice = $_SESSION['sessionWorkingDays'] * 7;
-$Price = $InitialPrice - $DiscountPrice;
+
+if($_SESSION['sessionWorkingDays'] > 0){
+    $DiscountPrice = $_SESSION['sessionWorkingDays'] * $discountPrice;
+    $days_between = $days_between - $_SESSION['sessionWorkingDays'];
+    $InitialPrice = $days_between * $defaultPrice;
+    $Price = $InitialPrice + $DiscountPrice;
+}
+else
+    {
+        $InitialPrice = $days_between * $defaultPrice;
+        $Price = $InitialPrice;
+    }
 
 //Variable population for Database submission
+$regID = $_SESSION['RegIDs'];
 $Firstname = $_SESSION['sessionFirstName'];
 $Lastname = $_SESSION['sessionLastName'];
 $BookingIn = $_SESSION['sessionBookingIn'];
@@ -31,40 +48,46 @@ $Age = $_SESSION['sessionAge'];
 $NumberofPeople = $_SESSION['sessionNumberofPeople'];
 $RoomType = $_SESSION['sessionRoomType'];
 
+    if(isset($_POST['confirmBooking'])) {
+        {
+            if(!empty($Firstname) && !empty($Lastname) && !empty($BookingIn) &&
+                !empty($BookingOut) && !empty($Gender) && !empty($Age) &&
+                !empty($NumberofPeople) && !empty($RoomType) && !empty($Price))
+            {
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
+                //save to database
+                $query = "insert into comp2003_p.hostelbookings (RegID, First_Name,Last_Name,Booking_StartDate,Booking_EndDate,Gender,Age,AmountOfPeople,Preferred_Room,Price) 
+            values ('$regID','$Firstname','$Lastname','$BookingIn','$BookingOut','$Gender','$Age','$NumberofPeople','$RoomType','$Price')";
 
-    if(!empty($Firstname) && !empty($Lastname) && !empty($BookingIn) &&
-        !empty($BookingOut) && !empty($Gender) && !empty($Age) &&
-        !empty($NumberofPeople) && !empty($RoomType) && !empty($Price))
-    {
+                echo "<pre>Debug: $query</pre>\m";
+                $result = mysqli_query($con, $query);
+                if ( false===$result ) {
+                    printf("error: %s\n", mysqli_error($con));
+                }
+                else {
+                    echo 'done.';
+                    header("Location: createBooking.php");
 
-        //save to database
-        $query = "insert into comp2003_p.hostelbookings (First_Name,Last_Name,Booking_StartDate,Booking_EndDate,Gender,Age,AmountOfPeople,Preferred_Room,Price) 
-        values ('$Firstname','$Lastname','$BookingIn','$BookingOut','$Gender','$Age','$NumberofPeople','$RoomType','$Price')";
-
-        echo "<pre>Debug: $query</pre>\m";
-        $result = mysqli_query($con, $query);
-        if ( false===$result ) {
-            printf("error: %s\n", mysqli_error($con));
+                    session_write_close();
+                }
+            }else
+            {
+                echo "Please enter some valid information! ";
+            }
         }
-        else {
-            echo 'done.';
+        if(isset($_POST['editBooking']))
+        {
             header("Location: createBooking.php");
-
-            session_write_close();
         }
-    }else
-    {
-        echo "Please enter some valid information! ";
     }
+if(isset($_POST['editBooking'])) {
+    header("Location: createBooking.php");
 }
 ?>
 
 <div class="container">
     <div class="card mb-3">
-        <img src="../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
+        <img src="../../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
             <p class="card-text">This page is going to contain a Booking Form which allows Volunteers/Non Volunteers to create a booking in order to stay at the Talyllyn Railway Hostel.
@@ -75,30 +98,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 </div>
 <!--^^to be deleted once done-->
 
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title" align="center">My bookings</h5>
-                    <div class="card-header">Approved Bookings</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Booking 1</li>
-                        <li class="list-group-item">Booking 2</li>
-                    </ul>
-                    <div class="card-header">Pending Bookings</div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Unapproved Booking 1</li>
-                        <li class="list-group-item">Unapproved Booking 2</li>
-                    </ul>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">[+] New Booking </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-8">
+<body class="loggedin">
+<div class="container center_div">
+    <div class="content">
+        <div class="col-sm">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title" align="center">Please check that these details are correct</h5>
@@ -169,17 +172,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         <div class="form-group row">
 
                             <label name="Price" class="col-form-label ">On arrival you will be expected to pay the sum of:</label>
-                            <input type="text" class="form-control" name="Firstname" value="<?php echo $Price; ?>" readonly>
+                            <input type="text" class="form-control" name="Firstname" value="<?php echo "£$Price"; ?>" readonly>
 
                         </div>
                         <div class="form-group row">
                             <div class="col" align="center">
-                                <input class="btn btn-primary" type="submit" value="Confirm Booking">
+                                <input class="btn btn-primary" type="submit" name="confirmBooking" value="Confirm Booking">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col" align="center">
-                                <input class="btn btn-primary" type="button" value="Edit Booking" onclick="">
+                                <input class="btn btn-primary" type="button" name="editBooking" value="Edit Booking">
                             </div>
                         </div>
                     </form>
@@ -189,6 +192,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         </div>
     </div>
 </div>
+</body>
 
 
 <?php
