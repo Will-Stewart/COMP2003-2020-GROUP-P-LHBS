@@ -1,18 +1,18 @@
+<div class="jumbotron text-center" style="margin-bottom:-30px; background-color: white">
+    <div class="container">
+        <h1 class="display-4">TALYLLYN RAILWAY</h1>
+        <h1 class="lead">Welcome to the Home Page</h1>
+    </div>
+</div>
+
 <?php
 include_once '../Headers/header.php';
 ?>
 
-    <section class="showcase">
-        <div>
-            <img src="../../assets/img/talyllyn.jpg" alt="talyllyn train preview" style="width:100%;min-height:350px;max-height:650px;">
-        </div>
-    </section>
-
-
+<br>
     <div class="container">
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">About The Llechfan Hostel Booking System</h1>
-
         <!-- Intro Content -->
         <div class="row">
             <div class="col-lg-6">
@@ -71,8 +71,6 @@ include_once '../Headers/header.php';
                 </div>
             </div>
         </div>
-
-
     </div>
 
 <?php

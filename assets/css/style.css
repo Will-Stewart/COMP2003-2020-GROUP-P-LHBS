@@ -1,19 +1,30 @@
+.nav {
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
+/* the rest of your styling */
+
 .navtop {
     background-color: #2f3947;
     height: 60px;
     width: 100%;
     border: 0;
 }
+
 .navtop div {
     display: flex;
     margin: 0 auto;
     width: 1000px;
     height: 100%;
 }
+
 .navtop div h1, .navtop div a {
     display: inline-flex;
     align-items: center;
 }
+
 .navtop div h1 {
     flex: 1;
     font-size: 24px;
@@ -22,18 +33,23 @@
     color: #eaebed;
     font-weight: normal;
 }
+
 .navtop div a {
     padding: 0 20px;
     text-decoration: none;
     color: #c1c4c8;
     font-weight: bold;
 }
+
 .navtop div a i {
     padding: 2px 8px 0 0;
 }
+
 .navtop div a:hover {
     color: #eaebed;
 }
+
+
 body.loggedin {
     background-color: #f3f4f7;
 }

@@ -2,6 +2,12 @@
 include_once '../Headers/header.php';
 session_start();
 
+// do check
+if (!isset($_SESSION["loggedin"])) {
+    header("location: error.php");
+    exit; // prevent further execution, should there be more code that follows
+}
+
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
 $username = "COMP2003_P";
 $password = "YleM560+";
@@ -37,16 +43,16 @@ else
         $Price = $InitialPrice;
     }
 
-//Variable population for Database submission
-$regID = $_SESSION['RegIDs'];
-$Firstname = $_SESSION['sessionFirstName'];
-$Lastname = $_SESSION['sessionLastName'];
-$BookingIn = $_SESSION['sessionBookingIn'];
-$BookingOut = $_SESSION['sessionBookingOut'];
-$Gender = $_SESSION['sessionGender'];
-$Age = $_SESSION['sessionAge'];
-$NumberofPeople = $_SESSION['sessionNumberofPeople'];
-$RoomType = $_SESSION['sessionRoomType'];
+    //Variable population for Database submission
+    $regID = $_SESSION['RegIDs'];
+    $Firstname = $_SESSION['sessionFirstName'];
+    $Lastname = $_SESSION['sessionLastName'];
+    $BookingIn = $_SESSION['sessionBookingIn'];
+    $BookingOut = $_SESSION['sessionBookingOut'];
+    $Gender = $_SESSION['sessionGender'];
+    $Age = $_SESSION['sessionAge'];
+    $NumberofPeople = $_SESSION['sessionNumberofPeople'];
+    $RoomType = $_SESSION['sessionRoomType'];
 
     if(isset($_POST['confirmBooking'])) {
         {
@@ -66,7 +72,7 @@ $RoomType = $_SESSION['sessionRoomType'];
                 }
                 else {
                     echo 'done.';
-                    header("Location: createBooking.php");
+                    header("Location: bookingFeedback.php");
 
                     session_write_close();
                 }
@@ -80,23 +86,13 @@ $RoomType = $_SESSION['sessionRoomType'];
             header("Location: createBooking.php");
         }
     }
-if(isset($_POST['editBooking'])) {
-    header("Location: createBooking.php");
-}
 ?>
 
-<div class="container">
-    <div class="card mb-3">
-        <img src="../../assets/img/DEVELOPMENT.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">PAGE IS CURRENTLY UNDER DEVELOPMENT!</h5>
-            <p class="card-text">This page is going to contain a Booking Form which allows Volunteers/Non Volunteers to create a booking in order to stay at the Talyllyn Railway Hostel.
-                Beneath this you can see a basic interpretation of what we want to achieve and what this page is going to contain!</p>
-            <p class="card-text"><small class="text-muted">Last updated 21/01/2021</small></p>
-        </div>
-    </div>
-</div>
-<!--^^to be deleted once done-->
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 <body class="loggedin">
 <div class="container center_div">
@@ -104,6 +100,7 @@ if(isset($_POST['editBooking'])) {
         <div class="col-sm">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="card-title" align="center">Booking Receipt</h3>
                     <h5 class="card-title" align="center">Please check that these details are correct</h5>
                     <form method="POST" action="#">
                         <!--First Name Input-->
@@ -180,13 +177,12 @@ if(isset($_POST['editBooking'])) {
                                 <input class="btn btn-primary" type="submit" name="confirmBooking" value="Confirm Booking">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col" align="center">
-                                <input class="btn btn-primary" type="button" name="editBooking" value="Edit Booking">
-                            </div>
-                        </div>
                     </form>
-
+                    <div class="form-group row">
+                        <div class="col" align="center">
+                            <input class="btn btn-primary" onclick="goBack()" type="submit" value="Return to Form Edit">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

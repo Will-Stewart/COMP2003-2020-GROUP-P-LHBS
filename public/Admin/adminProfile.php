@@ -13,7 +13,7 @@ session_start();
 include_once '../Headers/header.php';
 
 // do check
-if (!isset($_SESSION["loggedin"])) {
+if (!isset($_SESSION["adminLoggedin"])) {
     header("location: error.php");
     exit; // prevent further execution, should there be more code that follows
 }
@@ -21,7 +21,7 @@ if (!isset($_SESSION["loggedin"])) {
 // We need to use sessions, so you should always start sessions using the below code.
 session_start();
 // If the user is not logged in redirect to the login page...
-if (!isset($_SESSION['loggedin'])) {
+if (!isset($_SESSION['adminLoggedin'])) {
     header('Location: index.php');
     exit;
 }
@@ -33,7 +33,7 @@ $password = "YleM560+";
 $con = new mysqli($servername, $username, $password);
 
     // We don't have the password or email info stored in sessions so instead we can get the results from the database.
-    $stmt = $con->prepare('SELECT UPasswords, Email FROM comp2003_p.registeredusers WHERE RegID = ?');
+    $stmt = $con->prepare('SELECT Admin_Username, Admin_Password FROM comp2003_p.registeredadmins WHERE AdminID = ?');
     // In this case we can use the account ID to get the account info.
     $stmt->bind_param('i', $_SESSION['RegIDs']);
     $stmt->execute();
@@ -50,15 +50,11 @@ $con = new mysqli($servername, $username, $password);
             <table>
                 <tr>
                     <td>Registration Identification:</td>
-                    <td><?=$_SESSION['RegIDs']?></td>
+                    <td><?=$_SESSION['AdminIDs']?></td>
                 </tr>
                 <tr>
                     <td>Username:</td>
-                    <td><?=$_SESSION['name']?></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><?=$email?></td>
+                    <td><?=$_SESSION['nameAdmin']?></td>
                 </tr>
             </table>
         </center>

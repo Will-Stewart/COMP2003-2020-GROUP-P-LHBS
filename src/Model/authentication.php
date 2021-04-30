@@ -32,9 +32,10 @@ if ($stmt = $con->prepare('SELECT RegID, UPasswords FROM comp2003_p.registeredus
 if ($stmt->num_rows > 0) {
     $stmt->bind_result($id, $password);
     $stmt->fetch();
+
     // Account exists, now we verify the password.
     // Note: remember to use password_hash in your registration file to store the hashed passwords.
-    if ($_POST['password'] === $password) {
+    if (password_verify($_POST['password'], $password)) {
       // Verification success! User has logged-in!
         // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
         session_regenerate_id();
@@ -48,20 +49,19 @@ if ($stmt->num_rows > 0) {
         if ($resultConfirmed->num_rows > 0) {
             $message = "Notification: You have confirmed bookings!";
             echo "<script type='text/javascript'>alert('$message');</script>";
-
-        header("refresh:1; url=../../public/Volunteer/index.php");
+            header("refresh:1; url=../../public/Volunteer/index.php");
+        }
+        else
+            {
+            header("refresh:1; url=../../public/Volunteer/index.php");
+            }
     }
     else
         {
-            // Incorrect password
-            echo 'Incorrect username and/or password!';
-        }
-}
-else
-    {
         // Incorrect username
         echo 'Incorrect username and/or password!';
-    }
+        header("refresh:2; url=../../public/Volunteer/loginUser.php");
+        }
 }
 ?>
 

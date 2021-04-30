@@ -1,8 +1,15 @@
+<div class="jumbotron text-center" style="margin-bottom:-30px; background-color: white">
+    <div class="container">
+        <h1 class="display-4">ADMIN BOOKING MANAGER</h1>
+        <h3 class="lead">This Booking Manager allows you to manage bookings from Volunteers and allocate to them specific rooms</h3>
+    </div>
+</div>
+
 <?php
 include_once '../Headers/header.php';
 
 // do check
-if (!isset($_SESSION["AdminIDs"])) {
+if (!isset($_SESSION["adminLoggedin"])) {
     header("location: error.php");
     exit; // prevent further execution, should there be more code that follows
 }
@@ -15,7 +22,7 @@ $password = "YleM560+";
 $con = new mysqli($servername, $username, $password);
 
 $sql = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Preferred_Room from comp2003_p.hostelbookings where Confirmation = 'Unconfirmed' ";
-$sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate from comp2003_p.hostelbookings where Confirmation = 'Confirmed' ";
+$sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Preferred_Room from comp2003_p.hostelbookings where Confirmation = 'Confirmed' ";
 
 if(isset($_POST['confirmOrder'])) {
 
@@ -109,17 +116,16 @@ if(isset($_POST['denyBooking'])) {
     });
 </script>
 
-<div class="container center_div">
-    <div class="row">
+<br>
+
+<div class="container">
+    <div class="form-row">
         <div class="col-sm">
-            <br>
-            <h3>Admin Booking Manager</h3>
-            <br>
             <form action="#" method="post">
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Booking ID</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="editBookingID" id="editBookingID" placeholder="ID" readonly>
+                        <input type="text" class="form-control" name="editBookingID" id="editBookingID" readonly>
                     </div>
                 </div>
 
@@ -143,25 +149,40 @@ if(isset($_POST['denyBooking'])) {
                         <input type="date" class="form-control" id="editBookingStartDate" placeholder="col-form-label" readonly>
                     </div>
                 </div>
-                <div>
-                    RoomType:
-                    <input type="radio" name="RoomType" id="editBlueRoom"
-                        <?php if (isset($RoomType) && $RoomType=="Blue") echo "checked";?>
-                           value="Blue">Blue
-
-                    <input type="radio" name="RoomType" id="editGreenRoom"
-                        <?php if (isset($RoomType) && $RoomType=="Green") echo "checked";?>
-                           value="Green">Green
-
-                    <input type="radio" name="RoomType" id="editYellowRoom"
-                        <?php if (isset($RoomType) && $RoomType=="Yellow") echo "checked";?>
-                           value="Yellow">Yellow
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Booking End Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="editBookingEndDate" placeholder="col-form-label" readonly>
+                    </div>
                 </div>
-                <br>
-                <div>
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Room Type</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="RoomType" id="editBlueRoom" value="Blue">
+                                <label class="form-check-label" for="RoomType">
+                                    Blue Room (Women)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="RoomType" id="editGreenRoom" value="Green">
+                                <label class="form-check-label" for="RoomType">
+                                    Green Room (Couples)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="RoomType" id="editYellowRoom" value="Yellow">
+                                <label class="form-check-label" for="RoomType">
+                                    Yellow (Men)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div align="right">
                     <input class="btn btn-primary" name="confirmOrder" type="submit" value="Confirm Booking">
-                </div>
-                <div>
                     <input class="btn btn-primary" name="denyBooking" type="submit" value="Deny Booking">
                 </div>
             </form>
@@ -194,7 +215,7 @@ if(isset($_POST['denyBooking'])) {
             <div class="col-sm">
                 <h3>Unconfirmed Bookings</h3>
                 <div class="list-group">
-                    <table class="table table-hover" id="unconfirmedBookingsEdit">
+                    <table class="table table-hover table-sm" id="unconfirmedBookingsEdit">
                         <thead>
                         <tr class="table-confirm">
                             <th scope="col">Booking ID</th>
@@ -220,8 +241,15 @@ if(isset($_POST['denyBooking'])) {
                             }
                             echo "</table>";
                         }
-                        else{
-                            echo $result + "results";
+                        else {
+                            echo "<tr>
+                                    <td>". "N/A" ."</td>
+                                    <td>". "N/A" ."</td>
+                                    <td>". "N/A". "</td>
+                                    <td>". "0000-00-00". "</td>
+                                    <td>". "0000-00-00"."</td>
+                                    <td>". "N/A"."</td>
+                                    </t>";
                         }
                         ?>
                         </tbody>
@@ -238,7 +266,7 @@ if(isset($_POST['denyBooking'])) {
             <div class="col-sm">
                 <h3>Confirmed Bookings</h3>
                 <div class="list-group">
-                    <table class="table table-hover">
+                    <table class="table table-hover table-sm">
                         <thead>
                         <tr class="table-confirm">
                             <th scope="col">Booking ID</th>
@@ -246,6 +274,7 @@ if(isset($_POST['denyBooking'])) {
                             <th scope="col">Last Name</th>
                             <th scope="col">Booking Start Date</th>
                             <th scope="col">Booking End Date</th>
+                            <th scope="col">Room Type</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -254,17 +283,26 @@ if(isset($_POST['denyBooking'])) {
                             while($row = $resultConfirmed-> fetch_assoc()){
                                 //if completed bookings need viewing add in class name and probably separate fields for viewing
                                 echo
-                                    "<tr><td>"
-                                    . $row["BookingID"]
-                                    ."</td><td>". $row["First_Name"]
-                                    ."</td><td>". $row["Last_Name"]
-                                    ."</td><td>". $row["Booking_StartDate"]
-                                    ."</td><td>". $row["Booking_EndDate"]."</td></t>";
+                                    "<tr>
+                                     <td>" . $row["BookingID"] ."</td>
+                                     <td>". $row["First_Name"] ."</td>
+                                     <td>". $row["Last_Name"] ."</td>
+                                     <td>". $row["Booking_StartDate"] ."</td>
+                                     <td>". $row["Booking_EndDate"]."</td>
+                                     <td>". $row["Preferred_Room"] ."</td>
+                                     </t>";
                             }
                             echo "</table>";
                         }
                         else{
-                            echo "";
+                            echo "<tr>
+                                    <td>". "N/A" ."</td>
+                                    <td>". "N/A" ."</td>
+                                    <td>". "N/A". "</td>
+                                    <td>". "N/A". "</td>
+                                    <td>". "N/A"."</td>
+                                    <td>". "N/A"."</td>
+                                    </t>";
                         }
                         ?>
                         </tbody>
