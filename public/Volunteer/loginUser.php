@@ -1,3 +1,10 @@
+<div class="jumbotron text-center" style="margin-bottom:-30px; background-color: white">
+    <div class="container">
+        <h1 class="display-4">VOLUNTEER LOGIN & SIGN UP</h1>
+        <center><h3 class="lead">Login or Sign Up to create a booking and help support the Railway!</h3></center>
+    </div>
+</div>
+
 <?php
 include_once '../Headers/header.php';
 
@@ -13,36 +20,29 @@ if(isset($_POST['submitSignup']))
 {
     //something was posted
     $usernameSignUp = $_POST['usernameSignup'];
+    $passwordSignUp = $_POST['passwordSignup'];
     $emailSignUp = $_POST['emailSignup'];
-
-//    $password=$_POST['passwordSignup'];
-//    $options = array(
-//        'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
-//        'cost' => 12,
-//    );
-//    $hashedpass = password_hash($password, PASSWORD_BCRYPT, $options);
-// '$hashedpass',
 
     if(!empty($usernameSignUp) && !empty($passwordSignUp) && !empty($emailSignUp))
     {
-        //save to database
-        $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp',$emailSignUp')";
+        $hashedPassword = password_hash($passwordSignUp, PASSWORD_DEFAULT);
 
-        echo "<pre>Debug: $query</pre>\m";
+        //save to database
+        $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp', '$hashedPassword', '$emailSignUp')";
+
         $result = mysqli_query($con, $query);
         if ( false===$result ) {
             printf("error: %s\n", mysqli_error($con));
         }
         else {
             echo 'done.';
-            header("Location: ../public/index.php");
+            header("Location: index.php");
         }
     }else
     {
         echo "Please enter some valid information!";
     }
 }
-
 ?>
 
     <!DOCTYPE html>
@@ -54,15 +54,15 @@ if(isset($_POST['submitSignup']))
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>
 
+    <br>
+
     <!--This is the user login form-->
-    <body class="loggedin">
-    <div class="content">
-        <h2>Log In & Sign Up</h2>
+    <div class="container">
         <div class="row">
             <div class="col-sm">
                 <div class="card">
                     <article class="card-body">
-                        <h4 class="card-title mb-4 mt-1">Sign In</h4>
+                        <h4 class="card-title mb-4 mt-1">SIGN IN</h4>
                         <form action="../../src/Model/authentication.php" method="post">
                             <div>
                                 <label>Username</label>
@@ -72,7 +72,6 @@ if(isset($_POST['submitSignup']))
                             <div>
                                 <label>Password</label>
                                 <input type="password" class="form-control" name="password">
-                                <a class="float-right" href="#">Forgot?</a>
                             </div>
                             <label></label>
                             <div>
@@ -85,8 +84,8 @@ if(isset($_POST['submitSignup']))
             <div class="col-sm">
                 <div class="card">
                     <article class="card-body">
-                        <h4 class="card-title mb-4 mt-1">Sign Up</h4>
                         <form method="POST" action="#">
+                            <h4 class="card-title mb-4 mt-1">SIGN UP</h4>
                             <div>
                                 <label>Username</label>
                                 <input type="text" class="form-control" name="usernameSignup">
@@ -112,9 +111,10 @@ if(isset($_POST['submitSignup']))
             </div>
         </div>
     </div>
-
-    </body>
     </html>
+
+<br>
+
 
 <?php
 include_once '../Headers/footer.php';

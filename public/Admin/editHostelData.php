@@ -1,3 +1,11 @@
+<div class="jumbotron text-center" style="margin-bottom:-30px; background-color: white">
+    <div class="container">
+        <h1 class="display-4">HOSTEL DATA MANAGER</h1>
+        <h3 class="lead">The Hostel Data Manager allows you to change the default/discount price for volunteers</h3>
+        <h3 class="lead">You can also edit the amount of beds for each room!</h3>
+    </div>
+</div>
+
 <?php
 include_once '../Headers/header.php';
 
@@ -69,42 +77,39 @@ if(isset($_POST['submitRoomEdit'])) {
     });
 </script>
 
-<div class="container center_div">
-    <div class="row">
-        <div class="col-sm">
-            <br>
-            <h3>Hostel Booking Price Manager</h3>
-            <form action="#" method="post">
+<!--Contains the forms for the Price Manager and Room Manager-->
+<div class="container">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm">
                 <br>
-                <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Data ID</label>
-                    <div class="col-sm-3">
-                        <input type="number" class="form-control" name="editDataID" id="editDataID" placeholder="..." readonly>
+                <h3>Hostel Booking Price Manager</h3>
+                <form action="#" method="post">
+                    <br>
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Data ID</label>
+                        <div class="col-sm-3">
+                            <input type="number" class="form-control" name="editDataID" id="editDataID" placeholder="..." readonly>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Default Price</label>
-                    <div class="col-sm-3">
-                        <input type="number" class="form-control" name="editDefaultPrice" id="editDefaultPrice" placeholder="...">
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Default Price</label>
+                        <div class="col-sm-3">
+                            <input type="number" class="form-control" name="editDefaultPrice" id="editDefaultPrice" placeholder="...">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Discount Price</label>
-                    <div class="col-sm-2">
-                        <input type="number" class="form-control" name="editDiscountPrice" id="editDiscountPrice" placeholder="...">
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Discount Price</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" name="editDiscountPrice" id="editDiscountPrice" placeholder="...">
+                        </div>
                     </div>
-                </div>
+                    <br>
+                    <div>
+                        <input class="btn btn-primary" type="submit" name="submitEdit" value="Confirm Changes">
+                    </div>
+                </form>
                 <br>
-                <div>
-                    <input class="btn btn-primary" type="submit" name="submitEdit" value="Confirm Changes">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<br>
-
 
 <!DOCTYPE html>
 <html>
@@ -124,9 +129,6 @@ if(isset($_POST['submitRoomEdit'])) {
         }
     </style>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
             <h3>Hostel Pricing Information</h3>
             <div class="list-group">
                 <table class="table table-hover" id="editPriceData">
@@ -136,23 +138,23 @@ if(isset($_POST['submitRoomEdit'])) {
                         <th scope="col">Default Price</th>
                         <th scope="col">Discount Price<th>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    if($result-> num_rows > 0){
-                        while($row = $result-> fetch_assoc()){
-                            echo "<tr name='table-row'>
-                                       <td class='td1'>". $row["DataID"] ."</td>
-                                       <td class='td2'>". $row["defaultPrice"] ."</td>
-                                       <td class='td3'>". $row["discountPrice"] . "</td>
-                                       </tr>";
-                        }
-                        echo "</table>";
-                    }
-                    else{
-                        echo $result + "results";
-                    }
-                    ?>
+                        </thead>
+                          <tbody>
+                            <?php
+                            if($result-> num_rows > 0){
+                                while($row = $result-> fetch_assoc()){
+                                    echo "<tr name='table-row'>
+                                               <td class='td1'>". $row["DataID"] ."</td>
+                                               <td class='td2'>". $row["defaultPrice"] ."</td>
+                                               <td class='td3'>". $row["discountPrice"] . "</td>
+                                               </tr>";
+                                }
+                                echo "</table>";
+                            }
+                            else{
+                                echo $result + "results";
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -162,6 +164,7 @@ if(isset($_POST['submitRoomEdit'])) {
 </head>
 </html>
 
+<br>
 
 <script type="text/javascript">
     $(document).ready(function($) {
@@ -183,7 +186,7 @@ if(isset($_POST['submitRoomEdit'])) {
     });
 </script>
 
-<div class="container">
+<div class="content">
     <div class="row">
         <div class="col-sm">
             <br>
@@ -213,9 +216,7 @@ if(isset($_POST['submitRoomEdit'])) {
                     <input class="btn btn-primary" type="submit" name="submitRoomEdit" value="Confirm Changes">
                 </div>
             </form>
-        </div>
-    </div>
-</div>
+
 
 <br>
 
@@ -238,9 +239,6 @@ if(isset($_POST['submitRoomEdit'])) {
         }
     </style>
 
-<div class="container">
-        <div class="row">
-            <div class="col-sm">
                 <h3>Hostel Pricing Information</h3>
                 <div class="list-group">
                     <table class="table table-hover" id="editRoomsData">
@@ -251,22 +249,22 @@ if(isset($_POST['submitRoomEdit'])) {
                             <th scope="col">Total Beds<th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <?php
-                        if($result2-> num_rows > 0){
-                            while($row = $result2-> fetch_assoc()){
-                                echo "<tr name='table-row'>
-                                       <td class='td1'>". $row["RoomID"] ."</td>
-                                       <td class='td2'>". $row["RoomType"] ."</td>
-                                       <td class='td3'>". $row["TotalBeds"] . "</td>
-                                       </tr>";
-                            }
-                            echo "</table>";
-                        }
-                        else{
-                            echo $result2 + "results";
-                        }
-                        ?>
+                            <tbody>
+                                <?php
+                                    if($result2-> num_rows > 0){
+                                        while($row = $result2-> fetch_assoc()){
+                                            echo "<tr name='table-row'>
+                                                   <td class='td1'>". $row["RoomID"] ."</td>
+                                                   <td class='td2'>". $row["RoomType"] ."</td>
+                                                   <td class='td3'>". $row["TotalBeds"] . "</td>
+                                                   </tr>";
+                                        }
+                                        echo "</table>";
+                                    }
+                                    else{
+                                        echo $result2 + "results";
+                                    }
+                                ?>
                         </tbody>
                     </table>
                 </div>
@@ -275,6 +273,7 @@ if(isset($_POST['submitRoomEdit'])) {
     </div>
 </head>
 </html>
+</div>
 
 <?php
 include_once '../Headers/footer.php';

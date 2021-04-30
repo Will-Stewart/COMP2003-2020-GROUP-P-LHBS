@@ -40,7 +40,7 @@ if ($stmt->num_rows > 0) {
     // Account exists, now we verify the password.
 
     // Note: remember to use password_hash in your registration file to store the hashed passwords.
-    if ($_POST['adminPass'] === $adminPassword) {
+    if (password_verify($_POST['adminPass'], $adminPassword)) {
         if ($resultConfirmed->num_rows > 0) {
 
             $message = "Notification: Unconfirmed Bookings Need to Be Managed!";
