@@ -136,14 +136,17 @@ function build_calender($month, $year)
         $startdate="$year-$month-$currentDayRel";
         $dayStartname = strtolower(date('l', strtotime($startdate)));
         $today = $startdate==date('Y-m-d')? "today" : "";
+        $amountPeople = (int)
 
         $totalBookings = checkSlots($con, $startdate);
+        $totalPeople = totalPeople($con, $amountPeople);
+
         if($totalBookings==24){
             $calendar.= "<td class='$today'><h4>$currentDayRel</h4></td>";
         }
         else
         {
-            $availableSlots = 24 - $totalBookings;
+            $availableSlots = 24 - ($totalBookings + $totalPeople);
             $calendar.= "<td class='$today'><h4>$currentDayRel</h4><small><i>$availableSlots slots available</i></small>";
         }
         $currentDay++;
@@ -174,8 +177,23 @@ function checkSlots($con, $dateStart){
             $stmt->close();
         }
     }
-
     return $totalBookings;
+}
+
+function totalPeople($con, $amountPeople){
+    $stmt = $con->prepare("select AmountOfPeople from comp2003_p.hostelbookings where AmountOfPeople = ?");
+    $stmt->bind_param('s', $amountPeople);
+    $totalPeople = 0;
+    if($stmt->execute()){
+        $result = $stmt->get_result();
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $totalPeople++;
+            }
+            $stmt->close();
+        }
+    }
+    return $totalPeople;
 }
 
 ?>
