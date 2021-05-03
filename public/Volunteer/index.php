@@ -1,3 +1,4 @@
+<!--Large Banner at the top of the page-->
 <div class="jumbotron text-center" style="margin-bottom:-30px; background-color: white">
     <div class="container">
         <h1 class="display-4">TALYLLYN RAILWAY</h1>
@@ -5,14 +6,24 @@
     </div>
 </div>
 
+
+
+
 <?php
 include_once '../Headers/header.php';
 ?>
 
+
+
+
 <br>
     <div class="container">
+
+
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">About The Llechfan Hostel Booking System</h1>
+
+
         <!-- Intro Content -->
         <div class="row">
             <div class="col-lg-6">
@@ -26,8 +37,13 @@ include_once '../Headers/header.php';
             </div>
         </div>
 
+
+
         <h2>Rooms</h2>
 
+
+
+        <!--Display image of green room with description-->
         <div class="row">
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
@@ -43,6 +59,9 @@ include_once '../Headers/header.php';
                 </div>
             </div>
 
+
+
+            <!--Display image of blue room with description-->
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
                     <img class="card-img-top" src="../../assets/img/blue.jpg" alt="Blue Room Preview">
@@ -57,6 +76,9 @@ include_once '../Headers/header.php';
                 </div>
             </div>
 
+
+
+            <!--Display image of yellow room with description-->
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
                     <img class="card-img-top" src="../../assets/img/yellow.jpg" alt="Yellow Room Preview">

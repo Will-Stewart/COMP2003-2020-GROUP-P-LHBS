@@ -2,6 +2,8 @@
 session_start();
 ?>
 
+
+<!--Large Banner at the top of the page-->
 <div class="jumbotron text-center" style="margin-bottom:-30px; background-color: white">
     <div class="container">
         <h1 class="display-4">ADMIN PORTAL</h1>
@@ -10,17 +12,25 @@ session_start();
     </div>
 </div>
 
+
+
 <?php
 include_once '../Headers/header.php';
 
-// do check
+
+
+// do check for admin login
 if (!isset($_SESSION["AdminIDs"])) {
     header("location: error.php");
     exit; // prevent further execution, should there be more code that follows
 }
 ?>
 
+
+<!--Create accessible card links to help make the admin portal easy to navigate-->
 <div class="content">
+
+        <!--div to store a link to the admin user manager-->
         <div class="row g-0 bg-light position-relative">
             <div class="col-md-6 mb-md-0 p-md-4">
                 <img src="../../assets/img/adminUsersManager.png" class="w-100" alt="...">
@@ -33,6 +43,8 @@ if (!isset($_SESSION["AdminIDs"])) {
             </div>
         </div>
 
+
+        <!--div to store a link to the admin Booking Manager-->
         <div class="row g-0 bg-light position-relative">
             <div class="col-md-6 mb-md-0 p-md-4">
                 <img src="../../assets/img/bookingManager.png" class="w-100" alt="...">
@@ -45,6 +57,8 @@ if (!isset($_SESSION["AdminIDs"])) {
             </div>
         </div>
 
+
+        <!--div to store a link to the admin hostel data-->
         <div class="row g-0 bg-light position-relative">
             <div class="col-md-6 mb-md-0 p-md-4">
                 <img src="../../assets/img/dataManager.png" class="w-100" alt="...">

@@ -1,3 +1,4 @@
+<!--Large Banner at the top of the page-->
 <div class="jumbotron text-center" style="margin-bottom:-30px; background-color: white">
     <div class="container">
         <h1 class="display-4">BOOKING COMPLETED!</h1>
@@ -6,16 +7,22 @@
 </div>
 
 
+
 <?php
 include_once '../Headers/header.php';
 
-// do check
+
+
+// do check user logged in
 if (!isset($_SESSION["loggedin"])) {
     header("location: error.php");
     exit; // prevent further execution, should there be more code that follows
 }
 ?>
 
+
+
+<!--Display image of train and inform the user that the booking is complete-->
 <div class="content">
     <div class="row g-0 bg-light position-relative">
         <div class="col-md-6 mb-md-0 p-md-4">
@@ -30,6 +37,8 @@ if (!isset($_SESSION["loggedin"])) {
         </div>
     </div>
 </div>
+
+
 
 <?php
 include_once '../Headers/footer.php';
