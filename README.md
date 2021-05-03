@@ -42,7 +42,7 @@ The Warden should be allowed to Log in and be able to view the unconfirmed booki
 
 - Create Hostel Booking - **Implemented**
   - Booking Calendar - **Implemented (Not displaying correct number of bookings on day)**
-  - Multi-Form Booking - **Unimplemented**
+  - Underage Booking - **Implemented**
   - Pricing System - **Implemented**
 
 - Booking Manager - **Implemented**
@@ -55,7 +55,7 @@ The Warden should be allowed to Log in and be able to view the unconfirmed booki
   - Logout - **Implemented**
 
 - Admin Portal - **Implemented**
-  - Admin User Manager e.g. Admin Sign Up - **Implemented
+  - Admin User Manager e.g. Admin Sign Up - **Implemented**
   - Admin Booking Manager e.g. Confirm Volunteer Bookings - **Implemented**
   - Hostel Data Manager e.g. Edit Pricing and Room Data - **Implemented**
 
