@@ -1,3 +1,4 @@
+<!--banner to be displayed at the top of the page-->
 <div class="jumbotron text-center" style="margin-bottom:-30px; background-color: white">
     <div class="container">
         <h1 class="display-4">SUPPORT</h1>
@@ -5,11 +6,18 @@
     </div>
 </div>
 
+
+
 <?php
 include_once '../Headers/header.php';
 ?>
 
+
+
 <div class="content">
+
+
+    <!--Card to inform user about the create bookings page-->
     <div class="card mb-3">
         <img class="card-img-top" src="../../assets/img/createBooking.png" alt="Card image cap">
         <div class="card-body">
@@ -23,6 +31,9 @@ include_once '../Headers/header.php';
         </div>
     </div>
 
+
+
+    <!--Card to inform user about the manage bookings page-->
     <div class="card mb-3">
         <img class="card-img-top" src="../../assets/img/updateBookings.png" alt="Card image cap">
         <div class="card-body">
@@ -32,7 +43,11 @@ include_once '../Headers/header.php';
             <p class="card-text"><small class="text-muted">Last updated - 30/04/2021</small></p>
         </div>
     </div>
+
+
 </div>
+
+
 
 <?php
 include_once '../Headers/footer.php';

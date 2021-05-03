@@ -7,8 +7,9 @@
                 </li>
             </ul>
 
-        <ul class="navbar-nav mr-auto">
 
+        <!--Display Index, Admin Portal, Support Page when admin is logged in-->
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="../Volunteer/index.php">Home</a>
             </li>
@@ -23,6 +24,7 @@
         </ul>
     </div>
 
+        <!--Display Admin profile and Logout link to admin-->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" style="align-items: center">
                 <a class="nav-link" href="../Admin/adminProfile.php"><i class="fas fa-user-circle"></i> Profile: <?php echo $_SESSION['nameAdmin']?></a>

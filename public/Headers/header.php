@@ -5,6 +5,8 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +18,8 @@ session_start();
     <title>Llafan Hotel Booking System</title>
 </head>
 
+
+<!--If the user is logged in, display the log in header, if not, display logged out header-->
 <body>
 <?php
     if(isset($_SESSION['loggedin'])){
