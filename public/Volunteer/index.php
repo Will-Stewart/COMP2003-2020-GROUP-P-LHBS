@@ -31,11 +31,7 @@ include_once '../Headers/header.php';
             </div>
         </div>
 
-
-
         <h2>Rooms</h2>
-
-
 
         <!--Display image of green room with description-->
         <div class="row">
