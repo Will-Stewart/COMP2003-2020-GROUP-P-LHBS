@@ -31,9 +31,8 @@ include_once '../Headers/header.php';
             </div>
             <div class="col-lg-6">
                 <h2>Info</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+                <p>The Talyllyn Railway is the first preserved railway in the World, known affectionately as ‘The Railway with a Heart of Gold’.  It was over 150 years ago, in 1865, that the line opened and in 1951 the Preservation Society was born to take over the Railway after the death of the owner Sir Haydn Jones.  The heritage steam engines transport passengers from Tywyn, the coastal town on the edge of the Snowdonia National Park, to Nant Gwernol buried deep in the mountains above Abergynolwyn.</p>
+                <p>The journey itself crosses more than seven miles of spectacular scenery within sight of one of Britain’s highest mountains, Cadair Idris.  The journey takes 55 minutes up the line from Tywyn through the ancient woodlands and meadows of the Fathew Valley.  En route keep your eyes peeled for Red Kites, Cormorants, Barn Owl, Redstart, Peregrine Falcons, Wheatear, Linnet and Little Owl.  The cosy covered and open carriages provide the best of comfort and views as you travel up the line.</p>
             </div>
         </div>
 
