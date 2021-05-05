@@ -1,12 +1,13 @@
 <?php
 # CONFIG
 
-define('_DB_HOST', 'localhost');
-define('_DB_NAME', 'demo');
-define('_DB_USER', 'user');
-define('_DB_PASS', 'pass');
+
+$servername = "proj-mysql.uopnet.plymouth.ac.uk";
+$username = "COMP2003_P";
+$password = "YleM560+";
+
 /* Connect to MySQL */
-$mysqli = new mysqli(_DB_HOST, _DB_USER, _DB_PASS,_DB_NAME);
+$con = new mysqli($servername, $username, $password);
 /* check connection */
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
@@ -17,13 +18,13 @@ if (mysqli_connect_errno()) {
 
 # RESULT
 $unavailable = array();
-	$sql = "SELECT * FROM free_availability_calendar WHERE `date` > NOW()";
-	if ($result = $mysqli->query($sql)) {
+	$sql = "SELECT * FROM comp2003_p.hostelbookings WHERE `Booking_StartDate` > NOW()";
+	if ($result = $con->query($sql)) {
         while ($row = $result->fetch_assoc()) {
             $unavailable[] = $row['date'];
         }
     } else {
-        printf("Error: %s\n", $mysqli->sqlstate);
+        printf("Error: %s\n", $con->sqlstate);
         exit;
     }
 echo implode(",",$unavailable);
