@@ -19,15 +19,10 @@ include_once '../Headers/header.php';
 <br>
     <div class="container">
 
-
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">About The Llechfan Hostel Booking System</h1>
-
-
         <!-- Intro Content -->
         <div class="row">
             <div class="col-lg-6">
-                <img class="img-fluid rounded mb-4" src="../../assets/img/llechfantrain.jpg" alt="">
+                <img class="img-fluid rounded mb-4 mt-5" src="../../assets/img/llechfantrain.jpg" alt="">
             </div>
             <div class="col-lg-6">
                 <h2>Info</h2>
@@ -53,7 +48,7 @@ include_once '../Headers/header.php';
                         <p class="card-text">This is the default room for couples.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#">Hosts up to 4</a>
+                        <a href="../Volunteer/createBooking.php">Hosts up to 4</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +65,7 @@ include_once '../Headers/header.php';
                         <p class="card-text">This is the default room for women.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#">Hosts up to 8</a>
+                        <a href="../Volunteer/createBooking.php">Hosts up to 8</a>
                     </div>
                 </div>
             </div>
@@ -87,7 +82,7 @@ include_once '../Headers/header.php';
                         <p class="card-text">This is the default room for men.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#">Hosts up to 12</a>
+                        <a href="../Volunteer/createBooking.php">Hosts up to 12</a>
                     </div>
                 </div>
             </div>
