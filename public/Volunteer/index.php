@@ -7,12 +7,9 @@
 </div>
 
 
-
-
 <?php
 include_once '../Headers/header.php';
 ?>
-
 
 
 
@@ -21,7 +18,7 @@ include_once '../Headers/header.php';
 
         <!-- Intro Content -->
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 align-bottom">
                 <img class="img-fluid rounded mb-4 mt-5" src="../../assets/img/llechfantrain.jpg" alt="">
             </div>
             <div class="col-lg-6">
