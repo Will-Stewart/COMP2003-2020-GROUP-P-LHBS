@@ -1,4 +1,15 @@
-<div class="jumbotron text-center" style="margin-bottom:0; background-color: #fbfbfb">
-    <p>COMP2003-GROUP-P - 2021</p>
-    <p>Rheilffordd Talyllyn Railway - Hostel Booking System</p>
-</div>
+<style>
+    footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #BF0A30;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<footer>
+    GROUP P
+</footer>
