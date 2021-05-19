@@ -48,7 +48,7 @@ include_once '../Headers/header.php';
                         <p class="card-text">This is the default room for couples.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="../Volunteer/createBooking.php">Hosts up to 4</a>
+                        <a href="../Volunteer/createBooking.php">Hosts up to 2</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@ include_once '../Headers/header.php';
                         <p class="card-text">This is the default room for women.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="../Volunteer/createBooking.php">Hosts up to 8</a>
+                        <a href="../Volunteer/createBooking.php">Hosts up to 4</a>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@ include_once '../Headers/header.php';
                         <p class="card-text">This is the default room for men.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="../Volunteer/createBooking.php">Hosts up to 12</a>
+                        <a href="../Volunteer/createBooking.php">Hosts up to 6</a>
                     </div>
                 </div>
             </div>

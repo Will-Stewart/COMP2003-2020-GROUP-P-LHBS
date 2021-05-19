@@ -33,9 +33,12 @@ $con = new mysqli($servername, $username, $password);
 //Sql queries to retrieve Unconfirmed and Confirmed bookings for all users
 $sql = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, AmountOfPeople, Preferred_Room, Price from comp2003_p.hostelbookings where Confirmation = 'Unconfirmed' ";
 $sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, AmountOfPeople, Preferred_Room, Price from comp2003_p.hostelbookings where Confirmation = 'Confirmed' ";
+$showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.hostelbookings where Confirmation = 'Cancelled'";
 
 $result = mysqli_query($con, $sql);
 $resultConfirmed = mysqli_query($con, $sql2);
+$resultDenied = mysqli_query($con, $showDenied);
+
 
 
 
@@ -67,7 +70,7 @@ if(isset($_POST['denyBooking'])) {
     $selectedBookingID = $_POST['editBookingID'];
 
     //booking confirmation to denied
-    $query = "UPDATE comp2003_p.hostelbookings SET Confirmation = 'Denied' WHERE BookingID = '$selectedBookingID'";
+    $query = "UPDATE comp2003_p.hostelbookings SET Confirmation = 'Cancelled' WHERE BookingID = '$selectedBookingID'";
 
 
     $resultOrder = mysqli_query($con, $query);
@@ -156,7 +159,7 @@ if(isset($_POST['denyBooking'])) {
             <form action="#" method="post">
 
 
-                <div class="form-group row">
+                <div class="form-group row" style="display: none">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Booking ID</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="editBookingID" id="editBookingID" readonly>
@@ -258,7 +261,8 @@ if(isset($_POST['denyBooking'])) {
 
                 <div align="right">
                     <input class="btn btn-primary" name="confirmOrder" type="submit" value="Confirm Booking">
-                    <input class="btn btn-primary" name="denyBooking" type="submit" value="Deny Booking">
+                    <input class="btn btn-primary" id="resetButton" name="restForm" type="reset" value="Discard Changes">
+                    <input class="btn btn-primary" name="denyBooking" type="submit" value="Cancel Booking">
                 </div>
             </form>
         </div>
@@ -302,7 +306,6 @@ if(isset($_POST['denyBooking'])) {
                 <table class="table table-hover table-sm" id="unconfirmedBookingsEdit">
                     <thead>
                     <tr class="table-confirm">
-                        <th scope="col">Booking ID</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Booking Start Date</th>
@@ -317,23 +320,22 @@ if(isset($_POST['denyBooking'])) {
                     <?php
                     if($result-> num_rows > 0){
                         while($row = $result-> fetch_assoc()){
-                            echo "<tr name='table-row'>
-                                   <td class='td1'>". $row["BookingID"] ."</td>
-                                   <td class='td2'>". $row["First_Name"] ."</td>
-                                   <td class='td3'>". $row["Last_Name"] . "</td>
-                                   <td class='td4'>". $row["Booking_StartDate"] . "</td>
-                                   <td class='td5'>". $row["Booking_EndDate"] ."</td>
-                                   <td class='td6'>". $row["Gender"] ."</td>
-                                   <td class='td7'>". $row["AmountOfPeople"] ."</td>
-                                   <td class='td8'>". $row["Preferred_Room"] ."</td>
-                                   <td class='td9'>". $row["Price"] ."</td>
+                            echo "<tr class='table-row'>
+                                   <td style='display: none'>". $row["BookingID"] ."</td>
+                                   <td>". $row["First_Name"] ."</td>
+                                   <td>". $row["Last_Name"] . "</td>
+                                   <td>". $row["Booking_StartDate"] . "</td>
+                                   <td>". $row["Booking_EndDate"] ."</td>
+                                   <td>". $row["Gender"] ."</td>
+                                   <td>". $row["AmountOfPeople"] ."</td>
+                                   <td>". $row["Preferred_Room"] ."</td>
+                                   <td>". $row["Price"] ."</td>
                                    </tr>";
                         }
                         echo "</table>";
                     }
                     else {
                         echo "<tr>
-                                <td>". "N/A" ."</td>
                                 <td>". "N/A" ."</td>
                                 <td>". "N/A". "</td>
                                 <td>". "0000-00-00". "</td>
@@ -360,6 +362,8 @@ if(isset($_POST['denyBooking'])) {
 
 
 
+
+
 <!--Create a new table to store confirmed bookings-->
     <div class="container">
         <div class="row">
@@ -369,7 +373,6 @@ if(isset($_POST['denyBooking'])) {
                     <table class="table table-hover table-sm">
                         <thead>
                         <tr class="table-confirm">
-                            <th scope="col">Booking ID</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Booking Start Date</th>
@@ -387,7 +390,7 @@ if(isset($_POST['denyBooking'])) {
                                 //if completed bookings need viewing add in class name and probably separate fields for viewing
                                 echo
                                     "<tr>
-                                     <td>" . $row["BookingID"] ."</td>
+                                     <td style='display: none'>" . $row["BookingID"] ."</td>
                                      <td>". $row["First_Name"] ."</td>
                                      <td>". $row["Last_Name"] ."</td>
                                      <td>". $row["Booking_StartDate"] ."</td>
@@ -402,7 +405,6 @@ if(isset($_POST['denyBooking'])) {
                         }
                         else{
                             echo "<tr>
-                                    <td>". "N/A" ."</td>
                                     <td>". "N/A" ."</td>
                                     <td>". "N/A". "</td>
                                     <td>". "0000-00-00". "</td>
@@ -420,6 +422,71 @@ if(isset($_POST['denyBooking'])) {
             </div>
         </div>
     </div>
+
+
+
+    <br>
+
+
+
+    <!--Table for denied bookings-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Cancelled Bookings</h3>
+                <div class="list-group">
+                    <table class="table table-hover table-sm" id="deniedBookingsTable">
+                        <thead>
+                        <tr class="table-confirm">
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Booking Start Date</th>
+                            <th scope="col">Booking End Date</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Amount Of People</th>
+                            <th scope="col">Room Type</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        if($resultDenied-> num_rows > 0){
+                            while($row = $resultDenied-> fetch_assoc()){
+                                //if completed bookings need viewing add in class name and probably separate fields for viewing
+                                echo "<tr>
+                                     <td style='display: none'>" . $row["BookingID"] ."</td>
+                                     <td>". $row["First_Name"] ."</td>
+                                     <td>". $row["Last_Name"] ."</td>
+                                     <td>". $row["Booking_StartDate"] ."</td>
+                                     <td>". $row["Booking_EndDate"]."</td>
+                                     <td>". $row["Gender"] ."</td>
+                                     <td>". $row["AmountOfPeople"] ."</td>
+                                     <td>". $row["Preferred_Room"] ."</td>
+                                     <td>". $row["Price"] ."</td>
+                                    </t>";
+                            }
+                            echo "</table>";
+                        }
+                        else{
+                            echo "<tr>
+                                    <td>". "N/A" ."</td>
+                                    <td>". "N/A". "</td>
+                                    <td>". "0000-00-00". "</td>
+                                    <td>". "0000-00-00"."</td>
+                                    <td>". "N/A"."</td>
+                                    <td>". "N/A"."</td>
+                                    <td>". "N/A"."</td>
+                                    <td>". "N/A"."</td>
+                                    </t>";
+                        }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </head>
 
 

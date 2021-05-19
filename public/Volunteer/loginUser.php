@@ -28,29 +28,37 @@ if(isset($_POST['submitSignup']))
     //store signup details in variables
     $usernameSignUp = $_POST['usernameSignup'];
     $passwordSignUp = $_POST['passwordSignup'];
+    $reenterPasswordSignUp = $_POST['reenterPassword'];
     $emailSignUp = $_POST['emailSignup'];
 
 
     //check if variables are not empty
     if(!empty($usernameSignUp) && !empty($passwordSignUp) && !empty($emailSignUp))
     {
-        //hash user password
-        $hashedPassword = password_hash($passwordSignUp, PASSWORD_DEFAULT);
+            if($reenterPasswordSignUp == $passwordSignUp)
+            {
+            //hash user password
+            $hashedPassword = password_hash($passwordSignUp, PASSWORD_DEFAULT);
 
-        //save to database
-        $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp', '$hashedPassword', '$emailSignUp')";
+            //save to database
+            $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp', '$hashedPassword', '$emailSignUp')";
 
-        $result = mysqli_query($con, $query);
-        if ( false===$result ) {
-            printf("error: %s\n", mysqli_error($con));
+            $result = mysqli_query($con, $query);
+            if ( false===$result ) {
+                printf("error: %s\n", mysqli_error($con));
+            }
+            else {
+                header("Location: index.php");
+            }
+        } else
+        {
+            echo "Please enter some valid information!";
         }
-        else {
-            header("Location: index.php");
-        }
-    }else
-    {
-        echo "Please enter some valid information!";
     }
+    else
+        {
+            echo "Please enter some valid information!";
+        }
 }
 ?>
 
@@ -117,7 +125,6 @@ if(isset($_POST['submitSignup']))
                                 Please insert your Password!
                             </div>
                         </div>
-
 
 
                         <label></label>
@@ -192,6 +199,21 @@ if(isset($_POST['submitSignup']))
                     </div>
                 </div>
 
+
+                <label></label>
+
+
+                <!--Password form input-->
+                <div>
+                    <label>Re-Enter Password</label>
+                    <input type="password" class="form-control" name="reenterPassword" required>
+                    <div class="valid-feedback">
+                        Password is looking good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please re-enter your password
+                    </div>
+                </div>
 
 
                 <label></label>

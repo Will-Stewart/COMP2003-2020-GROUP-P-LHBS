@@ -184,6 +184,8 @@ function build_calender($month, $year)
 
     //loop through day of the week
     while ($currentDay <= $numberDays) {
+
+        
         //Seventh column (Saturday) reached. Start a new row.
         if ($dayOfWeek == 7) {
             $dayOfWeek = 0;
@@ -195,12 +197,10 @@ function build_calender($month, $year)
         $startdate="$year-$month-$currentDayRel";
         $dayStartname = strtolower(date('l', strtotime($startdate)));
         $today = $startdate==date('Y-m-d')? "today" : "";
-        $amountPeople = (int)
 
 
         //store checkSlots and totalPeople function data into variables
         $totalBookings = checkSlots($con, $startdate);
-        $totalPeople = totalPeople($con, $amountPeople);
 
 
         //display the amount of bookings remaining on correct dates
@@ -209,7 +209,7 @@ function build_calender($month, $year)
         }
         else
         {
-            $availableSlots = 24 - ($totalBookings + $totalPeople);
+            $availableSlots = 24 - ($totalBookings);
             $calendar.= "<td class='$today'><h4>$currentDayRel</h4><small><i>$availableSlots slots available</i></small>";
         }
 
@@ -234,7 +234,7 @@ function build_calender($month, $year)
 
 //Gets the amount of bookings on selected day
 function checkSlots($con, $dateStart){
-    $stmt = $con->prepare("select * from comp2003_p.hostelbookings where Booking_StartDate = ?");
+    $stmt = $con->prepare("select Booking_StartDate < Booking_EndDate and Booking_EndDate > Booking_StartDate from comp2003_p.hostelbookings where Booking_StartDate = ?");
     $stmt->bind_param('s', $dateStart);
     $totalBookings = 0;
     if($stmt->execute()){
@@ -252,7 +252,7 @@ function checkSlots($con, $dateStart){
 
 //Retrieve the amount of people for that date
 function totalPeople($con, $amountPeople){
-    $stmt = $con->prepare("select AmountOfPeople from comp2003_p.hostelbookings where AmountOfPeople = ?");
+    $stmt = $con->prepare("select * from comp2003_p.hostelbookings where AmountOfPeople = ?");
     $stmt->bind_param('s', $amountPeople);
     $totalPeople = 0;
     if($stmt->execute()){

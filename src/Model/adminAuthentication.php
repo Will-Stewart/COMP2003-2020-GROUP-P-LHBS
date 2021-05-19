@@ -11,17 +11,27 @@ $con = new mysqli($servername, $username, $password);
 $sql = "select * from comp2003_p.hostelbookings where Confirmation = 'Unconfirmed' ";
 $resultConfirmed = mysqli_query($con, $sql);
 
+
+
+
 if ( mysqli_connect_errno() ) {
     // If there is an error with the connection, stop the script and display the error.
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 
 }
 
+
+
+
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
 if ( !isset($_POST['adminName'], $_POST['adminPass']) ) {
     // Could not get the data that should have been sent.
     exit('Please fill all the fields!');
 }
+
+
+
+
 
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
 if ($stmt = $con->prepare('SELECT AdminID, Admin_Password FROM comp2003_p.registeredadmins WHERE Admin_Username = ?')) {
@@ -33,6 +43,9 @@ if ($stmt = $con->prepare('SELECT AdminID, Admin_Password FROM comp2003_p.regist
     // Store the result so we can check if the account exists in the database.
     $stmt->store_result();
 }
+
+
+
 
 if ($stmt->num_rows > 0) {
     $stmt->bind_result($adminID, $adminPassword);
