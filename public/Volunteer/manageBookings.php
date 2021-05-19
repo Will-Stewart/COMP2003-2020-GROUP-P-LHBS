@@ -34,15 +34,15 @@ $id = $_SESSION['RegIDs'];
 
 
 
-    //SQL statements to retrieve the Denied, Unconfirmed, and Confirmed Bookings from the Hostel Bookings Table
-    $showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.hostelbookings where Confirmation = 'Denied' && RegID = $id ";
-    $showUnconfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.hostelbookings where Confirmation = 'Unconfirmed' && RegID = $id ";
-    $showConfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.hostelbookings where Confirmation = 'Confirmed' && RegID = $id";
+//SQL statements to retrieve the Denied, Unconfirmed, and Confirmed Bookings from the Hostel Bookings Table
+$showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.hostelbookings where Confirmation = 'Denied' && RegID = $id ";
+$showUnconfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.hostelbookings where Confirmation = 'Unconfirmed' && RegID = $id ";
+$showConfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.hostelbookings where Confirmation = 'Confirmed' && RegID = $id";
 
-    //Store the query results
-    $result = mysqli_query($con, $showUnconfirmed);
-    $resultConfirmed = mysqli_query($con, $showConfirmed);
-    $resultDenied = mysqli_query($con, $showDenied);
+//Store the query results
+$result = mysqli_query($con, $showUnconfirmed);
+$resultConfirmed = mysqli_query($con, $showConfirmed);
+$resultDenied = mysqli_query($con, $showDenied);
 
 
 //Listens for when the user submits their edited data
@@ -116,10 +116,9 @@ if(isset($_POST['submitEdit'])) {
                 {
 
                     //Update the select values inside the database
-                    $query = "UPDATE comp2003_p.hostelbookings SET First_Name = '$selectedFirstname', Last_Name = '$selectedLastname', 
-                                                     Booking_StartDate = '$selectedBookingIn', Booking_EndDate = '$selectedBookingOut',
-                                                     Preferred_Room = '$selectedRoomType', Age = $selectedAge, Working_Days = $selectedWorkingDays,
-                                                     AmountOfPeople = $selectedAmountOfPeople, Gender = '$selectedGender', Price = $Price WHERE BookingID = $selectedBookingID";
+                    $query = "UPDATE comp2003_p.hostelbookings SET First_Name = '$selectedFirstname', Last_Name = '$selectedLastname', Booking_StartDate = $selectedBookingIn, Booking_EndDate = $selectedBookingOut, 
+                                     Preferred_Room = '$selectedRoomType', Age = $selectedAge, Working_Days = $selectedWorkingDays, 
+                                     AmountOfPeople = $selectedAmountOfPeople, Gender = '$selectedGender', Price = $Price WHERE BookingID = $selectedBookingID";
 
                     $resultOrder = mysqli_query($con, $query);
 
@@ -135,10 +134,9 @@ if(isset($_POST['submitEdit'])) {
                 else
                 {
                     //Update the select values inside the database
-                    $query = "UPDATE comp2003_p.hostelbookings SET First_Name = '$selectedFirstname', Last_Name = '$selectedLastname', 
-                                                     Booking_StartDate = '$selectedBookingIn', Booking_EndDate = '$selectedBookingOut',
-                                                     Preferred_Room = '$selectedRoomType', Age = $selectedAge, Working_Days = $selectedWorkingDays,
-                                                     AmountOfPeople = $selectedAmountOfPeople, Gender = '$selectedGender', Price = $Price WHERE BookingID = $selectedBookingID";
+                    $query = "UPDATE comp2003_p.hostelbookings SET First_Name = '$selectedFirstname', Last_Name = '$selectedLastname', Booking_StartDate = $selectedBookingIn, Booking_EndDate = $selectedBookingOut, 
+                                     Preferred_Room = '$selectedRoomType', Age = $selectedAge, Working_Days = $selectedWorkingDays, 
+                                     AmountOfPeople = $selectedAmountOfPeople, Gender = '$selectedGender', Price = $Price WHERE BookingID = $selectedBookingID";
 
                     $resultOrder = mysqli_query($con, $query);
 
@@ -198,26 +196,26 @@ if(isset($_POST['cancelBooking'])) {
             radiobtnMale = document.getElementById("editGenderMale");
             radiobtnFemale = document.getElementById("editGenderFemale");
 
-                if(tempRoomType === "Blue"){
-                    radiobtnBlue.checked = true;
-                    radiobtnYellow.checked = false;
-                    radiobtnGreen.checked = false;
-                }
-                else if(tempRoomType === "Yellow"){
-                    radiobtnYellow.checked = true;
-                    radiobtnBlue.checked = false;
-                    radiobtnGreen.checked = false;
-                }
-                else if(tempRoomType === "Green"){
-                    radiobtnGreen.checked = true;
-                    radiobtnYellow.checked = false;
-                    radiobtnBlue.checked = false;
-                }
-                else{
-                    radiobtnBlue.checked = false;
-                    radiobtnYellow.checked = false;
-                    radiobtnGreen.checked = false;
-                }
+            if(tempRoomType === "Blue"){
+                radiobtnBlue.checked = true;
+                radiobtnYellow.checked = false;
+                radiobtnGreen.checked = false;
+            }
+            else if(tempRoomType === "Yellow"){
+                radiobtnYellow.checked = true;
+                radiobtnBlue.checked = false;
+                radiobtnGreen.checked = false;
+            }
+            else if(tempRoomType === "Green"){
+                radiobtnGreen.checked = true;
+                radiobtnYellow.checked = false;
+                radiobtnBlue.checked = false;
+            }
+            else{
+                radiobtnBlue.checked = false;
+                radiobtnYellow.checked = false;
+                radiobtnGreen.checked = false;
+            }
 
             $("#editAge").val(tempAge);
 
@@ -225,18 +223,18 @@ if(isset($_POST['cancelBooking'])) {
 
             $("#editWorkingDays").val(tempWorkingDays);
 
-                if(tempGender === "Male") {
-                    radiobtnMale.checked = true;
-                    radiobtnFemale.checked = false;
-                }
-                else if(tempGender === "Female"){
-                    radiobtnMale.checked = false;
-                    radiobtnFemale.checked = true;
-                }
-                else{
-                    radiobtnMale.checked = false;
-                    radiobtnFemale.checked = false;
-                }
+            if(tempGender === "Male") {
+                radiobtnMale.checked = true;
+                radiobtnFemale.checked = false;
+            }
+            else if(tempGender === "Female"){
+                radiobtnMale.checked = false;
+                radiobtnFemale.checked = true;
+            }
+            else{
+                radiobtnMale.checked = false;
+                radiobtnFemale.checked = false;
+            }
 
             $("#editPrice").val("£" + tempPrice);
             //!!consider taking out £ to make sure the value can
@@ -250,34 +248,34 @@ if(isset($_POST['cancelBooking'])) {
 
 
 
-    $("#confirmedBookingsTable tr").click(function() {
-        //variables to store the values from the table
-        var tempBookingID = $(this).find("td:nth-child(1)").text();
-        var tempFirstName = $(this).find("td:nth-child(2)").text();
-        var tempLastName = $(this).find("td:nth-child(3)").text();
-        var tempBookingIn = $(this).find("td:nth-child(4)").text();
-        var tempBookingOut = $(this).find("td:nth-child(5)").text();
-        var tempRoomType = $(this).find("td:nth-child(6)").text();
-        var tempAge = $(this).find("td:nth-child(7)").text();
-        var tempAmountOfPeople = $(this).find("td:nth-child(8)").text();
-        var tempWorkingDays = $(this).find("td:nth-child(9)").text();
-        var tempGender = $(this).find("td:nth-child(10)").text();
-        var tempPrice = $(this).find("td:nth-child(11)").text();
-        //leaving out
+        $("#confirmedBookingsTable tr").click(function() {
+            //variables to store the values from the table
+            var tempBookingID = $(this).find("td:nth-child(1)").text();
+            var tempFirstName = $(this).find("td:nth-child(2)").text();
+            var tempLastName = $(this).find("td:nth-child(3)").text();
+            var tempBookingIn = $(this).find("td:nth-child(4)").text();
+            var tempBookingOut = $(this).find("td:nth-child(5)").text();
+            var tempRoomType = $(this).find("td:nth-child(6)").text();
+            var tempAge = $(this).find("td:nth-child(7)").text();
+            var tempAmountOfPeople = $(this).find("td:nth-child(8)").text();
+            var tempWorkingDays = $(this).find("td:nth-child(9)").text();
+            var tempGender = $(this).find("td:nth-child(10)").text();
+            var tempPrice = $(this).find("td:nth-child(11)").text();
+            //leaving out
 
 
-        //setting the values of the fields to the stored variables
-        $("#editBookingID").val(tempBookingID);
-        $("#editFirstName").val(tempFirstName);
-        $("#editLastName").val(tempLastName);
-        $("#editBookingStartDate").val(tempBookingIn);
-        $("#editBookingEndDate").val(tempBookingOut);
+            //setting the values of the fields to the stored variables
+            $("#editBookingID").val(tempBookingID);
+            $("#editFirstName").val(tempFirstName);
+            $("#editLastName").val(tempLastName);
+            $("#editBookingStartDate").val(tempBookingIn);
+            $("#editBookingEndDate").val(tempBookingOut);
 
-        radiobtnBlue = document.getElementById("editBlueRoom");
-        radiobtnYellow = document.getElementById("editYellowRoom");
-        radiobtnGreen = document.getElementById("editGreenRoom");
-        radiobtnMale = document.getElementById("editGenderMale");
-        radiobtnFemale = document.getElementById("editGenderFemale");
+            radiobtnBlue = document.getElementById("editBlueRoom");
+            radiobtnYellow = document.getElementById("editYellowRoom");
+            radiobtnGreen = document.getElementById("editGreenRoom");
+            radiobtnMale = document.getElementById("editGenderMale");
+            radiobtnFemale = document.getElementById("editGenderFemale");
 
             if(tempRoomType === "Blue"){
                 radiobtnBlue.checked = true;
@@ -300,11 +298,11 @@ if(isset($_POST['cancelBooking'])) {
                 radiobtnGreen.checked = false;
             }
 
-        $("#editAge").val(tempAge);
+            $("#editAge").val(tempAge);
 
-        $("#editNumOfPeople").val(tempAmountOfPeople);
+            $("#editNumOfPeople").val(tempAmountOfPeople);
 
-        $("#editWorkingDays").val(tempWorkingDays);
+            $("#editWorkingDays").val(tempWorkingDays);
 
             if(tempGender === "Male") {
                 radiobtnMale.checked = true;
@@ -319,58 +317,56 @@ if(isset($_POST['cancelBooking'])) {
                 radiobtnFemale.checked = false;
             }
 
-        $("#editPrice").val("£" + tempPrice);
+            $("#editPrice").val("£" + tempPrice);
 
 
-        //changing the fields to read only for the confirmed bookings
-        formsReadOnly();
-    });
+            //changing the fields to read only for the confirmed bookings
+            formsReadOnly();
+        });
 
-    $("#resetButton").click(function() {
-        formsWriteAndRead();
-        $("#submitButton").prop("disabled", false);
-    });
-});
-
-        //Disables and sets certain text boxes to readonly when the user selects either Unconfirmed or Confirmed table rows
-        function formsWriteAndRead(){
+        $("#resetButton").click(function() {
+            formsWriteAndRead();
             $("#submitButton").prop("disabled", false);
-            $("#editBookingID").prop("readonly", true);
-            $("#editFirstName").prop("readonly", false);
-            $("#editLastName").prop("readonly", false);
-            $("#editBookingStartDate").prop("readonly", false);
-            $("#editBookingEndDate").prop("readonly", false);
-            $("#editBlueRoom").prop("disabled",false);
-            $("#editYellowRoom").prop("disabled",false);
-            $("#editGreenRoom").prop("disabled",false);
-            $("#editAge").prop("disabled", false);
-            $("#editAdultAge").prop("disabled", false);
-            $("#editNumOfPeople").prop("disabled", false);
-            $("#editWorkingDays").prop("disabled", false);
-            $("#editGenderMale").prop("disabled", false);
-            $("#editGenderFemale").prop("disabled", false);
-        }
+        });
+    });
+
+    //Disables and sets certain text boxes to readonly when the user selects either Unconfirmed or Confirmed table rows
+    function formsWriteAndRead(){
+        $("#submitButton").prop("disabled", false);
+        $("#editBookingID").prop("readonly", true);
+        $("#editFirstName").prop("readonly", false);
+        $("#editLastName").prop("readonly", false);
+        $("#editBookingStartDate").prop("readonly", false);
+        $("#editBookingEndDate").prop("readonly", false);
+        $("#editBlueRoom").prop("disabled",false);
+        $("#editYellowRoom").prop("disabled",false);
+        $("#editGreenRoom").prop("disabled",false);
+        $("#editAge").prop("disabled", false);
+        $("#editAdultAge").prop("disabled", false);
+        $("#editNumOfPeople").prop("disabled", false);
+        $("#editWorkingDays").prop("disabled", false);
+        $("#editGenderMale").prop("disabled", false);
+        $("#editGenderFemale").prop("disabled", false);
+    }
 
 
-        function formsReadOnly(){
-            $("#editBookingID").prop("readonly", true);
-            $("#editFirstName").prop("readonly", true);
-            $("#editLastName").prop("readonly", true);
-            $("#editBookingStartDate").prop("readonly", true);
-            $("#editBookingEndDate").prop("readonly", true);
-            $("#editBlueRoom").prop("disabled",true);
-            $("#editYellowRoom").prop("disabled",true);
-            $("#editGreenRoom").prop("disabled",true);
-            $("#editAge").prop("readonly", true);
-            $("#editAdultAge").prop("readonly", true);
-            $("#editNumOfPeople").prop("readonly", true);
-            $("#editWorkingDays").prop("readonly", true);
-            $("#editGenderMale").prop("disabled", true);
-            $("#editGenderFemale").prop("disabled", true);
-            $("#submitButton").prop("disabled", true);
-        }
-
-
+    function formsReadOnly(){
+        $("#editBookingID").prop("readonly", true);
+        $("#editFirstName").prop("readonly", true);
+        $("#editLastName").prop("readonly", true);
+        $("#editBookingStartDate").prop("readonly", true);
+        $("#editBookingEndDate").prop("readonly", true);
+        $("#editBlueRoom").prop("disabled",true);
+        $("#editYellowRoom").prop("disabled",true);
+        $("#editGreenRoom").prop("disabled",true);
+        $("#editAge").prop("readonly", true);
+        $("#editAdultAge").prop("readonly", true);
+        $("#editNumOfPeople").prop("readonly", true);
+        $("#editWorkingDays").prop("readonly", true);
+        $("#editGenderMale").prop("disabled", true);
+        $("#editGenderFemale").prop("disabled", true);
+        $("#submitButton").prop("disabled", true);
+    }
 </script>
 
 
@@ -398,12 +394,12 @@ if(isset($_POST['cancelBooking'])) {
 <div class="content">
     <div class="col-sm">
         <h3 class="card-title" align="center">Edit Your Booking Details!</h3>
-    <br>
+        <br>
         <form action="#" method="post" class="was-validated">
 
 
             <!--Booking ID Form Box-->
-            <div class="form-group row">
+            <div class="form-group row" style="display: none">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Booking ID</label>
                 <div class="col-sm-4">
                     <label for="editBookingID"></label><input type="text" class="form-control" name="editBookingID" id="editBookingID" placeholder="Booking ID" readonly>
@@ -597,8 +593,8 @@ if(isset($_POST['cancelBooking'])) {
             <!--Confirm, Discard, Cancel Form Buttons-->
             <div class="form-group">
                 <div class="col" align="right">
-                <input class="btn btn-primary" id="submitButton" name="submitEdit" type="submit" value="Confirm Changes">
-                <input class="btn btn-primary" id="resetButton" name="restForm" type="reset" value="Discard Changes">
+                    <input class="btn btn-primary" id="submitButton" name="submitEdit" type="submit" value="Confirm Changes">
+                    <input class="btn btn-primary" id="resetButton" name="restForm" type="reset" value="Discard Changes">
                     <input class="btn btn-primary" id="cancelBooking" name="cancelBooking" type="reset" value="Cancel Booking">
                 </div>
             </div>
@@ -608,72 +604,57 @@ if(isset($_POST['cancelBooking'])) {
 </div>
 
 
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-    table{
-        border-collapse: collapse;
-        width: 100%;
-        color: #d96459;
-        font-family: sans-serif;
-        font-size: 16px;
-        text-align: left;
-        cursor: pointer;
-    }
-    th{
-        background-color: #2f3947;
-        color: white;
-        cursor: auto;
-    }
-</style>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            color: #d96459;
+            font-family: sans-serif;
+            font-size: 16px;
+            text-align: left;
+            cursor: pointer;
+        }
+        th{
+            background-color: #2f3947;
+            color: white;
+            cursor: auto;
+        }
+    </style>
 
 
+    <br>
 
 
-
-
-
-
-        <br>
-
-
-
-
-
-
-
-<!--Table for unconfirmed bookings-->
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <h3>Unconfirmed Bookings</h3>
-            <div class="list-group">
-                <table class="table table-hover table-sm"  id="unconfirmedBookingsTable">
-                    <thead>
-                    <tr class="table-confirm">
-                        <th scope="col">Booking ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Booking Start Date</th>
-                        <th scope="col">Booking End Date</th>
-                        <th scope="col">Room Type</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Amount of People</th>
-                        <th scope="col">Working Days</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    if($result-> num_rows > 0){
-                        while($row = $result-> fetch_assoc()){
+    <!--Table for unconfirmed bookings-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Unconfirmed Bookings</h3>
+                <div class="list-group">
+                    <table class="table table-hover table-sm"  id="unconfirmedBookingsTable">
+                        <thead>
+                        <tr class="table-confirm">
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Booking Start Date</th>
+                            <th scope="col">Booking End Date</th>
+                            <th scope="col">Room Type</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Amount of People</th>
+                            <th scope="col">Working Days</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        if($result-> num_rows > 0){
+                            while($row = $result-> fetch_assoc()){
                             echo "<tr>
-                            <td>". $row["BookingID"] ."</td>
+                            <td style='display: none'>". $row["BookingID"] ."</td>
                             <td>". $row["First_Name"] ."</td>
                             <td>". $row["Last_Name"]. "</td>
                             <td>". $row["Booking_StartDate"]. "</td>
@@ -684,110 +665,30 @@ if(isset($_POST['cancelBooking'])) {
                             <td>". $row["Working_Days"] ."</td>
                             <td>". $row["Gender"]."</td>
                             <td>". $row["Price"]."</td>
-                            </t>";
+                            </tr>";
+                            }
+                            echo "</table>";
                         }
-                        echo "</table>";
-                    }
-                    else{
-                        echo "<tr>
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A". "</td>
-                            <td>". "N/A". "</td>
-                            <td>". "N/A"."</td>
-                            <td>". "N/A"."</td>
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A"."</td>
-                            <td>". "N/A"."</td>
-                            </t>";
-                    }
-                    ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-        <br>
-
-
-
-
-
-
-<!--Table for confirmed bookings-->
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <h3>Confirmed Bookings</h3>
-            <div class="list-group">
-                <table class="table table-hover table-sm" id="confirmedBookingsTable">
-                    <thead>
-                    <tr class="table-confirm">
-                        <th scope="col">Booking ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Booking Start Date</th>
-                        <th scope="col">Booking End Date</th>
-                        <th scope="col">Room Type</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Amount of People</th>
-                        <th scope="col">Working Days</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    if($resultConfirmed-> num_rows > 0){
-                        while($row = $resultConfirmed-> fetch_assoc()){
-                            //if completed bookings need viewing add in class name and probably separate fields for viewing
+                        else{
                             echo "<tr>
-                            <td>". $row["BookingID"] ."</td>
-                            <td>". $row["First_Name"] ."</td>
-                            <td>". $row["Last_Name"]. "</td>
-                            <td>". $row["Booking_StartDate"]. "</td>
-                            <td>". $row["Booking_EndDate"]."</td>
-                            <td>". $row["Preferred_Room"]."</td>
-                            <td>". $row["Age"] ."</td>
-                            <td>". $row["AmountOfPeople"] ."</td>
-                            <td>". $row["Working_Days"] ."</td>
-                            <td>". $row["Gender"]."</td>
-                            <td>". $row["Price"]."</td>
+                            <td>". "N/A" ."</td>
+                            <td>". "N/A" ."</td>
+                            <td>". "N/A". "</td>
+                            <td>". "N/A". "</td>
+                            <td>". "N/A"."</td>
+                            <td>". "N/A"."</td>
+                            <td>". "N/A" ."</td>
+                            <td>". "N/A" ."</td>
+                            <td>". "N/A" ."</td>
                             </t>";
                         }
-                        echo "</table>";
-                    }
-                    else{
-                        echo "<tr>
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A". "</td>
-                            <td>". "N/A". "</td>
-                            <td>". "N/A"."</td>
-                            <td>". "N/A"."</td>
-                            <td>". "N/A" ."</td>                      
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A" ."</td>
-                            <td>". "N/A"."</td>
-                            <td>". "N/A"."</td>
-                            </t>";
-                    }
-                    ?>
-                    </tbody>
-                </table>
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
@@ -801,16 +702,89 @@ if(isset($_POST['cancelBooking'])) {
 
 
 
-<!--Table for denied bookings-->
-<div class="container">
+    <!--Table for confirmed bookings-->
+    <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h3>Denied Bookings</h3>
+                <h3>Confirmed Bookings</h3>
+                <div class="list-group">
+                    <table class="table table-hover table-sm" id="confirmedBookingsTable">
+                        <thead>
+                        <tr class="table-confirm">
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Booking Start Date</th>
+                            <th scope="col">Booking End Date</th>
+                            <th scope="col">Room Type</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Amount of People</th>
+                            <th scope="col">Working Days</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        if($resultConfirmed-> num_rows > 0){
+                            while($row = $resultConfirmed-> fetch_assoc()){
+                                //if completed bookings need viewing add in class name and probably separate fields for viewing
+                            echo "<tr>
+                            <td style='display: none'>". $row["BookingID"] ."</td>
+                            <td>". $row["First_Name"] ."</td>
+                            <td>". $row["Last_Name"]. "</td>
+                            <td>". $row["Booking_StartDate"]. "</td>
+                            <td>". $row["Booking_EndDate"]."</td>
+                            <td>". $row["Preferred_Room"]."</td>
+                            <td>". $row["Age"] ."</td>
+                            <td>". $row["AmountOfPeople"] ."</td>
+                            <td>". $row["Working_Days"] ."</td>
+                            <td>". $row["Gender"]."</td>
+                            <td>". $row["Price"]."</td>
+                            </tr>";
+                            }
+                        }
+                        else{
+                            echo "<tr>
+                            <td>". "N/A" ."</td>
+                            <td>". "N/A" ."</td>
+                            <td>". "N/A". "</td>
+                            <td>". "N/A". "</td>
+                            <td>". "N/A"."</td>
+                            <td>". "N/A"."</td>
+                            <td>". "N/A" ."</td>                      
+                            <td>". "N/A" ."</td>
+                            <td>". "N/A" ."</td>
+                            <td>". "N/A"."</td>
+                            </t>";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <br>
+
+
+
+
+
+
+    <!--Table for denied bookings-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Cancelled Bookings</h3>
                 <div class="list-group">
                     <table class="table table-hover table-sm" id="deniedBookingsTable">
                         <thead>
-                        <tr class="table-confirm">
-                            <th scope="col">Booking ID</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Booking Start Date</th>
@@ -828,7 +802,6 @@ if(isset($_POST['cancelBooking'])) {
                             while($row = $resultDenied-> fetch_assoc()){
                                 //if completed bookings need viewing add in class name and probably separate fields for viewing
                                 echo "<tr>
-                                    <td>". $row["BookingID"] ."</td>
                                     <td>". $row["First_Name"] ."</td>
                                     <td>". $row["Last_Name"]. "</td>
                                     <td>". $row["Booking_StartDate"]. "</td>
@@ -838,7 +811,7 @@ if(isset($_POST['cancelBooking'])) {
                                     <td>". $row["AmountOfPeople"] ."</td>
                                     <td>". $row["Gender"]."</td>
                                     <td>". $row["Price"]."</td>
-                                    </t>";
+                                    </tr>";
                             }
                             echo "</table>";
                         }
@@ -852,7 +825,6 @@ if(isset($_POST['cancelBooking'])) {
                                     <td>". "N/A"."</td>
                                     <td>". "N/A" ."</td>
                                     <td>". "N/A" ."</td>
-                                    <td>". "N/A"."</td>
                                     <td>". "N/A"."</td>
                                     </t>";
                         }

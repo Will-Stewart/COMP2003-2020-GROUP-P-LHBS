@@ -39,23 +39,30 @@ if(isset($_POST['submitSignup']))
     //something was posted
     $usernameSignUp = $_POST['adminUsername'];
     $passwordSignUp = $_POST['adminPassword'];
+    $reenterPasswordSignUp = $_POST['reenterPassword'];
 
     if(!empty($usernameSignUp) && !empty($passwordSignUp))
     {
-        //Hash password
-        $hashedPassword = password_hash($passwordSignUp, PASSWORD_DEFAULT);
+        if($reenterPasswordSignUp == $passwordSignUp){
 
-        //save to database
-        $query = "insert into comp2003_p.registeredadmins (Admin_Username,Admin_Password) values ('$usernameSignUp','$hashedPassword')";
+            //Hash password
+            $hashedPassword = password_hash($passwordSignUp, PASSWORD_DEFAULT);
 
-        $result = mysqli_query($con, $query);
-        if ( false===$result ) {
-            printf("error: %s\n", mysqli_error($con));
-        }else{
-            header("Location: adminUserManager.php");
+            //save to database
+            $query = "insert into comp2003_p.registeredadmins (Admin_Username,Admin_Password) values ('$usernameSignUp','$hashedPassword')";
+
+            $result = mysqli_query($con, $query);
+            if ( false===$result ) {
+                printf("error: %s\n", mysqli_error($con));
+            }else{
+                header("Location: adminUserManager.php");
+            }
         }
-    }
-    else
+        else
+        {
+            echo "Please enter some valid information!";
+        }
+    }else
     {
         echo "Please enter some valid information!";
     }
@@ -76,6 +83,8 @@ if(isset($_POST['submitSignup']))
             <div class="col-sm">
             <h3 class="card-title mb-4 mt-1">Enter Admin Details</h3>
                 <form method="POST" action="#" class="was-validated">
+
+
                     <div>
                         <label>Username</label>
                         <input type="text" class="form-control" name="adminUsername" minlength="12" required>
@@ -86,7 +95,11 @@ if(isset($_POST['submitSignup']))
                             Please Choose a Suitable Username - 12 Characters Minimum!
                         </div>
                     </div>
+
+
                     <label></label>
+
+
                     <div>
                         <label>Password</label>
                         <input type="password" class="form-control" name="adminPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{12,}" required>
@@ -97,6 +110,24 @@ if(isset($_POST['submitSignup']))
                             "Must contain at least one  number and one uppercase and lowercase letter, and at least 12 or more characters"
                         </div>
                     </div>
+
+
+                    <label></label>
+
+
+                    <!--Password form input-->
+                    <div>
+                        <label>Re-Enter Password</label>
+                        <input type="password" class="form-control" name="reenterPassword" required>
+                        <div class="valid-feedback">
+                            Password is looking good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please re-enter your password
+                        </div>
+                    </div>
+
+
                     <label></label>
                     <div>
                         <input class="btn btn-primary" type="submit" name="submitSignup" value="Submit">
@@ -136,16 +167,14 @@ if(isset($_POST['submitSignup']))
                         <thead>
                         <tr class="table-confirm">
                             <th scope="col">Admin Username</th>
-                            <th scope="col">Password</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         if($result-> num_rows > 0){
                             while($row = $result-> fetch_assoc()){
-                                echo "<tr name='table-row'>
+                                echo "<tr class='table-row'>
                                            <td>". $row["Admin_Username"] ."</td>
-                                           <td>". $row["Admin_Password"] ."</td>
                                            </tr>";
                             }
                             echo "</table>";

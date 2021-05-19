@@ -68,10 +68,6 @@ $con = new mysqli($servername, $username, $password);
             <p>YOUR ACCOUNT DETAILS:</p>
             <table>
                 <tr>
-                    <td>Registration Identification:</td>
-                    <td><?=$_SESSION['AdminIDs']?></td>
-                </tr>
-                <tr>
                     <td>Username:</td>
                     <td><?=$_SESSION['nameAdmin']?></td>
                 </tr>

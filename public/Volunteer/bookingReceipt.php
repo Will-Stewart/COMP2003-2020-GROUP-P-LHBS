@@ -137,121 +137,81 @@ if(isset($_POST['confirmBooking'])) {
         <h3 class="card-title" align="center">Booking Receipt</h3>
             <h5 class="card-title" align="center">Please check that these details are correct</h5>
                 <form method="POST" action="#">
-
-
+                    <div class="container" align="center">
                     <!--First Name Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">First Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Firstname" value="<?php echo $_SESSION['sessionFirstName']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">First Name:  <b><?php echo $_SESSION['sessionFirstName'];?></b></label>
                     </div>
 
 
                     <!--Last Name Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Last Name</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" name="Lastname" value="<?php echo $_SESSION['sessionLastName']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Last Name:     <b><?php echo $_SESSION['sessionLastName']; ?></b></label>
                     </div>
 
 
                     <!--Booking In Date Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Booking in date:</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="BookingIn" value="<?php echo $_SESSION['sessionBookingIn']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Booking in date:   <b><?php echo $_SESSION['sessionBookingIn']; ?></b></label>
                     </div>
 
 
                     <!--Booking Out Date Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Checking out date:</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="BookingOut" value="<?php echo $_SESSION['sessionBookingOut']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Checking out date:     <b><?php echo $_SESSION['sessionBookingOut']; ?></b></label>
                     </div>
 
 
                     <!--Gender Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Gender:</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" name="Gender" value="<?php echo $_SESSION['sessionGender']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Gender:    <b><?php echo $_SESSION['sessionGender']; ?></b></label>
                     </div>
 
 
                     <!--Age Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Age:</label>
-                        <div class="col-sm-8">
-                        <input type="number" class="form-control" name="Age" value="<?php echo $_SESSION['sessionAge']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Age:   <b><?php echo $_SESSION['sessionAge']; ?></b></label>
                     </div>
 
 
                     <!--Accompanying Adult Age Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-3 col-form-label">Accompanying Adult Age:</label>
-                        <div class="col-sm-7">
-                            <input type="number" class="form-control" name="adultAge" value="<?php echo $_SESSION['sessionAdultAge']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Accompanying Adult Age:    <b><?php echo $_SESSION['sessionAdultAge']; ?></b></label>
                     </div>
 
 
                     <!--No. of People Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Amount Of People:</label>
-                        <div class="col-sm-6">
-                        <input type="number" class="form-control" name="AmountOfPeople" value="<?php echo $_SESSION['sessionNumberofPeople']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Amount Of People:  <b><?php echo $_SESSION['sessionNumberofPeople']; ?></b></label>
                     </div>
 
 
                     <!--Room Type Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Room type:</label>
-                        <div class="col-sm-6">
-                        <input type="text" class="form-control" name="RoomType" value="<?php echo $_SESSION['sessionRoomType']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Room type:     <b><?php echo $_SESSION['sessionRoomType']; ?></b></label>
                     </div>
 
 
                     <!--Volunteering Days-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Number of days expecting to work:</label>
-                        <div class="col-sm-6">
-                        <input type="text" name ="VolunteeringDays" class="form-control" value="<?php echo $_SESSION['sessionWorkingDays']; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Number of days expecting to work:  <b><?php echo $_SESSION['sessionWorkingDays']; ?></b></label>
                     </div>
 
 
                     <!--Total Cost Input-->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Total Cost: (Upfront)</label>
-                        <div class="col-sm-6">
-                        <input type="text" class="form-control" name="Firstname" value="<?php echo "£$Price"; ?>" readonly>
-                        </div>
+                        <label for="colFormLabel" class="col-sm-12 col-form-label">Total Cost:  <b><?php echo "£$Price"; ?></b></label>
                     </div>
-
+                    </div>
 
                     <!--Confirm Booking Button-->
                     <div class="form-group row">
                         <div class="col" align="center">
                             <input class="btn btn-primary" type="submit" name="confirmBooking" value="Confirm Booking">
+                            <input class="btn btn-primary" onclick="goBack()" type="submit" value="Edit your details?">
                         </div>
                     </div>
                 </form>
-
-
-                <div class="form-group row">
-                    <div class="col" align="center">
-                        <input class="btn btn-primary" onclick="goBack()" type="submit" value="Return to Form Edit">
-                    </div>
-                </div>
             </div>
         </div>
 

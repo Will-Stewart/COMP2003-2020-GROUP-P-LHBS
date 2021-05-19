@@ -119,7 +119,7 @@ if(isset($_POST['submitRoomEdit'])) {
 
 
                     <!--Data Id form input-->
-                    <div class="form-group row">
+                    <div class="form-group row" style='display: none'>
                         <label for="colFormLabel" class="col-sm-2 col-form-label">Data ID</label>
                         <div class="col-sm-3">
                             <input type="number" class="form-control" name="editDataID" id="editDataID" placeholder="..." readonly>
@@ -127,10 +127,10 @@ if(isset($_POST['submitRoomEdit'])) {
                     </div>
 
 
+
                     <!--Default Price form input-->
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Default Price</label>
-                        <div class="col-sm-3">
+                    <div class="form-group row" align="left">
+                        <label for="colFormLabel" class="col-form-label">Default Price: </label>
                             <input type="number" class="form-control" name="editDefaultPrice" id="editDefaultPrice" min="10" placeholder="..." required>
                             <div class="valid-feedback">
                                 Default Price is good!
@@ -138,14 +138,10 @@ if(isset($_POST['submitRoomEdit'])) {
                             <div class="invalid-feedback">
                                 Please input a default price!
                             </div>
-                        </div>
-                    </div>
 
 
                     <!--Discoutn Price form input-->
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Discount Price</label>
-                        <div class="col-sm-2">
+                        <label for="colFormLabel" class="col-form-label">Discount Price: </label>
                             <input type="number" class="form-control" name="editDiscountPrice" id="editDiscountPrice" min="3" placeholder="..." required>
                             <div class="valid-feedback">
                                 Discount Price is good!
@@ -153,13 +149,13 @@ if(isset($_POST['submitRoomEdit'])) {
                             <div class="invalid-feedback">
                                 Please input a discount price!
                             </div>
-                        </div>
                     </div>
 
 
                     <br>
-                    <div>
+                    <div align="center">
                         <input class="btn btn-primary" type="submit" name="submitEdit" value="Confirm Changes">
+                        <input class="btn btn-primary" id="resetButton" name="restForm" type="reset" value="Clear Changes">
                     </div>
                 </form>
             <br>
@@ -169,7 +165,7 @@ if(isset($_POST['submitRoomEdit'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <style>
     table{
@@ -183,6 +179,13 @@ if(isset($_POST['submitRoomEdit'])) {
     th{
         background-color: #2f3947;
         color: white;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    td {
+        text-align: center;
+        vertical-align: middle;
     }
 </style>
 
@@ -195,7 +198,6 @@ if(isset($_POST['submitRoomEdit'])) {
         <table class="table table-hover" id="editPriceData">
             <thead>
             <tr class="table-confirm">
-                <th scope="col">Data ID</th>
                 <th scope="col">Default Price</th>
                 <th scope="col">Discount Price<th>
             </tr>
@@ -204,10 +206,10 @@ if(isset($_POST['submitRoomEdit'])) {
                     <?php
                     if($result-> num_rows > 0){
                         while($row = $result-> fetch_assoc()){
-                            echo "<tr name='table-row'>
-                                       <td class='td1'>". $row["DataID"] ."</td>
-                                       <td class='td2'>". $row["defaultPrice"] ."</td>
-                                       <td class='td3'>". $row["discountPrice"] . "</td>
+                            echo "<tr>
+                                       <td style='display: none''>". $row["DataID"] ."</td>
+                                       <td>". $row["defaultPrice"] ."</td>
+                                       <td>". $row["discountPrice"] . "</td>
                                        </tr>";
                         }
                         echo "</table>";
@@ -268,7 +270,7 @@ if(isset($_POST['submitRoomEdit'])) {
 
 
             <!--Room ID form input-->
-            <div class="form-group row">
+            <div class="form-group row" style='display: none'>
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Room ID</label>
                 <div class="col-sm-3">
                     <input type="number" class="form-control" name="editRoomID" id="editRoomID" placeholder="..." readonly>
@@ -277,9 +279,8 @@ if(isset($_POST['submitRoomEdit'])) {
 
 
             <!--Room Types form input-->
-            <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Room Type</label>
-                <div class="col-sm-3">
+            <div class="form-group row" align="left">
+                <label for="colFormLabel" class="col-form-label">Room Type: </label>
                     <input type="text" class="form-control" name="editRoomType" id="editRoomType" placeholder="..." required>
                     <div class="valid-feedback">
                         Room Type is looking good!
@@ -287,14 +288,10 @@ if(isset($_POST['submitRoomEdit'])) {
                     <div class="invalid-feedback">
                         Please choose a room type!
                     </div>
-                </div>
-            </div>
 
 
             <!--Total beds form input-->
-            <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Total Beds</label>
-                <div class="col-sm-4">
+                <label for="colFormLabel" class="col-form-label">Total Beds: </label>
                     <input type="number" class="form-control" name="editTotalBeds" id="editTotalBeds" min="0" placeholder="..." required>
                     <div class="valid-feedback">
                         Looking Good!
@@ -302,13 +299,13 @@ if(isset($_POST['submitRoomEdit'])) {
                     <div class="invalid-feedback">
                         Please input how many beds are available!
                     </div>
-                </div>
             </div>
 
 
             <br>
-            <div>
+            <div align="center">
                 <input class="btn btn-primary" type="submit" name="submitRoomEdit" value="Confirm Changes">
+                <input class="btn btn-primary" id="resetButton" name="restForm" type="reset" value="Clear Changes">
             </div>
         </form>
     <br>
@@ -324,7 +321,6 @@ if(isset($_POST['submitRoomEdit'])) {
     <table class="table table-hover" id="editRoomsData">
         <thead>
         <tr class="table-confirm">
-            <th scope="col">Room ID</th>
             <th scope="col">Room Type</th>
             <th scope="col">Total Beds<th>
         </tr>
@@ -333,10 +329,10 @@ if(isset($_POST['submitRoomEdit'])) {
                 <?php
                     if($result2-> num_rows > 0){
                         while($row = $result2-> fetch_assoc()){
-                            echo "<tr name='table-row'>
-                                   <td class='td1'>". $row["RoomID"] ."</td>
-                                   <td class='td2'>". $row["RoomType"] ."</td>
-                                   <td class='td3'>". $row["TotalBeds"] . "</td>
+                            echo "<tr>
+                                   <td style='display: none'>". $row["RoomID"] ."</td>
+                                   <td>". $row["RoomType"] ."</td>
+                                   <td>". $row["TotalBeds"] . "</td>
                                    </tr>";
                         }
                         echo "</table>";
