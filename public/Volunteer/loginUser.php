@@ -41,7 +41,7 @@ if(isset($_POST['submitSignup']))
             $hashedPassword = password_hash($passwordSignUp, PASSWORD_DEFAULT);
 
             //save to database
-            $query = "insert into comp2003_p.registeredusers (Username,UPasswords,Email) values ('$usernameSignUp', '$hashedPassword', '$emailSignUp')";
+            $query = "insert into comp2003_p.volunteer_accounts (Username,UPasswords,Email) values ('$usernameSignUp', '$hashedPassword', '$emailSignUp')";
 
             $result = mysqli_query($con, $query);
             if ( false===$result ) {

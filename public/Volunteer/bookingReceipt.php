@@ -33,11 +33,11 @@ $con = new mysqli($servername, $username, $password);
 
 
     //Retrieve the Default and Discount Price of bookings from the Hostel Pricing Table
-    $def = mysqli_query($con, "SELECT defaultPrice FROM comp2003_p.hostelpricing WHERE DataID = 1") or die(mysqli_error($con));
+    $def = mysqli_query($con, "SELECT defaultPrice FROM comp2003_p.hostel_prices WHERE DataID = 1") or die(mysqli_error($con));
     $result = mysqli_fetch_array($def);
     $defaultPrice = $result['defaultPrice'];
 
-    $dis = mysqli_query($con, "SELECT discountPrice FROM comp2003_p.hostelpricing WHERE DataID = 1") or die(mysqli_error($con));
+    $dis = mysqli_query($con, "SELECT discountPrice FROM comp2003_p.hostel_prices WHERE DataID = 1") or die(mysqli_error($con));
     $result = mysqli_fetch_array($dis);
     $discountPrice = $result['discountPrice'];
 
@@ -91,7 +91,7 @@ if(isset($_POST['confirmBooking'])) {
         {
 
             //save to database
-            $query = "insert into comp2003_p.hostelbookings (RegID, First_Name,Last_Name,Booking_StartDate,Booking_EndDate,Gender,Age,AmountOfPeople,Preferred_Room, Working_Days, Price) 
+            $query = "insert into comp2003_p.bookings (RegID, First_Name,Last_Name,Booking_StartDate,Booking_EndDate,Gender,Age,AmountOfPeople,Preferred_Room, Working_Days, Price) 
                         values ('$regID','$Firstname','$Lastname','$BookingIn','$BookingOut','$Gender','$Age','$NumberofPeople','$RoomType','$WorkingDays','$Price')";
 
 
@@ -109,27 +109,15 @@ if(isset($_POST['confirmBooking'])) {
         }
     }
 
-    //Return to previous page
-    if(isset($_POST['editBooking']))
-    {
-        header("Location: createBooking.php");
-    }
-
 }
+
 ?>
 
-
-
-<!--Javascript to return to previous page-->
-<script>
-    function goBack()
-    {
-        window.history.back();
+<script type="text/javascript">
+    function goBack() {
+        setTimeout("history.go(-1);", 5);
     }
 </script>
-
-
-
 
 <!--Form to store details from create bookings page-->
 <div class="content">
@@ -207,8 +195,8 @@ if(isset($_POST['confirmBooking'])) {
                     <!--Confirm Booking Button-->
                     <div class="form-group row">
                         <div class="col" align="center">
-                            <input class="btn btn-primary" type="submit" name="confirmBooking" value="Confirm Booking">
-                            <input class="btn btn-primary" onclick="goBack()" type="submit" value="Edit your details?">
+                            <input class="btn btn-primary" type="submit" id="confirmBooking" name="confirmBooking" value="Confirm Booking">
+                            <input class="btn btn-primary" type="submit" onclick="goBack()" value="Edit Booking">
                         </div>
                     </div>
                 </form>

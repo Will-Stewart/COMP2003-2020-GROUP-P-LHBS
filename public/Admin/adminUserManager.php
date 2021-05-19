@@ -29,7 +29,7 @@ if (!isset($_SESSION["adminLoggedin"])) {
     $con = new mysqli($servername, $username, $password);
 
     //Query to retrieve admin details
-    $sql = "select Admin_Username, Admin_Password from comp2003_p.registeredadmins";
+    $sql = "select Admin_Username, Admin_Password from comp2003_p.admin_accounts";
     $result = mysqli_query($con, $sql);
 
 
@@ -49,7 +49,7 @@ if(isset($_POST['submitSignup']))
             $hashedPassword = password_hash($passwordSignUp, PASSWORD_DEFAULT);
 
             //save to database
-            $query = "insert into comp2003_p.registeredadmins (Admin_Username,Admin_Password) values ('$usernameSignUp','$hashedPassword')";
+            $query = "insert into comp2003_p.admin_accounts (Admin_Username,Admin_Password) values ('$usernameSignUp','$hashedPassword')";
 
             $result = mysqli_query($con, $query);
             if ( false===$result ) {

@@ -31,9 +31,9 @@ $con = new mysqli($servername, $username, $password);
 
 
 //Sql queries to retrieve Unconfirmed and Confirmed bookings for all users
-$sql = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, AmountOfPeople, Preferred_Room, Price from comp2003_p.hostelbookings where Confirmation = 'Unconfirmed' ";
-$sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, AmountOfPeople, Preferred_Room, Price from comp2003_p.hostelbookings where Confirmation = 'Confirmed' ";
-$showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.hostelbookings where Confirmation = 'Cancelled'";
+$sql = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, AmountOfPeople, Preferred_Room, Price from comp2003_p.bookings where Confirmation = 'Unconfirmed' ";
+$sql2 = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, AmountOfPeople, Preferred_Room, Price from comp2003_p.bookings where Confirmation = 'Confirmed' ";
+$showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.bookings where Confirmation = 'Cancelled'";
 
 $result = mysqli_query($con, $sql);
 $resultConfirmed = mysqli_query($con, $sql2);
@@ -50,7 +50,7 @@ if(isset($_POST['confirmOrder'])) {
     $selectedRoomType = $_POST['RoomType'];
 
     //update room type and confirmation to confirmed
-    $query = "UPDATE comp2003_p.hostelbookings SET Preferred_Room = '$selectedRoomType', Confirmation = 'Confirmed' WHERE BookingID = '$selectedBookingID'";
+    $query = "UPDATE comp2003_p.bookings SET Preferred_Room = '$selectedRoomType', Confirmation = 'Confirmed' WHERE BookingID = '$selectedBookingID'";
 
     $resultOrder = mysqli_query($con, $query);
     if ( false===$resultOrder ) {
@@ -70,7 +70,7 @@ if(isset($_POST['denyBooking'])) {
     $selectedBookingID = $_POST['editBookingID'];
 
     //booking confirmation to denied
-    $query = "UPDATE comp2003_p.hostelbookings SET Confirmation = 'Cancelled' WHERE BookingID = '$selectedBookingID'";
+    $query = "UPDATE comp2003_p.bookings SET Confirmation = 'Cancelled' WHERE BookingID = '$selectedBookingID'";
 
 
     $resultOrder = mysqli_query($con, $query);

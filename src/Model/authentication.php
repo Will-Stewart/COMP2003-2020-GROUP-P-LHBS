@@ -31,7 +31,7 @@ if ( !isset($_POST['user_name'], $_POST['password']) ) {
 
 
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT RegID, UPasswords FROM comp2003_p.registeredusers WHERE Username = ?')) {
+if ($stmt = $con->prepare('SELECT RegID, UPasswords FROM comp2003_p.volunteer_accounts WHERE Username = ?')) {
     // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
     $stmt->bind_param('s', $_POST['user_name']);
     $stmt->execute();
@@ -58,7 +58,7 @@ if ($stmt->num_rows > 0) {
         $_SESSION['name'] = $_POST['user_name'];
         $_SESSION['RegIDs'] = $id;
 
-        $sql = "select * from comp2003_p.hostelbookings where Confirmation = 'Confirmed' AND RegID = $id";
+        $sql = "select * from comp2003_p.bookings where Confirmation = 'Confirmed' AND RegID = $id";
         $resultConfirmed = mysqli_query($con, $sql);
 
         if ($resultConfirmed->num_rows > 0) {

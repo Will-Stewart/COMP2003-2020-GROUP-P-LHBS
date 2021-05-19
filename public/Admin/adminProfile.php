@@ -47,7 +47,7 @@ $password = "YleM560+";
 $con = new mysqli($servername, $username, $password);
 
     // We don't have the password or email info stored in sessions so instead we can get the results from the database.
-    $stmt = $con->prepare('SELECT Admin_Username, Admin_Password FROM comp2003_p.registeredadmins WHERE AdminID = ?');
+    $stmt = $con->prepare('SELECT Admin_Username, Admin_Password FROM comp2003_p.admin_accounts WHERE AdminID = ?');
 
 
     // In this case we can use the account ID to get the account info.

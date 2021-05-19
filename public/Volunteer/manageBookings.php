@@ -35,9 +35,9 @@ $id = $_SESSION['RegIDs'];
 
 
 //SQL statements to retrieve the Denied, Unconfirmed, and Confirmed Bookings from the Hostel Bookings Table
-$showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.hostelbookings where Confirmation = 'Denied' && RegID = $id ";
-$showUnconfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.hostelbookings where Confirmation = 'Unconfirmed' && RegID = $id ";
-$showConfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.hostelbookings where Confirmation = 'Confirmed' && RegID = $id";
+$showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.bookings where Confirmation = 'Denied' && RegID = $id ";
+$showUnconfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.bookings where Confirmation = 'Unconfirmed' && RegID = $id ";
+$showConfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.bookings where Confirmation = 'Confirmed' && RegID = $id";
 
 //Store the query results
 $result = mysqli_query($con, $showUnconfirmed);
@@ -78,11 +78,11 @@ if(isset($_POST['submitEdit'])) {
 
 
     //Retrieve the Default and Discount Prices for Bookings from the Database
-    $def = mysqli_query($con, "SELECT defaultPrice FROM comp2003_p.hostelpricing WHERE DataID = 1") or die(mysqli_error($con));
+    $def = mysqli_query($con, "SELECT defaultPrice FROM comp2003_p.hostel_prices WHERE DataID = 1") or die(mysqli_error($con));
     $result = mysqli_fetch_array($def);
     $defaultPrice = $result['defaultPrice'];
 
-    $dis = mysqli_query($con, "SELECT discountPrice FROM comp2003_p.hostelpricing WHERE DataID = 1") or die(mysqli_error($con));
+    $dis = mysqli_query($con, "SELECT discountPrice FROM comp2003_p.hostel_prices WHERE DataID = 1") or die(mysqli_error($con));
     $result = mysqli_fetch_array($dis);
     $discountPrice = $result['discountPrice'];
 
@@ -116,7 +116,7 @@ if(isset($_POST['submitEdit'])) {
                 {
 
                     //Update the select values inside the database
-                    $query = "UPDATE comp2003_p.hostelbookings SET First_Name = '$selectedFirstname', Last_Name = '$selectedLastname', Booking_StartDate = $selectedBookingIn, Booking_EndDate = $selectedBookingOut, 
+                    $query = "UPDATE comp2003_p.bookings SET First_Name = '$selectedFirstname', Last_Name = '$selectedLastname', Booking_StartDate = '$selectedBookingIn', Booking_EndDate = '$selectedBookingOut', 
                                      Preferred_Room = '$selectedRoomType', Age = $selectedAge, Working_Days = $selectedWorkingDays, 
                                      AmountOfPeople = $selectedAmountOfPeople, Gender = '$selectedGender', Price = $Price WHERE BookingID = $selectedBookingID";
 
@@ -134,7 +134,7 @@ if(isset($_POST['submitEdit'])) {
                 else
                 {
                     //Update the select values inside the database
-                    $query = "UPDATE comp2003_p.hostelbookings SET First_Name = '$selectedFirstname', Last_Name = '$selectedLastname', Booking_StartDate = $selectedBookingIn, Booking_EndDate = $selectedBookingOut, 
+                    $query = "UPDATE comp2003_p.bookings SET First_Name = '$selectedFirstname', Last_Name = '$selectedLastname', Booking_StartDate = '$selectedBookingIn', Booking_EndDate = '$selectedBookingOut', 
                                      Preferred_Room = '$selectedRoomType', Age = $selectedAge, Working_Days = $selectedWorkingDays, 
                                      AmountOfPeople = $selectedAmountOfPeople, Gender = '$selectedGender', Price = $Price WHERE BookingID = $selectedBookingID";
 
@@ -156,7 +156,7 @@ if(isset($_POST['submitEdit'])) {
 
 //If cancel button selected, delete booking from database!
 if(isset($_POST['cancelBooking'])) {
-    $query = "DELETE FROM comp2003_p.hostelbookings WHERE BookingID = $selectedBookingID";
+    $query = "DELETE FROM comp2003_p.bookings WHERE BookingID = $selectedBookingID";
 }
 
 ?>
@@ -632,7 +632,7 @@ if(isset($_POST['cancelBooking'])) {
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h3>Unconfirmed Bookings</h3>
+                <h3>Unconfirmed Bookings - Select a Booking Here!</h3>
                 <div class="list-group">
                     <table class="table table-hover table-sm"  id="unconfirmedBookingsTable">
                         <thead>
