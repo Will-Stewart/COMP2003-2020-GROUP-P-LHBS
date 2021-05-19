@@ -32,8 +32,8 @@ if (!isset($_SESSION["adminLoggedin"])) {
 
 
     //SQL Queries to retrieve booking data and room data
-    $sql = "select DataID, defaultPrice, discountPrice from comp2003_p.hostelpricing";
-    $sql2 = "select RoomID, RoomType, TotalBeds from comp2003_p.roomtypes";
+    $sql = "select DataID, defaultPrice, discountPrice from comp2003_p.hostel_prices";
+    $sql2 = "select RoomID, RoomType, TotalBeds from comp2003_p.rooms";
 
 
     //Store query results
@@ -51,12 +51,16 @@ if(isset($_POST['submitEdit'])) {
 
 
     //Update the default price/discount price in hostel pricing table
-    $query = "UPDATE comp2003_p.hostelpricing SET defaultPrice = $selectedDefaultPrice, discountPrice = $selectedDiscountPrice";
+    $query = "UPDATE comp2003_p.hostel_prices SET defaultPrice = $selectedDefaultPrice, discountPrice = $selectedDiscountPrice";
 
     $resultOrder = mysqli_query($con, $query);
     if ( false===$resultOrder ) {
         printf("error: %s\n", mysqli_error($con));
     }
+    else
+        {
+            header("Location: editHostelData.php");
+        }
 }
 
 //If the warden submits the room edited data, run code
@@ -70,12 +74,15 @@ if(isset($_POST['submitRoomEdit'])) {
 
 
     //SQL Quuery to update room names, and total beds for those rooms
-    $query = "UPDATE comp2003_p.roomtypes SET RoomType = '$selectedRoomType', TotalBeds = $selectedTotalBeds WHERE RoomID = $selectedRoomID";
+    $query = "UPDATE comp2003_p.rooms SET RoomType = '$selectedRoomType', TotalBeds = $selectedTotalBeds WHERE RoomID = $selectedRoomID";
 
     $resultOrder = mysqli_query($con, $query);
     if ( false===$resultOrder ) {
         printf("error: %s\n", mysqli_error($con));
-    }
+    }else
+        {
+            header("Location: editHostelData.php");
+        }
 }
 
 ?>

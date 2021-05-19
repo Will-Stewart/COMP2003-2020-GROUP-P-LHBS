@@ -8,7 +8,7 @@ $password = "YleM560+";
 // Create connection
 $con = new mysqli($servername, $username, $password);
 
-$sql = "select * from comp2003_p.hostelbookings where Confirmation = 'Unconfirmed' ";
+$sql = "select * from comp2003_p.bookings where Confirmation = 'Unconfirmed' ";
 $resultConfirmed = mysqli_query($con, $sql);
 
 
@@ -34,7 +34,7 @@ if ( !isset($_POST['adminName'], $_POST['adminPass']) ) {
 
 
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT AdminID, Admin_Password FROM comp2003_p.registeredadmins WHERE Admin_Username = ?')) {
+if ($stmt = $con->prepare('SELECT AdminID, Admin_Password FROM comp2003_p.admin_accounts WHERE Admin_Username = ?')) {
 
     // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
     $stmt->bind_param('s', $_POST['adminName']);

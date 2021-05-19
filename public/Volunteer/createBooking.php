@@ -120,7 +120,7 @@ function build_calender($month, $year)
 
 
     //SQL Query to retrieve the year and month from the Booking start date in hostel bookings
-    $stmt = $con->prepare('select * from comp2003_p.hostelbookings where MONTH(Booking_StartDate) = ? AND YEAR(Booking_StartDate) = ?');
+    $stmt = $con->prepare('select * from comp2003_p.bookings where MONTH(Booking_StartDate) = ? AND YEAR(Booking_StartDate) = ?');
     $stmt->bind_param('ss', $month, $year);
     $bookings = array();
     if($stmt->execute()){
@@ -234,7 +234,7 @@ function build_calender($month, $year)
 
 //Gets the amount of bookings on selected day
 function checkSlots($con, $dateStart){
-    $stmt = $con->prepare("select Booking_StartDate < Booking_EndDate and Booking_EndDate > Booking_StartDate from comp2003_p.hostelbookings where Booking_StartDate = ?");
+    $stmt = $con->prepare("select Booking_StartDate < Booking_EndDate and Booking_EndDate > Booking_StartDate from comp2003_p.bookings where Booking_StartDate = ?");
     $stmt->bind_param('s', $dateStart);
     $totalBookings = 0;
     if($stmt->execute()){
@@ -252,7 +252,7 @@ function checkSlots($con, $dateStart){
 
 //Retrieve the amount of people for that date
 function totalPeople($con, $amountPeople){
-    $stmt = $con->prepare("select * from comp2003_p.hostelbookings where AmountOfPeople = ?");
+    $stmt = $con->prepare("select * from comp2003_p.bookings where AmountOfPeople = ?");
     $stmt->bind_param('s', $amountPeople);
     $totalPeople = 0;
     if($stmt->execute()){

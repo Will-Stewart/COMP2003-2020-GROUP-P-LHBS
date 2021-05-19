@@ -46,7 +46,7 @@ $password = "YleM560+";
 $con = new mysqli($servername, $username, $password);
 
     // We don't have the password or email info stored in sessions so instead we can get the results from the database.
-    $stmt = $con->prepare('SELECT UPasswords, Email FROM comp2003_p.registeredusers WHERE RegID = ?');
+    $stmt = $con->prepare('SELECT UPasswords, Email FROM comp2003_p.volunteer_accounts WHERE RegID = ?');
     // In this case we can use the account ID to get the account info.
     $stmt->bind_param('i', $_SESSION['RegIDs']);
     $stmt->execute();
