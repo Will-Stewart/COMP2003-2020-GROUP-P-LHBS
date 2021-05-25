@@ -35,7 +35,7 @@ $id = $_SESSION['RegIDs'];
 
 
 //SQL statements to retrieve the Denied, Unconfirmed, and Confirmed Bookings from the Hostel Bookings Table
-$showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.bookings where Confirmation = 'Denied' && RegID = $id ";
+$showDenied = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Price from comp2003_p.bookings where Confirmation = 'Cancelled' && RegID = $id ";
 $showUnconfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.bookings where Confirmation = 'Unconfirmed' && RegID = $id ";
 $showConfirmed = "select BookingID, First_Name, Last_Name, Booking_StartDate, Booking_EndDate, Gender, Preferred_Room, Age, AmountOfPeople, Working_Days, Price from comp2003_p.bookings where Confirmation = 'Confirmed' && RegID = $id";
 
@@ -105,12 +105,12 @@ if(isset($_POST['submitEdit'])) {
 
 
     //Run IF Statements to check if the data that has been input is correct
-    if($selectedWorkingDays <= $days_between OR $selectedWorkingDays < 0){
+    if($selectedWorkingDays < $days_between OR $selectedWorkingDays < 0){
         if($selectedBookingIn < $selectedBookingOut){
             if($selectedAmountOfPeople > 0 OR $selectedAmountOfPeople <= 4){
                 if($selectedAge < 16 && $selectedAdultAge < 16 && $selectedAmountOfPeople <= 1)
                 {
-                    header("Refresh:0");
+                    header("Location: manageBooking.php");
                 }
                 elseif($selectedAge < 16 && $selectedAdultAge >= 16 && $selectedAmountOfPeople >= 2)
                 {
@@ -128,7 +128,7 @@ if(isset($_POST['submitEdit'])) {
                     }
                     else
                     {
-                        header("Refresh:0");
+                        header("Location: manageBookings.php");
                     }
                 }
                 else
@@ -146,7 +146,7 @@ if(isset($_POST['submitEdit'])) {
                     }
                     else
                     {
-                        header("Refresh:0");
+                        header("Location: manageBookings.php");
                     }
                 }
             }
@@ -268,6 +268,7 @@ if(isset($_POST['cancelBooking'])) {
             $("#editBookingID").val(tempBookingID);
             $("#editFirstName").val(tempFirstName);
             $("#editLastName").val(tempLastName);
+
             $("#editBookingStartDate").val(tempBookingIn);
             $("#editBookingEndDate").val(tempBookingOut);
 
@@ -334,10 +335,10 @@ if(isset($_POST['cancelBooking'])) {
     function formsWriteAndRead(){
         $("#submitButton").prop("disabled", false);
         $("#editBookingID").prop("readonly", true);
-        $("#editFirstName").prop("readonly", false);
-        $("#editLastName").prop("readonly", false);
-        $("#editBookingStartDate").prop("readonly", false);
-        $("#editBookingEndDate").prop("readonly", false);
+        $("#editFirstName").prop("disabled", false);
+        $("#editLastName").prop("disabled", false);
+        $("#editBookingStartDate").prop("disabled", false);
+        $("#editBookingEndDate").prop("disabled", false);
         $("#editBlueRoom").prop("disabled",false);
         $("#editYellowRoom").prop("disabled",false);
         $("#editGreenRoom").prop("disabled",false);
@@ -745,7 +746,6 @@ if(isset($_POST['cancelBooking'])) {
                         }
                         else{
                             echo "<tr>
-                            <td>". "N/A" ."</td>
                             <td>". "N/A" ."</td>
                             <td>". "N/A". "</td>
                             <td>". "N/A". "</td>
